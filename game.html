@@ -28,6 +28,7 @@
 	<audio id='fireball' src='sfx/fireball.mp3'></audio>
 	<audio id='owl-ambient' src='sfx/owl.mp3' loop></audio>
 	<audio id='victory_theme' src='sfx/victory_theme.mp3'></audio>
+	<audio id='slash' src='sfx/slash.mp3'></audio>
 	<audio id='town' src='sfx/town.mp3'></audio>
 	<audio id='getin' src='sfx/getin.mp3'></audio>
 	<audio id='getout' src='sfx/getout.mp3'></audio>
@@ -45,6 +46,8 @@
 	<audio id='gib' src='sfx/gib.mp3'></audio>
 	<audio id='scream' src='sfx/scream.mp3'></audio>
 	<audio id='hev' src='sfx/hev.mp3'></audio>
+	<audio id='startengine' src='sfx/start_engine.mp3'></audio>
+	<audio id='stopengine' src='sfx/stop_engine.mp3'></audio>
 	<audio id='strider' src='sfx/strider.mp3'></audio>
 	<audio id='cannon_sel' src='sfx/cannon_sel.mp3'></audio>
 	<audio id='cannon' src='sfx/cannon.mp3'></audio>
@@ -374,8 +377,6 @@
 	let toxtilesblue = [];
 	let toxtilespurple = [];
 	let cannonselected = false;
-	let units_team1 = 0;
-	let units_team2 = 0;
 	let turnstotal = 0;
 	let turnswind = 1;
 	let citiesTeam1 = 0;
@@ -1022,6 +1023,7 @@
 	function sidekill(basex, basey, team){
 		var tempx = basex;
 		var tempy = basey;
+	    slash.currentTime = 0;
 
 		//right
 		tempx = Number(basex)+1;
@@ -1029,9 +1031,9 @@
 		if(numidright != false || numidright === 0){
 			if(unit[numidright].team != team && unit[numidright].type != 'tower'){
 				if(eval(unit[numidright]).type == 'seg'){
-	      			setTimeout(function(){unit[numidright].fart2()}, 1000);
+	      			setTimeout(function(){unit[numidright].fart2();slash.play()}, 1000);
 	      		}else{
-					setTimeout(function(){unit[numidright].die();sfx.currentTime = 0;sfx.play();}, 1000);
+					setTimeout(function(){unit[numidright].die();sfx.currentTime = 0;sfx.play();slash.play()}, 1000);
 	      		}
 			}
 		}
@@ -1042,9 +1044,9 @@
 		if(numidleft != false || numidleft === 0){
 			if(unit[numidleft].team != team && unit[numidleft].type != 'tower'){
 				if(eval(unit[numidleft]).type == 'seg'){
-	      			setTimeout(function(){unit[numidleft].fart2()}, 1000);
+	      			setTimeout(function(){unit[numidleft].fart2();slash.play()}, 1000);
 	      		}else{
-					setTimeout(function(){unit[numidleft].die();sfx.currentTime = 0;sfx.play();}, 1000);
+					setTimeout(function(){unit[numidleft].die();sfx.currentTime = 0;sfx.play();slash.play()}, 1000);
 	      		}
 			}
 		}
@@ -1056,9 +1058,9 @@
 		if(numidbottom != false || numidbottom === 0){
 			if(unit[numidbottom].team != team && unit[numidbottom].type != 'tower'){
 				if(eval(unit[numidbottom]).type == 'seg'){
-	      			setTimeout(function(){unit[numidbottom].fart2()}, 1000);
+	      			setTimeout(function(){unit[numidbottom].fart2();slash.play()}, 1000);
 	      		}else{
-					setTimeout(function(){unit[numidbottom].die();sfx.currentTime = 0;sfx.play();}, 1000);
+					setTimeout(function(){unit[numidbottom].die();sfx.currentTime = 0;sfx.play();slash.play()}, 1000);
 	      		}
 			}
 		}
@@ -1069,9 +1071,9 @@
 		if(numidtop != false || numidtop === 0){
 			if(unit[numidtop].team != team && unit[numidtop].type != 'tower'){
 				if(eval(unit[numidtop]).type == 'seg'){
-	      			setTimeout(function(){unit[numidtop].fart2()}, 1000);
+	      			setTimeout(function(){unit[numidtop].fart2();slash.play()}, 1000);
 	      		}else{
-					setTimeout(function(){unit[numidtop].die();sfx.currentTime = 0;sfx.play();}, 1000);
+					setTimeout(function(){unit[numidtop].die();sfx.currentTime = 0;sfx.play();slash.play()}, 1000);
 	      		}
 			}
 		}
@@ -1563,7 +1565,7 @@ function checkKey(e) {
     if (e.keyCode == '222'){
         //²
     	e.preventDefault();
-    	if(isnight == 0 && $_GET('nightmode') != -1){
+    	if(isnight == 0){
 	    	var base_url = window.location.href.split("&content=");
 	    	location.href = base_url[0]+"&content="+content;    		
     	}
@@ -1982,6 +1984,8 @@ function checkKey(e) {
       						break
 
       						case 'vtb':
+      						startengine.currentTime = 0;
+      						startengine.play();
       						document.getElementById('speed3').style.top = ((selposy-3)*64)+marginsizey+"px";
       						document.getElementById('speed3').style.left = ((selposx-3)*64)+marginsizex+"px";
       						break
@@ -3662,13 +3666,14 @@ function checkKey(e) {
       				memoposx = destx;
 	      			memoposy = desty;
 	      			eval(selchar).outvtb();
+	      			if(eval(selchar).leftmoves != 0){
+      					eval(selchar).playable = true;
+      				}
 	      			poisonturninfection();
 	      			bgm.volume = 0.1;
       				setTimeout(function(){bgm.volume=1}, 500);
 	      			document.getElementById('getout').play();
 	      			eval(selchar).delcargo();
-	      			document.getElementById(id).classList.remove(type+eval(selchar).skin);
-	        		document.getElementById(id).classList.add(type+eval(selchar).skin+"_off");
 	      			resetvisual();
 	      			selchar = 'none';
 	      			leavevtb = false;
@@ -3884,10 +3889,12 @@ function checkKey(e) {
       			// si l'attaquant est un gunner/tower/radio et que la cible est un shield
       			if((type == 'tower' || type == 'gunner' || type == 'radio') && eval(charlist[x]).type == 'shield'){
       				if(type == 'gunner' && diff != 1 && diff < 5){
+      					laser.currentTime = 0;
       					document.getElementById('laser').play();
       					setTimeout(function(){document.getElementById('deflect').play()}, 200);
 	      				kill = false;
       				}else if(type == 'tower' && diff < 4){
+      					laser.currentTime = 0;
       					document.getElementById('laser').play();
       					setTimeout(function(){document.getElementById('deflect').play()}, 200);
 	      				eval(selchar).playable = true;
@@ -4007,6 +4014,7 @@ function checkKey(e) {
       								if(parseInt(eval(charlist[x]).posy) < parseInt(eval(charlist[i]).posy) && parseInt(eval(charlist[i]).posy) < starty){
       									if(parseInt(eval(charlist[i]).posx) == startx || parseInt(eval(charlist[i]).posy) == starty){
       										kill = false;
+      										laser.currentTime = 0;
       										document.getElementById('laser').play();
       									 	setTimeout(function(){document.getElementById('deflect').play()}, 200);
       									}
@@ -4015,6 +4023,7 @@ function checkKey(e) {
       								if(parseInt(eval(charlist[x]).posy) > parseInt(eval(charlist[i]).posy) && parseInt(eval(charlist[i]).posy) > starty){
       									if(parseInt(eval(charlist[i]).posx) == startx || parseInt(eval(charlist[i]).posy) == starty){
       										kill = false;
+      										laser.currentTime = 0;
       										document.getElementById('laser').play();
       								 		setTimeout(function(){document.getElementById('deflect').play()}, 200);
       								 	}
@@ -4026,6 +4035,7 @@ function checkKey(e) {
       								if(parseInt(eval(charlist[x]).posx) < parseInt(eval(charlist[i]).posx) && parseInt(eval(charlist[i]).posx) < startx){
       									if(parseInt(eval(charlist[i]).posx) == startx || parseInt(eval(charlist[i]).posy) == starty){
       										kill = false;
+      										laser.currentTime = 0;
       										document.getElementById('laser').play();
       								 		setTimeout(function(){document.getElementById('deflect').play()}, 200);
       								 	}
@@ -4034,6 +4044,7 @@ function checkKey(e) {
       								if(parseInt(eval(charlist[x]).posx) > parseInt(eval(charlist[i]).posx) && parseInt(eval(charlist[i]).posx) > startx){
       									if(parseInt(eval(charlist[i]).posx) == startx || parseInt(eval(charlist[i]).posy) == starty){
       										kill = false;
+      										laser.currentTime = 0;
       										document.getElementById('laser').play();
       								 		setTimeout(function(){document.getElementById('deflect').play()}, 200);
       								 	}
@@ -4044,25 +4055,29 @@ function checkKey(e) {
       							if(((targetabs == sniperabs && sniperabs == shieldabs) && reldistsh < reldisttr) || ((shieldabs+2 == targetabs &&  sniperabs+2 == shieldabs) && reldistsh < reldisttr) || ((targetabs+2 == shieldabs &&  shieldabs+2 == sniperabs) && reldistsh < reldisttr)){
       								if(parseInt(eval(charlist[x]).posx) != startx && parseInt(eval(charlist[x]).posy) != starty){
       									kill = false;
+      									laser.currentTime = 0;
       									document.getElementById('laser').play();
       							 		setTimeout(function(){document.getElementById('deflect').play()}, 200);
       								}
       							}
       						}
       					}
+
       					//kill target if shield not protecting
       					if(kill == true){
-      						if(eval(charlist[x]).type == 'seg'){
-	      						eval(charlist[x]).fart2();
-	      					}else{
-	      						eval(charlist[x]).die();
-	      					}
-	      					if((eval(charlist[x].team != 3) && diff > 2) || eval(charlist[x].team != 3) && type == 'tower'){
+	      					if((eval(charlist[x]).team != 3 && diff > 2) || eval(charlist[x].team != 3) && type == 'tower'){
 	      						document.getElementById('laser').currentTime = 0;
 	      						document.getElementById('laser').play();
-	      						setTimeout(function() {document.getElementById('bgm').volume = 0.3;}, 500);
+	      						setTimeout(function(){document.getElementById('bgm').volume = 0.3;}, 500);
+	      					}else if(eval(charlist[x]).team == 3 && diff <= 2 && defaultmode == 1){
+	      						setTimeout(function(){document.getElementById('bgm').volume = 0.3;}, 500);
+	      					}
+	      					if(eval(charlist[x]).type == 'seg'){
+	      						eval(charlist[x]).fart2();
 	      					}else{
+	      						sfx.currentTime = 0;
 	      						document.getElementById('sfx').play();
+	      						eval(charlist[x]).die();
 	      					}
       					}
       				}else{
@@ -4221,6 +4236,7 @@ function checkKey(e) {
 			//when gunner shot from distance, can't replay
       			if(agree == false){
       				eval(selchar).playable = false;
+      				laser.currentTime = 0;
 	      			document.getElementById('laser').play();
     			}
       		}
@@ -4458,12 +4474,19 @@ function checkKey(e) {
       	}
 
       	if(type == 'vtb' && agree == true){
+      		stopengine.currentTime = 0;
+      		stopengine.play();
       		eval(selchar).leftmoves--;
       		if(iscity(startx+'/'+starty, false) == true || isvillage(startx+'/'+starty) == true || istown(startx+'/'+starty, false) == true){
       			if(eval(selchar).leftmoves != 0){
       				eval(selchar).playable = true;
       			}
       		} 
+      	}
+
+      	if((type == 'fts' || type == 'ninja') && kill == true && found == true){
+      		slash.currentTime = 0;
+      		slash.play();
       	}
 
       	if(eval(selchar).playable == false && eval(selchar).id && ai == false){
@@ -5646,12 +5669,12 @@ function checkKey(e) {
   		if(xtiles < 22){
   			marginsizex = (1366-(xtiles*64))/2;
   			canvas.style.left = marginsizex+"px";
-  			selposx = marginsizex+"px";
+  			selposx = 0;
   		}
   		if(ytiles < 13){
 			marginsizey = (768-ytiles*64)/2;
   			canvas.style.top = marginsizey+"px";
-  			selposy = marginsizey+"px";
+  			selposy = 0;
   		}
 		gentiles();
 		citiesTeam1--;
@@ -6719,6 +6742,7 @@ function checkKey(e) {
 		}
 
 		if(unit[unitid].type == "shield"){
+			laser.currentTime = 0;
 			setTimeout(function(){document.getElementById('laser').play();}, 500);
       		setTimeout(function(){document.getElementById('deflect').play()}, 700);
 			return
@@ -6764,6 +6788,7 @@ function checkKey(e) {
       				if(parseInt(unit[unitid].posy) < parseInt(eval(charlist[i]).posy) && parseInt(eval(charlist[i]).posy) < unit[tower].posy){
       					if(parseInt(eval(charlist[i]).posx) == unit[tower].posx || parseInt(eval(charlist[i]).posy) == unit[tower].posy){
       						kill = false;
+      						laser.currentTime = 0;
       						setTimeout(function(){document.getElementById('laser').play();}, 500);
       						setTimeout(function(){document.getElementById('deflect').play()}, 700);
       					}
@@ -6772,6 +6797,7 @@ function checkKey(e) {
       				if(parseInt(unit[unitid].posy) > parseInt(eval(charlist[i]).posy) && parseInt(eval(charlist[i]).posy) > unit[tower].posy){
       					if(parseInt(eval(charlist[i]).posx) == unit[tower].posx || parseInt(eval(charlist[i]).posy) == unit[tower].posy){
       						kill = false;
+      						laser.currentTime = 0;
       						setTimeout(function(){document.getElementById('laser').play();}, 500);
       							setTimeout(function(){document.getElementById('deflect').play()}, 700);
       						}
@@ -6783,6 +6809,7 @@ function checkKey(e) {
       				if(parseInt(unit[unitid].posx) < parseInt(eval(charlist[i]).posx) && parseInt(eval(charlist[i]).posx) < unit[tower].posx){
       					if(parseInt(eval(charlist[i]).posx) == unit[tower].posx || parseInt(eval(charlist[i]).posy) == unit[tower].posy){
       						kill = false;
+      						laser.currentTime = 0;
       						setTimeout(function(){document.getElementById('laser').play();}, 500);
       							setTimeout(function(){document.getElementById('deflect').play()}, 700);
       					}
@@ -6791,6 +6818,7 @@ function checkKey(e) {
       				if(parseInt(unit[unitid].posx) > parseInt(eval(charlist[i]).posx) && parseInt(eval(charlist[i]).posx) > unit[tower].posx){
       					if(parseInt(eval(charlist[i]).posx) == unit[tower].posx || parseInt(eval(charlist[i]).posy) == unit[tower].posy){
       							kill = false;
+      							laser.currentTime = 0;
       						setTimeout(function(){document.getElementById('laser').play();}, 500);
       						setTimeout(function(){document.getElementById('deflect').play()}, 700);
       					}
@@ -6801,6 +6829,7 @@ function checkKey(e) {
       			if(((targetabs == sniperabs && sniperabs == shieldabs) && reldistsh < reldisttr) || ((shieldabs+2 == targetabs &&  sniperabs+2 == shieldabs) && reldistsh < reldisttr) || ((targetabs+2 == shieldabs &&  shieldabs+2 == sniperabs) && reldistsh < reldisttr)){
       				if(parseInt(unit[unitid].posx) != unit[tower].posx && parseInt(unit[unitid].posy) != unit[tower].posy){
       					kill = false;
+      					laser.currentTime = 0;
       					setTimeout(function(){document.getElementById('laser').play();}, 500);
       					setTimeout(function(){document.getElementById('deflect').play()}, 700);
       				}
@@ -6815,8 +6844,9 @@ function checkKey(e) {
 	      		noenter = true;
 	      		setTimeout(function(){unit[unitid].die(); noenter = false}, 500);
 	      	}
+	      	laser.currentTime = 0;
 	      	document.getElementById('laser').currentTime = 0;
-	      	setTimeout(function(){document.getElementById('laser').play(); shadowExList()}, 500);
+	      	setTimeout(function(){document.getElementById('laser').play(); if(isnight == 1 && enableShadows > 0){shadowExList()}}, 500);
       	}
 	}
 
@@ -7226,7 +7256,7 @@ function checkKey(e) {
 
     this.incannon = function(cannonid){
     	document.getElementById(this.id).remove();
-    	shadowExList();
+    	if(isnight == 1 && enableShadows > 0){shadowExList()}
     	this.posx = -10;
     	this.posy = -10;
     	this.cannon = cannonid;
@@ -8328,7 +8358,7 @@ function cannon(x,y,loadteam,loadid,loadunitinside){
     	delete this.unitinside;
     	delete this.upcargo;
     	delete this.delcargo;
-    	if((enableShadows == 1 || enableShadows == 2) && isnight == 1){
+    	if(enableShadows > 0 && isnight == 1){
     		shadowExList();
     	}
     	delete this.die;

@@ -7,7 +7,6 @@
 			opacity: 0;
 			transition: 2s all;
 			font-family: consolas;
-			transition: 0s zoom;
 		}
 
 		.rgb{
