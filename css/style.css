@@ -1,0 +1,4831 @@
+		body{
+			margin: 0;
+			text-align: center;
+			overflow: hidden;
+			background: black;
+			user-select: none;
+			opacity: 0;
+			transition: 2s all;
+			font-family: consolas;
+			transition: 0s zoom;
+		}
+
+		.rgb{
+			color: orange;
+			animation: rgb 1s infinite;
+		}
+
+		#canvas{
+			transition: 0.2s;
+			z-index: 0;
+			position: absolute;
+			left: 0px;
+		}
+
+		.blackshadow{
+			position: absolute;
+			z-index: 9;
+			background: url('../tiles/shadow.png');
+			width: 64px;
+			height: 64px;
+		}
+
+		#cash150, #cash250, #cash400, #cash450, #cash700, #cash800, #cash600, #cash300, #cash100, #cash50, #embark, #attack{
+			position: fixed;
+			left: 586px;
+			top: 335px;
+			opacity: 0;
+			transition: 1s;
+			z-index: 900;
+		}
+
+		.article{
+			float: left;
+			width: 31.5%;
+			height: 100px;
+			display: grid;
+			font-size: 1.3em;
+			grid-template-columns: 60% 40%;
+			margin-left: 1.4%;
+			grid-template-areas:
+			'a b'
+
+		}
+
+		.artimg{
+			width: 50px;
+		}
+
+		.artleft{
+			background: #252525;
+
+		}
+
+		.artright{
+			display: grid;
+			background: #333;
+			grid-template-areas:
+			'a'
+			'b'
+		}
+
+		.number{
+			font-size: 1.8em;
+		}
+
+		#particles-js{
+			position: fixed;
+			top: 0;
+			left: 0;
+			width: 100vw;
+			height: 100vh;
+			z-index: 1;
+		}
+
+		h3{
+			margin: 0;
+		}
+
+		p{
+			margin: 0;
+		}
+
+		#villp{
+			height: 20px;
+		}
+
+		#maskcol{
+			color: red;
+		}
+
+		.classpoison{
+			background : url("../tiles/poison_drop.png");
+			background-size: 64px 64px;
+			position: absolute;
+			width: 64px;
+			height: 64px;
+			transition: 1s ease;
+			z-index: 7;
+		}
+
+		.classpoisonbig{
+			background : url("../tiles/poison_drop_big.png");
+			background-size: 64px 64px;
+			position: absolute;
+			width: 64px;
+			height: 64px;
+			transition: 1s ease;
+			z-index: 7;
+		}
+
+		.classgas1, .classgas2 ,.classgas3,.classgas4,.classgas5,.classgas6,.classgas7{
+			background-size: 64px 64px;
+			position: absolute;
+			width: 64px;
+			height: 64px;
+			transition: 2s ease;
+			z-index: 8;
+		}
+
+		#wsymb, #wsymb2, #wsymb3, #wsymb4{
+			font-size: 2em;
+			opacity: 1!important;
+			transition: 0.2s all;
+		}
+
+		#radiorange, #tankrange, #speed1, #speed2, #speed3, #gunnerange, #speed4, #balance, #napalm_range{
+			position: absolute;
+			z-index: 100;
+			left: -1920px;
+			top: -1920px;
+			zoom : 1.0!important
+		}
+
+		#radiorange{
+			width: 1088px;
+		}
+
+		#tankrange{
+			width: 576px;
+		}
+
+		#speed1{
+			width: 192px;
+		}
+
+		#speed2{
+			width: 320px;
+		}
+
+		#speed3{
+			width: 448px;
+		}
+
+		#gunnerange{
+			width: 576px;
+		}
+
+		#speed4{
+			width: 576px;
+		}
+
+		#napalm_range{
+			width: 446px;
+		}
+
+		#night-filter, #victory_splashscreen, #blackscreen0, #blackscreen1, #blackscreen2{
+			opacity: 0;
+			position: fixed;
+			left: 0px;
+		}
+
+		#blackscreen1, #blackscreen2{
+			transition: 0.5s;
+			z-index: 1000;
+		}
+
+		#blackscreen0{
+			transition: 1s;
+			z-index: 1000;
+		}
+
+		#blackscreen3{
+			z-index: 0;
+			position: fixed;
+			left: 0;
+		}
+
+		#night-filter{
+			transition: opacity 6s;
+			z-index: 1;
+		}
+
+		#victory_splashscreen{
+			z-index: 20;
+			transition: opacity 3s;
+		}
+
+		#victory_bigslime{
+			opacity: 0;
+			z-index: 21;
+			position: fixed;
+			transition: opacity 1s;
+			top: 326px;
+			left: 669px;
+			width: 32px;
+			height: 32px;
+			transform: scale(2.6);
+		}
+
+		#builder-menu{
+			position: fixed;
+			opacity: 0.9;
+			z-index: 20;
+			left: -512px;
+			top: -512px;
+		}
+
+		#balance{
+			z-index: 10;
+		}
+
+		.carg{
+			z-index: 9;
+			width: 20px;
+			height: 20px;
+			position: absolute;
+			transition: 0.4s all;
+			background-size: 16px 16px;
+			background-repeat: no-repeat;
+		}
+
+		.upperbuy{
+			background: #D00;
+			padding: 20px;
+			margin-left: 8px;
+			margin-right: 8px;
+		}
+
+		#buybox{
+			font-family: Tahoma;
+			column-gap: 10px;
+			position: fixed;
+			top: 0.25vh;
+			left: 24.6vw;
+			width: 50vw;
+			height: 96vh;
+			padding-top: 2vh;
+			background: #181818;
+			color: white;
+			border-radius: 5px;
+			border-top: ridge 6px #444;
+			border-left: ridge 6px #444;
+			border-bottom: ridge 4px #333;
+			border-right: ridge 4px #333;
+		}
+
+		.char{
+			width: 32px;
+			height: 32px;
+			position: absolute;
+			transition: all 0.4s;
+			z-index: 8;
+		}
+
+		.large_char{
+			position: absolute;
+			transition: all 0.2s;
+			width: 64px;
+			height: 64px;
+			z-index: 8;
+		}
+
+		#moneybox{
+			display: none;
+			border-bottom-left-radius: 5px;
+			border-bottom-right-radius: 5px;
+			text-shadow: black 2px -2px 8px, 2px 2px 8px, -2px -2px 8px, -2px 2px 8px;
+			position: fixed;
+			top: 0;
+			right: 0;
+			background: #111;
+			color: white;
+			width: 140px;
+			height: 128px;
+			font-size: 1.1em;
+			opacity: 0;
+			transition: opacity 1s;
+			z-index: 10;
+			font-family: consolas;
+		}
+
+		#money{
+			margin-top: 8px;
+		}
+
+		#selection{
+			width: 64px;
+			height: 64px;
+			position: absolute;
+			top: 0;
+			left: 0px;
+			background: black;
+			opacity: 10%;
+			animation : clignote 2s infinite;
+			z-index: 19;
+		}
+
+		.seg1{
+			background : url(../tiles/seg1/seg1.png);
+			animation : seganimation 0.5s infinite;
+		}
+
+		.seg1_off{
+			background : url(../tiles/seg1_off/seg1.png);
+			animation : seganimation_off 0.5s infinite;
+		}
+
+		.seg2{
+			background : url(../tiles/seg2/seg1.png);
+			animation : seg2animation 0.5s infinite;
+		}
+
+		.seg2_off{
+			background : url(../tiles/seg2_off/seg1.png);
+			animation : seg2animation_off 0.5s infinite;
+		}
+
+		.seg3{
+			background : url(../tiles/seg3/seg1.png);
+			animation : seg3animation 0.5s infinite;
+		}
+
+		.seg3_off{
+			background : url(../tiles/seg3_off/seg1.png);
+			animation : seg3animation_off 0.5s infinite;
+		}
+
+		.seg4{
+			background : url(../tiles/seg4/seg1.png);
+			animation : seg4animation 0.5s infinite;
+		}
+
+		.seg4_off{
+			background : url(../tiles/seg4_off/seg1.png);
+			animation : seg4animation_off 0.5s infinite;
+		}
+
+		.seg5{
+			background : url(../tiles/seg5/seg1.png);
+			animation : seg5animation 0.5s infinite;
+		}
+
+		.seg5_off{
+			background : url(../tiles/seg5_off/seg1.png);
+			animation : seg5animation_off 0.5s infinite;
+		}
+
+		.seg6{
+			background : url(../tiles/seg6/seg1.png);
+			animation : seg6animation 0.5s infinite;
+		}
+
+		.seg6_off{
+			background : url(../tiles/seg6_off/seg1.png);
+			animation : seg6animation_off 0.5s infinite;
+		}
+
+		.seg7{
+			background : url(../tiles/seg7/seg1.png);
+			animation : seg7animation 0.5s infinite;
+		}
+
+		.seg7_off{
+			background : url(../tiles/seg7_off/seg1.png);
+			animation : seg7animation_off 0.5s infinite;
+		}
+
+		.napalm1{
+			background : url(../tiles/napalm1/napalm1.png);
+			animation : napalmanimation 0.5s infinite;
+		}
+
+		.napalm1_off{
+			background : url(../tiles/napalm1_off/napalm1.png);
+			animation : napalmanimation_off 0.5s infinite;
+		}
+
+		.napalm2{
+			background : url(../tiles/napalm2/napalm1.png);
+			animation : napalm2animation 0.5s infinite;
+		}
+
+		.napalm2_off{
+			background : url(../tiles/napalm2_off/napalm1.png);
+			animation : napalm2animation_off 0.5s infinite;
+		}
+
+		.napalm3{
+			background : url(../tiles/napalm3/napalm1.png);
+			animation : napalm3animation 0.5s infinite;
+		}
+
+		.napalm3_off{
+			background : url(../tiles/napalm3_off/napalm1.png);
+			animation : napalm3animation_off 0.5s infinite;
+		}
+
+		.napalm4{
+			background : url(../tiles/napalm4/napalm1.png);
+			animation : napalm4animation 0.5s infinite;
+		}
+
+		.napalm4_off{
+			background : url(../tiles/napalm4_off/napalm1.png);
+			animation : napalm4animation_off 0.5s infinite;
+		}
+
+		.napalm5{
+			background : url(../tiles/napalm5/napalm1.png);
+			animation : napalm5animation 0.5s infinite;
+		}
+
+		.napalm5_off{
+			background : url(../tiles/napalm5_off/napalm1.png);
+			animation : napalm5animation_off 0.5s infinite;
+		}
+
+		.napalm6{
+			background : url(../tiles/napalm6/napalm1.png);
+			animation : napalm6animation 0.5s infinite;
+		}
+
+		.napalm6_off{
+			background : url(../tiles/napalm6_off/napalm1.png);
+			animation : napalm6animation_off 0.5s infinite;
+		}
+
+		.napalm7{
+			background : url(../tiles/napalm7/napalm1.png);
+			animation : napalm7animation 0.5s infinite;
+		}
+
+		.napalm7_off{
+			background : url(../tiles/napalm7_off/napalm1.png);
+			animation : napalm7animation_off 0.5s infinite;
+		}
+
+		.ninja1{
+			background : url(../tiles/ninja1/ninja1.png);
+			animation : ninjaanimation 0.5s infinite;
+		}
+
+		.ninja1_off{
+			background : url(../tiles/ninja1_off/ninja1.png);
+			animation : ninjaanimation_off 0.5s infinite;
+		}
+
+		.ninja2{
+			background : url(../tiles/ninja2/ninja1.png);
+			animation : ninja2animation 0.5s infinite;
+		}
+
+		.ninja2_off{
+			background : url(../tiles/ninja2_off/ninja1.png);
+			animation : ninja2animation_off 0.5s infinite;
+		}
+
+		.ninja3{
+			background : url(../tiles/ninja3/ninja1.png);
+			animation : ninja3animation 0.5s infinite;
+		}
+
+		.ninja3_off{
+			background : url(../tiles/ninja3_off/ninja1.png);
+			animation : ninja3animation_off 0.5s infinite;
+		}
+
+		.ninja4{
+			background : url(../tiles/ninja4/ninja1.png);
+			animation : ninja4animation 0.5s infinite;
+		}
+
+		.ninja4_off{
+			background : url(../tiles/ninja4_off/ninja1.png);
+			animation : ninja4animation_off 0.5s infinite;
+		}
+
+		.ninja5{
+			background : url(../tiles/ninja5/ninja1.png);
+			animation : ninja5animation 0.5s infinite;
+		}
+
+		.ninja5_off{
+			background : url(../tiles/ninja5_off/ninja1.png);
+			animation : ninja5animation_off 0.5s infinite;
+		}
+
+		.ninja6{
+			background : url(../tiles/ninja6/ninja1.png);
+			animation : ninja6animation 0.5s infinite;
+		}
+
+		.ninja6_off{
+			background : url(../tiles/ninja6_off/ninja1.png);
+			animation : ninja6animation_off 0.5s infinite;
+		}
+
+		.ninja7{
+			background : url(../tiles/ninja7/ninja1.png);
+			animation : ninja7animation 0.5s infinite;
+		}
+
+		.ninja7_off{
+			background : url(../tiles/ninja7_off/ninja1.png);
+			animation : ninja7animation_off 0.5s infinite;
+		}
+
+		.tank1{
+			background : url(../tiles/tank1/tank1.png);
+			animation : tankanimation 0.5s infinite;
+		}
+
+		.radio1{
+			background : url(../tiles/radio1/radio1.png);
+			animation : radioanimation 0.5s infinite;
+		}
+
+		.radio1_off{
+			background : url(../tiles/radio1_off/radio1.png);
+			animation : radioanimation_off 0.5s infinite;
+		}
+
+		.radio2{
+			background : url(../tiles/radio2/radio1.png);
+			animation : radio2animation 0.5s infinite;
+		}
+
+		.radio2_off{
+			background : url(../tiles/radio2_off/radio1.png);
+			animation : radio2animation_off 0.5s infinite;
+		}
+
+		.radio3{
+			background : url(../tiles/radio3/radio1.png);
+			animation : radio3animation 0.5s infinite;
+		}
+
+		.radio3_off{
+			background : url(../tiles/radio3_off/radio1.png);
+			animation : radio3animation_off 0.5s infinite;
+		}
+
+		.radio4{
+			background : url(../tiles/radio4/radio1.png);
+			animation : radio4animation 0.5s infinite;
+		}
+
+		.radio4_off{
+			background : url(../tiles/radio4_off/radio1.png);
+			animation : radio4animation_off 0.5s infinite;
+		}
+
+		.radio5{
+			background : url(../tiles/radio5/radio1.png);
+			animation : radio5animation 0.5s infinite;
+		}
+
+		.radio5_off{
+			background : url(../tiles/radio5_off/radio1.png);
+			animation : radio5animation_off 0.5s infinite;
+		}
+
+		.radio6{
+			background : url(../tiles/radio6/radio1.png);
+			animation : radio6animation 0.5s infinite;
+		}
+
+		.radio6_off{
+			background : url(../tiles/radio6_off/radio1.png);
+			animation : radio6animation_off 0.5s infinite;
+		}
+
+		.radio7{
+			background : url(../tiles/radio7/radio1.png);
+			animation : radio7animation 0.5s infinite;
+		}
+
+		.radio7_off{
+			background : url(../tiles/radio7_off/radio1.png);
+			animation : radio7animation_off 0.5s infinite;
+		}
+
+		.tank1_off{
+			background : url(../tiles/tank1_off/tank1.png);
+			animation : tankanimation_off 0.5s infinite;
+		}
+
+		.tank2{
+			background : url(../tiles/tank2/tank1.png);
+			animation : tank2animation 0.5s infinite;
+		}
+
+		.tank2_off{
+			background : url(../tiles/tank2_off/tank1.png);
+			animation : tank2animation_off 0.5s infinite;
+		}
+
+		.tank3{
+			background : url(../tiles/tank3/tank1.png);
+			animation : tank3animation 0.5s infinite;
+		}
+
+		.tank3_off{
+			background : url(../tiles/tank3_off/tank1.png);
+			animation : tank3animation_off 0.5s infinite;
+		}
+
+		.tank4{
+			background : url(../tiles/tank4/tank1.png);
+			animation : tank4animation 0.5s infinite;
+		}
+
+		.tank4_off{
+			background : url(../tiles/tank4_off/tank1.png);
+			animation : tank4animation_off 0.5s infinite;
+		}
+
+		.tank5{
+			background : url(../tiles/tank5/tank1.png);
+			animation : tank5animation 0.5s infinite;
+		}
+
+		.tank5_off{
+			background : url(../tiles/tank5_off/tank1.png);
+			animation : tank5animation_off 0.5s infinite;
+		}
+
+		.tank6{
+			background : url(../tiles/tank6/tank1.png);
+			animation : tank6animation 0.5s infinite;
+		}
+
+		.tank6_off{
+			background : url(../tiles/tank6_off/tank1.png);
+			animation : tank6animation_off 0.5s infinite;
+		}
+
+		.tank7{
+			background : url(../tiles/tank7/tank1.png);
+			animation : tank7animation 0.5s infinite;
+		}
+
+		.tank7_off{
+			background : url(../tiles/tank7_off/tank1.png);
+			animation : tank7animation_off 0.5s infinite;
+		}
+
+		.tower1{
+			background : url(../tiles/tower1/tower1.png);
+			animation : toweranimation 0.5s infinite;
+		}
+
+		.tower1_off{
+			background : url(../tiles/tower1_off/tower1.png);
+			animation : toweranimation_off 0.5s infinite;
+		}
+
+		.tower3{
+			background : url(../tiles/tower3/tower1.png);
+			animation : tower3animation 0.5s infinite;
+		}
+
+		.tower3_off{
+			background : url(../tiles/tower3_off/tower1.png);
+			animation : tower3animation_off 0.5s infinite;
+		}
+
+		.builder1{
+			background : url(../tiles/builder1/builder1.png);
+			animation : builderanimation 0.5s infinite;
+		}
+
+		.builder1_off{
+			background : url(../tiles/builder1_off/builder1.png);
+			animation : builderanimation_off 0.5s infinite;
+		}
+
+		.builder2{
+			background : url(../tiles/builder2/builder1.png);
+			animation : builder2animation 0.5s infinite;
+		}
+
+		.builder2_off{
+			background : url(../tiles/builder2_off/builder1.png);
+			animation : builder2animation_off 0.5s infinite;
+		}
+
+		.builder3{
+			background : url(../tiles/builder3/builder1.png);
+			animation : builder3animation 0.5s infinite;
+		}
+
+		.builder3_off{
+			background : url(../tiles/builder3_off/builder1.png);
+			animation : builder3animation_off 0.5s infinite;
+		}
+
+		.builder4{
+			background : url(../tiles/builder4/builder1.png);
+			animation : builder4animation 0.5s infinite;
+		}
+
+		.builder4_off{
+			background : url(../tiles/builder4_off/builder1.png);
+			animation : builder4animation_off 0.5s infinite;
+		}
+
+		.builder5{
+			background : url(../tiles/builder5/builder1.png);
+			animation : builder5animation 0.5s infinite;
+		}
+
+		.builder5_off{
+			background : url(../tiles/builder5_off/builder1.png);
+			animation : builder5animation_off 0.5s infinite;
+		}
+
+		.builder6{
+			background : url(../tiles/builder6/builder1.png);
+			animation : builder6animation 0.5s infinite;
+		}
+
+		.builder6_off{
+			background : url(../tiles/builder6_off/builder1.png);
+			animation : builder6animation_off 0.5s infinite;
+		}
+
+		.builder7{
+			background : url(../tiles/builder7/builder1.png);
+			animation : builder7animation 0.5s infinite;
+		}
+
+		.builder7_off{
+			background : url(../tiles/builder7_off/builder1.png);
+			animation : builder7animation_off 0.5s infinite;
+		}
+
+		.tower2{
+			background : url(../tiles/tower2/tower1.png);
+			animation : tower2animation 0.5s infinite;
+		}
+
+		.tower2_off{
+			background : url(../tiles/tower2_off/tower1.png);
+			animation : tower2animation_off 0.5s infinite;
+		}
+
+		.tower4{
+			background : url(../tiles/tower4/tower1.png);
+			animation : tower4animation 0.5s infinite;
+		}
+
+		.tower4_off{
+			background : url(../tiles/tower4_off/tower1.png);
+			animation : tower4animation_off 0.5s infinite;
+		}
+
+		.tower5{
+			background : url(../tiles/tower5/tower1.png);
+			animation : tower5animation 0.5s infinite;
+		}
+
+		.tower5_off{
+			background : url(../tiles/tower5_off/tower1.png);
+			animation : tower5animation_off 0.5s infinite;
+		}
+
+		.tower6{
+			background : url(../tiles/tower6/tower1.png);
+			animation : tower6animation 0.5s infinite;
+		}
+
+		.tower6_off{
+			background : url(../tiles/tower6_off/tower1.png);
+			animation : tower6animation_off 0.5s infinite;
+		}
+
+		.tower7{
+			background : url(../tiles/tower7/tower1.png);
+			animation : tower7animation 0.5s infinite;
+		}
+
+		.tower7_off{
+			background : url(../tiles/tower7_off/tower1.png);
+			animation : tower7animation_off 0.5s infinite;
+		}
+
+		.vtb1{
+			background : url(../tiles/vtb1/vtb1.png);
+			animation : vtbanimation 0.62s infinite;
+		}
+
+		.vtb1_off{
+			background : url(../tiles/vtb1_off/vtb1.png);
+			animation : vtbanimation_off 0.5s infinite;
+		}
+
+		.vtb2{
+			background : url(../tiles/vtb2/vtb1.png);
+			animation : vtb2animation 0.62s infinite;
+		}
+
+		.vtb2_off{
+			background : url(../tiles/vtb2_off/vtb1.png);
+			animation : vtb2animation_off 0.5s infinite;
+		}
+
+		.vtb3{
+			background : url(../tiles/vtb3/vtb1.png);
+			animation : vtb3animation 0.62s infinite;
+		}
+
+		.vtb3_off{
+			background : url(../tiles/vtb3_off/vtb1.png);
+			animation : vtb3animation_off 0.5s infinite;
+		}
+
+		.vtb4{
+			background : url(../tiles/vtb4/vtb1.png);
+			animation : vtb4animation 0.62s infinite;
+		}
+
+		.vtb4_off{
+			background : url(../tiles/vtb4_off/vtb1.png);
+			animation : vtb4animation_off 0.5s infinite;
+		}
+
+		.vtb5{
+			background : url(../tiles/vtb5/vtb1.png);
+			animation : vtb5animation 0.62s infinite;
+		}
+
+		.vtb5_off{
+			background : url(../tiles/vtb5_off/vtb1.png);
+			animation : vtb5animation_off 0.5s infinite;
+		}
+
+		.vtb6{
+			background : url(../tiles/vtb6/vtb1.png);
+			animation : vtb6animation 0.62s infinite;
+		}
+
+		.vtb6_off{
+			background : url(../tiles/vtb6_off/vtb1.png);
+			animation : vtb6animation_off 0.5s infinite;
+		}
+
+		.vtb7{
+			background : url(../tiles/vtb7/vtb1.png);
+			animation : vtb7animation 0.62s infinite;
+		}
+
+		.vtb7_off{
+			background : url(../tiles/vtb7_off/vtb1.png);
+			animation : vtb7animation_off 0.5s infinite;
+		}
+
+		.fts1{
+			background : url(../tiles/fts1/fts1.png);
+			animation : ftsanimation 0.5s infinite;
+		}
+
+		.fts1_off{
+			background : url(../tiles/fts1_off/fts1.png);
+			animation : ftsanimation_off 0.5s infinite;
+		}
+
+		.villager1{
+			background : url(../tiles/villager1/1.png);
+			animation : villager1animation 0.5s infinite;
+		}
+
+		.villager1_off{
+			background : url(../tiles/villager1_off/1.png);
+			animation : villager1animation_off 0.5s infinite;
+		}
+
+		.villager2{
+			background : url(../tiles/villager2/1.png);
+			animation : villager2animation 0.5s infinite;
+		}
+
+		.villager2_off{
+			background : url(../tiles/villager2_off/1.png);
+			animation : villager2animation_off 0.5s infinite;
+		}
+
+		.villager3{
+			background : url(../tiles/villager3/1.png);
+			animation : villager3animation 0.5s infinite;
+		}
+
+		.villager3_off{
+			background : url(../tiles/villager3_off/1.png);
+			animation : villager3animation_off 0.5s infinite;
+		}
+
+		.villager4{
+			background : url(../tiles/villager4/1.png);
+			animation : villager4animation 0.5s infinite;
+		}
+
+		.villager4_off{
+			background : url(../tiles/villager4_off/1.png);
+			animation : villager4animation_off 0.5s infinite;
+		}
+
+		.villager5{
+			background : url(../tiles/villager5/1.png);
+			animation : villager5animation 0.5s infinite;
+		}
+
+		.villager5_off{
+			background : url(../tiles/villager5_off/1.png);
+			animation : villager5animation_off 0.5s infinite;
+		}
+
+		.villager6{
+			background : url(../tiles/villager6/1.png);
+			animation : villager6animation 0.5s infinite;
+		}
+
+		.villager6_off{
+			background : url(../tiles/villager6_off/1.png);
+			animation : villager6animation_off 0.5s infinite;
+		}
+
+		.villager7{
+			background : url(../tiles/villager7/1.png);
+			animation : villager7animation 0.5s infinite;
+		}
+
+		.villager7_off{
+			background : url(../tiles/villager7_off/1.png);
+			animation : villager7animation_off 0.5s infinite;
+		}
+
+		.fts2{
+			background : url(../tiles/fts2/fts1.png);
+			animation : fts2animation 0.5s infinite;
+		}
+
+		.fts2_off{
+			background : url(../tiles/fts2_off/fts1.png);
+			animation : fts2animation_off 0.5s infinite;
+		}
+
+		.fts3{
+			background : url(../tiles/fts3/fts1.png);
+			animation : fts3animation 0.5s infinite;
+		}
+
+		.fts3_off{
+			background : url(../tiles/fts3_off/fts1.png);
+			animation : fts3animation_off 0.5s infinite;
+		}
+
+		.fts4{
+			background : url(../tiles/fts4/fts1.png);
+			animation : fts4animation 0.5s infinite;
+		}
+
+		.fts4_off{
+			background : url(../tiles/fts4_off/fts1.png);
+			animation : fts4animation_off 0.5s infinite;
+		}
+
+		.fts5{
+			background : url(../tiles/fts5/fts1.png);
+			animation : fts5animation 0.5s infinite;
+		}
+
+		.fts5_off{
+			background : url(../tiles/fts5_off/fts1.png);
+			animation : fts5animation_off 0.5s infinite;
+		}
+
+		.fts6{
+			background : url(../tiles/fts6/fts1.png);
+			animation : fts6animation 0.5s infinite;
+		}
+
+		.fts6_off{
+			background : url(../tiles/fts6_off/fts1.png);
+			animation : fts6animation_off 0.5s infinite;
+		}
+
+		.fts7{
+			background : url(../tiles/fts7/fts1.png);
+			animation : fts7animation 0.5s infinite;
+		}
+
+		.fts7_off{
+			background : url(../tiles/fts7_off/fts1.png);
+			animation : fts7animation_off 0.5s infinite;
+		}
+
+		.shield1{
+			background : url(../tiles/shield1/shield1.png);
+			animation : shieldanimation 0.5s infinite;
+		}
+
+		.shield1_off{
+			background : url(../tiles/shield1_off/shield1.png);
+			animation : shieldanimation_off 0.5s infinite;
+		}
+
+		.shield2{
+			background : url(../tiles/shield2/shield1.png);
+			animation : shield2animation 0.5s infinite;
+		}
+
+		.shield2_off{
+			background : url(../tiles/shield2_off/shield1.png);
+			animation : shield2animation_off 0.5s infinite;
+		}
+
+		.shield3{
+			background : url(../tiles/shield3/shield1.png);
+			animation : shield3animation 0.5s infinite;
+		}
+
+		.shield3_off{
+			background : url(../tiles/shield3_off/shield1.png);
+			animation : shield3animation_off 0.5s infinite;
+		}
+
+		.shield4{
+			background : url(../tiles/shield4/shield1.png);
+			animation : shield4animation 0.5s infinite;
+		}
+
+		.shield4_off{
+			background : url(../tiles/shield4_off/shield1.png);
+			animation : shield4animation_off 0.5s infinite;
+		}
+
+		.shield5{
+			background : url(../tiles/shield5/shield1.png);
+			animation : shield5animation 0.5s infinite;
+		}
+
+		.shield5_off{
+			background : url(../tiles/shield5_off/shield1.png);
+			animation : shield5animation_off 0.5s infinite;
+		}
+
+		.shield6{
+			background : url(../tiles/shield6/shield1.png);
+			animation : shield6animation 0.5s infinite;
+		}
+
+		.shield6_off{
+			background : url(../tiles/shield6_off/shield1.png);
+			animation : shield6animation_off 0.5s infinite;
+		}
+
+		.shield7{
+			background : url(../tiles/shield7/shield1.png);
+			animation : shield7animation 0.5s infinite;
+		}
+
+		.shield7_off{
+			background : url(../tiles/shield7_off/shield1.png);
+			animation : shield7animation_off 0.5s infinite;
+		}
+
+		.gunner2{
+			background : url(../tiles/gunner2/gunner1.png);
+			animation : gunner2animation 0.5s infinite;
+		}
+
+		.gunner2_off{
+			background : url(../tiles/gunner2_off/gunner1.png);
+			animation : gunner2animation_off 0.5s infinite;
+		}
+
+		.gunner3{
+			background : url(../tiles/gunner3/gunner1.png);
+			animation : gunner3animation 0.5s infinite;
+		}
+
+		.gunner3_off{
+			background : url(../tiles/gunner3_off/gunner1.png);
+			animation : gunner3animation_off 0.5s infinite;
+		}
+
+		.gunner4{
+			background : url(../tiles/gunner4/gunner1.png);
+			animation : gunner4animation 0.5s infinite;
+		}
+
+		.gunner4_off{
+			background : url(../tiles/gunner4_off/gunner1.png);
+			animation : gunner4animation_off 0.5s infinite;
+		}
+
+		.gunner5{
+			background : url(../tiles/gunner5/gunner1.png);
+			animation : gunner5animation 0.5s infinite;
+		}
+
+		.gunner5_off{
+			background : url(../tiles/gunner5_off/gunner1.png);
+			animation : gunner5animation_off 0.5s infinite;
+		}
+
+		.gunner6{
+			background : url(../tiles/gunner6/gunner1.png);
+			animation : gunner6animation 0.5s infinite;
+		}
+
+		.gunner6_off{
+			background : url(../tiles/gunner6_off/gunner1.png);
+			animation : gunner6animation_off 0.5s infinite;
+		}
+
+		.gunner7{
+			background : url(../tiles/gunner7/gunner1.png);
+			animation : gunner7animation 0.5s infinite;
+		}
+
+		.gunner7_off{
+			background : url(../tiles/gunner7_off/gunner1.png);
+			animation : gunner7animation_off 0.5s infinite;
+		}
+
+		.gunner1{
+			background : url(../tiles/gunner1/gunner1.png);
+			animation : gunneranimation 0.5s infinite;
+		}
+
+		.gunner1_off{
+			background : url(../tiles/gunner1_off/gunner1.png);
+			animation : gunneranimation_off 0.5s infinite;
+		}
+
+		.trumpet1{
+			background : url(../tiles/trumpet1/trumpet1.png);
+			animation : trumpetanimation 0.62s infinite;
+		}
+
+		.trumpet1_off{
+			background : url(../tiles/trumpet1_off/trumpet1.png);
+			animation : trumpetanimation_off 0.5s infinite;
+		}
+
+		.trumpet2{
+			background : url(../tiles/trumpet2/trumpet1.png);
+			animation : trumpet2animation 0.62s infinite;
+		}
+
+		.trumpet2_off{
+			background : url(../tiles/trumpet2_off/trumpet1.png);
+			animation : trumpet2animation_off 0.5s infinite;
+		}
+
+		.trumpet3{
+			background : url(../tiles/trumpet3/trumpet1.png);
+			animation : trumpet3animation 0.62s infinite;
+		}
+
+		.trumpet3_off{
+			background : url(../tiles/trumpet3_off/trumpet1.png);
+			animation : trumpet3animation_off 0.5s infinite;
+		}
+
+		.trumpet4{
+			background : url(../tiles/trumpet4/trumpet1.png);
+			animation : trumpet4animation 0.62s infinite;
+		}
+
+		.trumpet4_off{
+			background : url(../tiles/trumpet4_off/trumpet1.png);
+			animation : trumpet4animation_off 0.5s infinite;
+		}
+
+		.trumpet5{
+			background : url(../tiles/trumpet5/trumpet1.png);
+			animation : trumpet5animation 0.62s infinite;
+		}
+
+		.trumpet5_off{
+			background : url(../tiles/trumpet5_off/trumpet1.png);
+			animation : trumpet5animation_off 0.5s infinite;
+		}
+
+		.trumpet6{
+			background : url(../tiles/trumpet6/trumpet1.png);
+			animation : trumpet6animation 0.62s infinite;
+		}
+
+		.trumpet6_off{
+			background : url(../tiles/trumpet6_off/trumpet1.png);
+			animation : trumpet6animation_off 0.5s infinite;
+		}
+
+		.trumpet7{
+			background : url(../tiles/trumpet7/trumpet1.png);
+			animation : trumpet7animation 0.62s infinite;
+		}
+
+		.trumpet7_off{
+			background : url(../tiles/trumpet7_off/trumpet1.png);
+			animation : trumpet7animation_off 0.5s infinite;
+		}
+
+		.poison1{
+			background : url(../tiles/poison1/poison1.png);
+			animation : poisonanimation 0.62s infinite;
+		}
+
+		.poison1_off{
+			background : url(../tiles/poison1_off/poison1.png);
+			animation : poisonanimation_off 0.5s infinite;
+		}
+
+		.poison2{
+			background : url(../tiles/poison2/poison1.png);
+			animation : poison2animation 0.62s infinite;
+		}
+
+		.poison2_off{
+			background : url(../tiles/poison2_off/poison1.png);
+			animation : poison2animation_off 0.5s infinite;
+		}
+
+		.poison3{
+			background : url(../tiles/poison3/poison1.png);
+			animation : poison3animation 0.62s infinite;
+		}
+
+		.poison3_off{
+			background : url(../tiles/poison3_off/poison1.png);
+			animation : poison3animation_off 0.5s infinite;
+		}
+
+		.poison4{
+			background : url(../tiles/poison4/poison1.png);
+			animation : poison4animation 0.62s infinite;
+		}
+
+		.poison4_off{
+			background : url(../tiles/poison4_off/poison1.png);
+			animation : poison4animation_off 0.5s infinite;
+		}
+
+		.poison5{
+			background : url(../tiles/poison5/poison1.png);
+			animation : poison5animation 0.62s infinite;
+		}
+
+		.poison5_off{
+			background : url(../tiles/poison5_off/poison1.png);
+			animation : poison5animation_off 0.5s infinite;
+		}
+
+		.poison6{
+			background : url(../tiles/poison6/poison1.png);
+			animation : poison6animation 0.62s infinite;
+		}
+
+		.poison6_off{
+			background : url(../tiles/poison6_off/poison1.png);
+			animation : poison6animation_off 0.5s infinite;
+		}
+
+		.poison7{
+			background : url(../tiles/poison7/poison1.png);
+			animation : poison7animation 0.62s infinite;
+		}
+
+		.poison7_off{
+			background : url(../tiles/poison7_off/poison1.png);
+			animation : poison7animation_off 0.5s infinite;
+		}
+
+		audio{
+			transition: 2s all;
+			display: none;
+		}
+
+		@keyframes rgb{
+ 			0%{
+ 				color: hotpink;
+ 			}
+
+ 			25%{
+ 				color: mediumpurple;
+ 			}
+
+ 			50%{
+ 				color: yellow;
+ 			}
+
+ 			75%{
+ 				color: deepskyblue;
+			}
+		}
+
+		@keyframes lightanimation{
+			0%{
+ 				background: url(../tiles/lightning/light1.png);
+ 			}
+
+ 			12.5%{
+ 				background: url(../tiles/lightning/light2.png);
+ 			}
+
+ 			25%{
+ 				background: url(../tiles/lightning/light3.png);
+ 			}
+
+ 			37.5%{
+ 				background: url(../tiles/lightning/light4.png);
+ 			}
+
+ 			50%{
+ 				background: url(../tiles/lightning/light5.png);
+ 			}
+
+ 			62.5%{
+ 				background: url(../tiles/lightning/light6.png);
+ 			}
+
+ 			75%{
+ 				background: url(../tiles/lightning/light7.png);
+ 			}
+
+ 			87.5%{
+ 				background: url(../tiles/lightning/light8.png);
+ 			}
+		}
+
+		@keyframes vtbanimation{
+ 			0%{
+ 				background: url(../tiles/vtb1/vtb1.png);
+ 			}
+
+ 			33%{
+ 				background: url(../tiles/vtb1/vtb2.png);
+ 			}
+
+ 			66%{
+ 				background: url(../tiles/vtb1/vtb3.png);
+ 			}
+		}
+
+		@keyframes vtbanimation_off{
+ 			0%{
+ 				background: url(../tiles/vtb1_off/vtb1.png);
+ 			}
+
+ 			33%{
+ 				background: url(../tiles/vtb1_off/vtb2.png);
+ 			}
+
+ 			66%{
+ 				background: url(../tiles/vtb1_off/vtb3.png);
+ 			}
+		}
+
+		@keyframes vtb2animation{
+ 			0%{
+ 				background: url(../tiles/vtb2/vtb1.png);
+ 			}
+
+ 			33%{
+ 				background: url(../tiles/vtb2/vtb2.png);
+ 			}
+
+ 			66%{
+ 				background: url(../tiles/vtb2/vtb3.png);
+ 			}
+		}
+
+		@keyframes vtb2animation_off{
+ 			0%{
+ 				background: url(../tiles/vtb2_off/vtb1.png);
+ 			}
+
+ 			33%{
+ 				background: url(../tiles/vtb2_off/vtb2.png);
+ 			}
+
+ 			66%{
+ 				background: url(../tiles/vtb2_off/vtb3.png);
+ 			}
+		}
+
+		@keyframes vtb3animation{
+ 			0%{
+ 				background: url(../tiles/vtb3/vtb1.png);
+ 			}
+
+ 			33%{
+ 				background: url(../tiles/vtb3/vtb2.png);
+ 			}
+
+ 			66%{
+ 				background: url(../tiles/vtb3/vtb3.png);
+ 			}
+		}
+
+		@keyframes vtb3animation_off{
+ 			0%{
+ 				background: url(../tiles/vtb3_off/vtb1.png);
+ 			}
+
+ 			33%{
+ 				background: url(../tiles/vtb3_off/vtb2.png);
+ 			}
+
+ 			66%{
+ 				background: url(../tiles/vtb3_off/vtb3.png);
+ 			}
+		}
+
+		@keyframes vtb4animation{
+ 			0%{
+ 				background: url(../tiles/vtb4/vtb1.png);
+ 			}
+
+ 			33%{
+ 				background: url(../tiles/vtb4/vtb2.png);
+ 			}
+
+ 			66%{
+ 				background: url(../tiles/vtb4/vtb3.png);
+ 			}
+		}
+
+		@keyframes vtb4animation_off{
+ 			0%{
+ 				background: url(../tiles/vtb4_off/vtb1.png);
+ 			}
+
+ 			33%{
+ 				background: url(../tiles/vtb4_off/vtb2.png);
+ 			}
+
+ 			66%{
+ 				background: url(../tiles/vtb4_off/vtb3.png);
+ 			}
+		}
+
+		@keyframes vtb5animation{
+ 			0%{
+ 				background: url(../tiles/vtb5/vtb1.png);
+ 			}
+
+ 			33%{
+ 				background: url(../tiles/vtb5/vtb2.png);
+ 			}
+
+ 			66%{
+ 				background: url(../tiles/vtb5/vtb3.png);
+ 			}
+		}
+
+		@keyframes vtb5animation_off{
+ 			0%{
+ 				background: url(../tiles/vtb5_off/vtb1.png);
+ 			}
+
+ 			33%{
+ 				background: url(../tiles/vtb5_off/vtb2.png);
+ 			}
+
+ 			66%{
+ 				background: url(../tiles/vtb5_off/vtb3.png);
+ 			}
+		}
+
+		@keyframes vtb6animation{
+ 			0%{
+ 				background: url(../tiles/vtb6/vtb1.png);
+ 			}
+
+ 			33%{
+ 				background: url(../tiles/vtb6/vtb2.png);
+ 			}
+
+ 			66%{
+ 				background: url(../tiles/vtb6/vtb3.png);
+ 			}
+		}
+
+		@keyframes vtb6animation_off{
+ 			0%{
+ 				background: url(../tiles/vtb6_off/vtb1.png);
+ 			}
+
+ 			33%{
+ 				background: url(../tiles/vtb6_off/vtb2.png);
+ 			}
+
+ 			66%{
+ 				background: url(../tiles/vtb6_off/vtb3.png);
+ 			}
+		}
+
+		@keyframes vtb7animation{
+ 			0%{
+ 				background: url(../tiles/vtb7/vtb1.png);
+ 			}
+
+ 			33%{
+ 				background: url(../tiles/vtb7/vtb2.png);
+ 			}
+
+ 			66%{
+ 				background: url(../tiles/vtb7/vtb3.png);
+ 			}
+		}
+
+		@keyframes vtb7animation_off{
+ 			0%{
+ 				background: url(../tiles/vtb7_off/vtb1.png);
+ 			}
+
+ 			33%{
+ 				background: url(../tiles/vtb7_off/vtb2.png);
+ 			}
+
+ 			66%{
+ 				background: url(../tiles/vtb7_off/vtb3.png);
+ 			}
+		}
+
+		@keyframes trumpetanimation{
+ 			0%{
+ 				background: url(../tiles/trumpet1/trumpet1.png);
+ 			}
+
+ 			25%{
+ 				background: url(../tiles/trumpet1/trumpet2.png);
+ 			}
+
+ 			50%{
+ 				background: url(../tiles/trumpet1/trumpet3.png);
+ 			}
+
+ 			75%{
+ 				background: url(../tiles/trumpet1/trumpet4.png);
+ 			}
+		}
+
+		@keyframes trumpetanimation_off{
+ 			0%{
+ 				background: url(../tiles/trumpet1_off/trumpet1.png);
+ 			}
+
+ 			25%{
+ 				background: url(../tiles/trumpet1_off/trumpet2.png);
+ 			}
+
+ 			50%{
+ 				background: url(../tiles/trumpet1_off/trumpet3.png);
+ 			}
+
+ 			75%{
+ 				background: url(../tiles/trumpet1_off/trumpet4.png);
+ 			}
+		}
+
+		@keyframes trumpet2animation{
+ 			0%{
+ 				background: url(../tiles/trumpet2/trumpet1.png);
+ 			}
+
+ 			25%{
+ 				background: url(../tiles/trumpet2/trumpet2.png);
+ 			}
+
+ 			50%{
+ 				background: url(../tiles/trumpet2/trumpet3.png);
+ 			}
+
+ 			75%{
+ 				background: url(../tiles/trumpet2/trumpet4.png);
+ 			}
+		}
+
+		@keyframes trumpet2animation_off{
+ 			0%{
+ 				background: url(../tiles/trumpet2_off/trumpet1.png);
+ 			}
+
+ 			25%{
+ 				background: url(../tiles/trumpet2_off/trumpet2.png);
+ 			}
+
+ 			50%{
+ 				background: url(../tiles/trumpet2_off/trumpet3.png);
+ 			}
+
+ 			75%{
+ 				background: url(../tiles/trumpet2_off/trumpet4.png);
+ 			}
+		}
+
+		@keyframes trumpet3animation{
+ 			0%{
+ 				background: url(../tiles/trumpet3/trumpet1.png);
+ 			}
+
+ 			25%{
+ 				background: url(../tiles/trumpet3/trumpet2.png);
+ 			}
+
+ 			50%{
+ 				background: url(../tiles/trumpet3/trumpet3.png);
+ 			}
+
+ 			75%{
+ 				background: url(../tiles/trumpet3/trumpet4.png);
+ 			}
+		}
+
+		@keyframes trumpet3animation_off{
+ 			0%{
+ 				background: url(../tiles/trumpet3_off/trumpet1.png);
+ 			}
+
+ 			25%{
+ 				background: url(../tiles/trumpet3_off/trumpet2.png);
+ 			}
+
+ 			50%{
+ 				background: url(../tiles/trumpet3_off/trumpet3.png);
+ 			}
+
+ 			75%{
+ 				background: url(../tiles/trumpet3_off/trumpet4.png);
+ 			}
+		}
+
+		@keyframes trumpet4animation{
+ 			0%{
+ 				background: url(../tiles/trumpet4/trumpet1.png);
+ 			}
+
+ 			25%{
+ 				background: url(../tiles/trumpet4/trumpet2.png);
+ 			}
+
+ 			50%{
+ 				background: url(../tiles/trumpet4/trumpet3.png);
+ 			}
+
+ 			75%{
+ 				background: url(../tiles/trumpet4/trumpet4.png);
+ 			}
+		}
+
+		@keyframes trumpet4animation_off{
+ 			0%{
+ 				background: url(../tiles/trumpet4_off/trumpet1.png);
+ 			}
+
+ 			25%{
+ 				background: url(../tiles/trumpet4_off/trumpet2.png);
+ 			}
+
+ 			50%{
+ 				background: url(../tiles/trumpet4_off/trumpet3.png);
+ 			}
+
+ 			75%{
+ 				background: url(../tiles/trumpet4_off/trumpet4.png);
+ 			}
+		}
+
+		@keyframes trumpet5animation{
+ 			0%{
+ 				background: url(../tiles/trumpet5/trumpet1.png);
+ 			}
+
+ 			25%{
+ 				background: url(../tiles/trumpet5/trumpet2.png);
+ 			}
+
+ 			50%{
+ 				background: url(../tiles/trumpet5/trumpet3.png);
+ 			}
+
+ 			75%{
+ 				background: url(../tiles/trumpet5/trumpet4.png);
+ 			}
+		}
+
+		@keyframes trumpet5animation_off{
+ 			0%{
+ 				background: url(../tiles/trumpet5_off/trumpet1.png);
+ 			}
+
+ 			25%{
+ 				background: url(../tiles/trumpet5_off/trumpet2.png);
+ 			}
+
+ 			50%{
+ 				background: url(../tiles/trumpet5_off/trumpet3.png);
+ 			}
+
+ 			75%{
+ 				background: url(../tiles/trumpet5_off/trumpet4.png);
+ 			}
+		}
+
+		@keyframes trumpet6animation{
+ 			0%{
+ 				background: url(../tiles/trumpet6/trumpet1.png);
+ 			}
+
+ 			25%{
+ 				background: url(../tiles/trumpet6/trumpet2.png);
+ 			}
+
+ 			50%{
+ 				background: url(../tiles/trumpet6/trumpet3.png);
+ 			}
+
+ 			75%{
+ 				background: url(../tiles/trumpet6/trumpet4.png);
+ 			}
+		}
+
+		@keyframes trumpet6animation_off{
+ 			0%{
+ 				background: url(../tiles/trumpet6_off/trumpet1.png);
+ 			}
+
+ 			25%{
+ 				background: url(../tiles/trumpet6_off/trumpet2.png);
+ 			}
+
+ 			50%{
+ 				background: url(../tiles/trumpet6_off/trumpet3.png);
+ 			}
+
+ 			75%{
+ 				background: url(../tiles/trumpet6_off/trumpet4.png);
+ 			}
+		}
+
+		@keyframes trumpet7animation{
+ 			0%{
+ 				background: url(../tiles/trumpet7/trumpet1.png);
+ 			}
+
+ 			25%{
+ 				background: url(../tiles/trumpet7/trumpet2.png);
+ 			}
+
+ 			50%{
+ 				background: url(../tiles/trumpet7/trumpet3.png);
+ 			}
+
+ 			75%{
+ 				background: url(../tiles/trumpet7/trumpet4.png);
+ 			}
+		}
+
+		@keyframes trumpet7animation_off{
+ 			0%{
+ 				background: url(../tiles/trumpet7_off/trumpet1.png);
+ 			}
+
+ 			25%{
+ 				background: url(../tiles/trumpet7_off/trumpet2.png);
+ 			}
+
+ 			50%{
+ 				background: url(../tiles/trumpet7_off/trumpet3.png);
+ 			}
+
+ 			75%{
+ 				background: url(../tiles/trumpet7_off/trumpet4.png);
+ 			}
+		}
+
+		@keyframes poisonanimation{
+ 			0%{
+ 				background: url(../tiles/poison1/poison1.png);
+ 			}
+
+ 			25%{
+ 				background: url(../tiles/poison1/poison2.png);
+ 			}
+
+ 			50%{
+ 				background: url(../tiles/poison1/poison3.png);
+ 			}
+
+ 			75%{
+ 				background: url(../tiles/poison1/poison4.png);
+ 			}
+		}
+
+		@keyframes poisonanimation_off{
+ 			0%{
+ 				background: url(../tiles/poison1_off/poison1.png);
+ 			}
+
+ 			25%{
+ 				background: url(../tiles/poison1_off/poison2.png);
+ 			}
+
+ 			50%{
+ 				background: url(../tiles/poison1_off/poison3.png);
+ 			}
+
+ 			75%{
+ 				background: url(../tiles/poison1_off/poison4.png);
+ 			}
+		}
+
+		@keyframes poison2animation{
+ 			0%{
+ 				background: url(../tiles/poison2/poison1.png);
+ 			}
+
+ 			25%{
+ 				background: url(../tiles/poison2/poison2.png);
+ 			}
+
+ 			50%{
+ 				background: url(../tiles/poison2/poison3.png);
+ 			}
+
+ 			75%{
+ 				background: url(../tiles/poison2/poison4.png);
+ 			}
+		}
+
+		@keyframes poison2animation_off{
+ 			0%{
+ 				background: url(../tiles/poison2_off/poison1.png);
+ 			}
+
+ 			25%{
+ 				background: url(../tiles/poison2_off/poison2.png);
+ 			}
+
+ 			50%{
+ 				background: url(../tiles/poison2_off/poison3.png);
+ 			}
+
+ 			75%{
+ 				background: url(../tiles/poison2_off/poison4.png);
+ 			}
+		}
+
+		@keyframes poison3animation{
+ 			0%{
+ 				background: url(../tiles/poison3/poison1.png);
+ 			}
+
+ 			25%{
+ 				background: url(../tiles/poison3/poison2.png);
+ 			}
+
+ 			50%{
+ 				background: url(../tiles/poison3/poison3.png);
+ 			}
+
+ 			75%{
+ 				background: url(../tiles/poison3/poison4.png);
+ 			}
+		}
+
+		@keyframes poison3animation_off{
+ 			0%{
+ 				background: url(../tiles/poison3_off/poison1.png);
+ 			}
+
+ 			25%{
+ 				background: url(../tiles/poison3_off/poison2.png);
+ 			}
+
+ 			50%{
+ 				background: url(../tiles/poison3_off/poison3.png);
+ 			}
+
+ 			75%{
+ 				background: url(../tiles/poison3_off/poison4.png);
+ 			}
+		}
+
+		@keyframes poison4animation{
+ 			0%{
+ 				background: url(../tiles/poison4/poison1.png);
+ 			}
+
+ 			25%{
+ 				background: url(../tiles/poison4/poison2.png);
+ 			}
+
+ 			50%{
+ 				background: url(../tiles/poison4/poison3.png);
+ 			}
+
+ 			75%{
+ 				background: url(../tiles/poison4/poison4.png);
+ 			}
+		}
+
+		@keyframes poison4animation_off{
+ 			0%{
+ 				background: url(../tiles/poison4_off/poison1.png);
+ 			}
+
+ 			25%{
+ 				background: url(../tiles/poison4_off/poison2.png);
+ 			}
+
+ 			50%{
+ 				background: url(../tiles/poison4_off/poison3.png);
+ 			}
+
+ 			75%{
+ 				background: url(../tiles/poison4_off/poison4.png);
+ 			}
+		}
+
+		@keyframes poison5animation{
+ 			0%{
+ 				background: url(../tiles/poison5/poison1.png);
+ 			}
+
+ 			25%{
+ 				background: url(../tiles/poison5/poison2.png);
+ 			}
+
+ 			50%{
+ 				background: url(../tiles/poison5/poison3.png);
+ 			}
+
+ 			75%{
+ 				background: url(../tiles/poison5/poison4.png);
+ 			}
+		}
+
+		@keyframes poison5animation_off{
+ 			0%{
+ 				background: url(../tiles/poison5_off/poison1.png);
+ 			}
+
+ 			25%{
+ 				background: url(../tiles/poison5_off/poison2.png);
+ 			}
+
+ 			50%{
+ 				background: url(../tiles/poison5_off/poison3.png);
+ 			}
+
+ 			75%{
+ 				background: url(../tiles/poison5_off/poison4.png);
+ 			}
+		}
+
+		@keyframes poison6animation{
+ 			0%{
+ 				background: url(../tiles/poison6/poison1.png);
+ 			}
+
+ 			25%{
+ 				background: url(../tiles/poison6/poison2.png);
+ 			}
+
+ 			50%{
+ 				background: url(../tiles/poison6/poison3.png);
+ 			}
+
+ 			75%{
+ 				background: url(../tiles/poison6/poison4.png);
+ 			}
+		}
+
+		@keyframes poison6animation_off{
+ 			0%{
+ 				background: url(../tiles/poison6_off/poison1.png);
+ 			}
+
+ 			25%{
+ 				background: url(../tiles/poison6_off/poison2.png);
+ 			}
+
+ 			50%{
+ 				background: url(../tiles/poison6_off/poison3.png);
+ 			}
+
+ 			75%{
+ 				background: url(../tiles/poison6_off/poison4.png);
+ 			}
+		}
+
+		@keyframes poison7animation{
+ 			0%{
+ 				background: url(../tiles/poison7/poison1.png);
+ 			}
+
+ 			25%{
+ 				background: url(../tiles/poison7/poison2.png);
+ 			}
+
+ 			50%{
+ 				background: url(../tiles/poison7/poison3.png);
+ 			}
+
+ 			75%{
+ 				background: url(../tiles/poison7/poison4.png);
+ 			}
+		}
+
+		@keyframes poison7animation_off{
+ 			0%{
+ 				background: url(../tiles/poison7_off/poison1.png);
+ 			}
+
+ 			25%{
+ 				background: url(../tiles/poison7_off/poison2.png);
+ 			}
+
+ 			50%{
+ 				background: url(../tiles/poison7_off/poison3.png);
+ 			}
+
+ 			75%{
+ 				background: url(../tiles/poison7_off/poison4.png);
+ 			}
+		}
+
+		@keyframes villager1animation{
+ 			0%{
+ 				background: url(../tiles/villager1/1.png);
+ 			}
+
+ 			25%{
+ 				background: url(../tiles/villager1/2.png);
+ 			}
+
+ 			50%{
+ 				background: url(../tiles/villager1/3.png);
+ 			}
+
+ 			75%{
+ 				background: url(../tiles/villager1/4.png);
+			}
+		}
+
+		@keyframes villager1animation_off{
+ 			0%{
+ 				background: url(../tiles/villager1_off/1.png);
+ 			}
+
+ 			25%{
+ 				background: url(../tiles/villager1_off/2.png);
+ 			}
+
+ 			50%{
+ 				background: url(../tiles/villager1_off/3.png);
+ 			}
+
+ 			75%{
+ 				background: url(../tiles/villager1_off/4.png);
+			}
+		}
+
+		@keyframes villager2animation{
+ 			0%{
+ 				background: url(../tiles/villager2/1.png);
+ 			}
+
+ 			25%{
+ 				background: url(../tiles/villager2/2.png);
+ 			}
+
+ 			50%{
+ 				background: url(../tiles/villager2/3.png);
+ 			}
+
+ 			75%{
+ 				background: url(../tiles/villager2/4.png);
+			}
+		}
+
+		@keyframes villager2animation_off{
+ 			0%{
+ 				background: url(../tiles/villager2_off/1.png);
+ 			}
+
+ 			25%{
+ 				background: url(../tiles/villager2_off/2.png);
+ 			}
+
+ 			50%{
+ 				background: url(../tiles/villager2_off/3.png);
+ 			}
+
+ 			75%{
+ 				background: url(../tiles/villager2_off/4.png);
+			}
+		}
+
+		@keyframes villager3animation{
+ 			0%{
+ 				background: url(../tiles/villager3/1.png);
+ 			}
+
+ 			25%{
+ 				background: url(../tiles/villager3/2.png);
+ 			}
+
+ 			50%{
+ 				background: url(../tiles/villager3/3.png);
+ 			}
+
+ 			75%{
+ 				background: url(../tiles/villager3/4.png);
+			}
+		}
+
+		@keyframes villager3animation_off{
+ 			0%{
+ 				background: url(../tiles/villager3_off/1.png);
+ 			}
+
+ 			25%{
+ 				background: url(../tiles/villager3_off/2.png);
+ 			}
+
+ 			50%{
+ 				background: url(../tiles/villager3_off/3.png);
+ 			}
+
+ 			75%{
+ 				background: url(../tiles/villager3_off/4.png);
+			}
+		}
+
+		@keyframes villager4animation{
+ 			0%{
+ 				background: url(../tiles/villager4/1.png);
+ 			}
+
+ 			25%{
+ 				background: url(../tiles/villager4/2.png);
+ 			}
+
+ 			50%{
+ 				background: url(../tiles/villager4/3.png);
+ 			}
+
+ 			75%{
+ 				background: url(../tiles/villager4/4.png);
+			}
+		}
+
+		@keyframes villager4animation_off{
+ 			0%{
+ 				background: url(../tiles/villager4_off/1.png);
+ 			}
+
+ 			25%{
+ 				background: url(../tiles/villager4_off/2.png);
+ 			}
+
+ 			50%{
+ 				background: url(../tiles/villager4_off/3.png);
+ 			}
+
+ 			75%{
+ 				background: url(../tiles/villager4_off/4.png);
+			}
+		}
+
+		@keyframes villager5animation{
+ 			0%{
+ 				background: url(../tiles/villager5/1.png);
+ 			}
+
+ 			25%{
+ 				background: url(../tiles/villager5/2.png);
+ 			}
+
+ 			50%{
+ 				background: url(../tiles/villager5/3.png);
+ 			}
+
+ 			75%{
+ 				background: url(../tiles/villager5/4.png);
+			}
+		}
+
+		@keyframes villager5animation_off{
+ 			0%{
+ 				background: url(../tiles/villager5_off/1.png);
+ 			}
+
+ 			25%{
+ 				background: url(../tiles/villager5_off/2.png);
+ 			}
+
+ 			50%{
+ 				background: url(../tiles/villager5_off/3.png);
+ 			}
+
+ 			75%{
+ 				background: url(../tiles/villager5_off/4.png);
+			}
+		}
+
+		@keyframes villager7animation{
+ 			0%{
+ 				background: url(../tiles/villager7/1.png);
+ 			}
+
+ 			25%{
+ 				background: url(../tiles/villager7/2.png);
+ 			}
+
+ 			50%{
+ 				background: url(../tiles/villager7/3.png);
+ 			}
+
+ 			75%{
+ 				background: url(../tiles/villager7/4.png);
+			}
+		}
+
+		@keyframes villager7animation_off{
+ 			0%{
+ 				background: url(../tiles/villager7_off/1.png);
+ 			}
+
+ 			25%{
+ 				background: url(../tiles/villager7_off/2.png);
+ 			}
+
+ 			50%{
+ 				background: url(../tiles/villager7_off/3.png);
+ 			}
+
+ 			75%{
+ 				background: url(../tiles/villager7_off/4.png);
+			}
+		}
+
+		@keyframes villager6animation{
+ 			0%{
+ 				background: url(../tiles/villager6/1.png);
+ 			}
+
+ 			25%{
+ 				background: url(../tiles/villager6/2.png);
+ 			}
+
+ 			50%{
+ 				background: url(../tiles/villager6/3.png);
+ 			}
+
+ 			75%{
+ 				background: url(../tiles/villager6/4.png);
+			}
+		}
+
+		@keyframes villager6animation_off{
+ 			0%{
+ 				background: url(../tiles/villager6_off/1.png);
+ 			}
+
+ 			25%{
+ 				background: url(../tiles/villager6_off/2.png);
+ 			}
+
+ 			50%{
+ 				background: url(../tiles/villager6_off/3.png);
+ 			}
+
+ 			75%{
+ 				background: url(../tiles/villager6_off/4.png);
+			}
+		}
+
+		@keyframes ftsanimation{
+ 			0%{
+ 				background: url(../tiles/fts1/fts1.png);
+ 			}
+
+ 			25%{
+ 				background: url(../tiles/fts1/fts2.png);
+ 			}
+
+ 			50%{
+ 				background: url(../tiles/fts1/fts3.png);
+ 			}
+
+ 			75%{
+ 				background: url(../tiles/fts1/fts4.png);
+			}
+		}
+
+		@keyframes ftsanimation_off{
+ 			0%{
+ 				background: url(../tiles/fts1_off/fts1.png);
+ 			}
+
+ 			25%{
+ 				background: url(../tiles/fts1_off/fts2.png);
+ 			}
+
+ 			50%{
+ 				background: url(../tiles/fts1_off/fts3.png);
+ 			}
+
+ 			75%{
+ 				background: url(../tiles/fts1_off/fts4.png);
+			}
+		}
+
+		@keyframes tankanimation{
+ 			0%{
+ 				background: url(../tiles/tank1/tank1.png);
+ 			}
+
+ 			25%{
+ 				background: url(../tiles/tank1/tank2.png);
+ 			}
+
+ 			50%{
+ 				background: url(../tiles/tank1/tank3.png);
+ 			}
+
+ 			75%{
+ 				background: url(../tiles/tank1/tank4.png);
+			}
+		}
+
+		@keyframes tankanimation_off{
+ 			0%{
+ 				background: url(../tiles/tank1_off/tank1.png);
+ 			}
+
+ 			25%{
+ 				background: url(../tiles/tank1_off/tank2.png);
+ 			}
+
+ 			50%{
+ 				background: url(../tiles/tank1_off/tank3.png);
+ 			}
+
+ 			75%{
+ 				background: url(../tiles/tank1_off/tank4.png);
+			}
+		}
+
+		@keyframes tank2animation{
+ 			0%{
+ 				background: url(../tiles/tank2/tank1.png);
+ 			}
+
+ 			25%{
+ 				background: url(../tiles/tank2/tank2.png);
+ 			}
+
+ 			50%{
+ 				background: url(../tiles/tank2/tank3.png);
+ 			}
+
+ 			75%{
+ 				background: url(../tiles/tank2/tank4.png);
+			}
+		}
+
+		@keyframes tank2animation_off{
+ 			0%{
+ 				background: url(../tiles/tank2_off/tank1.png);
+ 			}
+
+ 			25%{
+ 				background: url(../tiles/tank2_off/tank2.png);
+ 			}
+
+ 			50%{
+ 				background: url(../tiles/tank2_off/tank3.png);
+ 			}
+
+ 			75%{
+ 				background: url(../tiles/tank2_off/tank4.png);
+			}
+		}
+
+		@keyframes tank3animation{
+ 			0%{
+ 				background: url(../tiles/tank3/tank1.png);
+ 			}
+
+ 			25%{
+ 				background: url(../tiles/tank3/tank2.png);
+ 			}
+
+ 			50%{
+ 				background: url(../tiles/tank3/tank3.png);
+ 			}
+
+ 			75%{
+ 				background: url(../tiles/tank3/tank4.png);
+			}
+		}
+
+		@keyframes tank3animation_off{
+ 			0%{
+ 				background: url(../tiles/tank3_off/tank1.png);
+ 			}
+
+ 			25%{
+ 				background: url(../tiles/tank3_off/tank2.png);
+ 			}
+
+ 			50%{
+ 				background: url(../tiles/tank3_off/tank3.png);
+ 			}
+
+ 			75%{
+ 				background: url(../tiles/tank3_off/tank4.png);
+			}
+		}
+
+		@keyframes tank4animation{
+ 			0%{
+ 				background: url(../tiles/tank4/tank1.png);
+ 			}
+
+ 			25%{
+ 				background: url(../tiles/tank4/tank2.png);
+ 			}
+
+ 			50%{
+ 				background: url(../tiles/tank4/tank3.png);
+ 			}
+
+ 			75%{
+ 				background: url(../tiles/tank4/tank4.png);
+			}
+		}
+
+		@keyframes tank4animation_off{
+ 			0%{
+ 				background: url(../tiles/tank4_off/tank1.png);
+ 			}
+
+ 			25%{
+ 				background: url(../tiles/tank4_off/tank2.png);
+ 			}
+
+ 			50%{
+ 				background: url(../tiles/tank4_off/tank3.png);
+ 			}
+
+ 			75%{
+ 				background: url(../tiles/tank4_off/tank4.png);
+			}
+		}
+
+		@keyframes tank5animation{
+ 			0%{
+ 				background: url(../tiles/tank5/tank1.png);
+ 			}
+
+ 			25%{
+ 				background: url(../tiles/tank5/tank2.png);
+ 			}
+
+ 			50%{
+ 				background: url(../tiles/tank5/tank3.png);
+ 			}
+
+ 			75%{
+ 				background: url(../tiles/tank5/tank4.png);
+			}
+		}
+
+		@keyframes tank5animation_off{
+ 			0%{
+ 				background: url(../tiles/tank5_off/tank1.png);
+ 			}
+
+ 			25%{
+ 				background: url(../tiles/tank5_off/tank2.png);
+ 			}
+
+ 			50%{
+ 				background: url(../tiles/tank5_off/tank3.png);
+ 			}
+
+ 			75%{
+ 				background: url(../tiles/tank5_off/tank4.png);
+			}
+		}
+
+		@keyframes tank6animation{
+ 			0%{
+ 				background: url(../tiles/tank6/tank1.png);
+ 			}
+
+ 			25%{
+ 				background: url(../tiles/tank6/tank2.png);
+ 			}
+
+ 			50%{
+ 				background: url(../tiles/tank6/tank3.png);
+ 			}
+
+ 			75%{
+ 				background: url(../tiles/tank6/tank4.png);
+			}
+		}
+
+		@keyframes tank6animation_off{
+ 			0%{
+ 				background: url(../tiles/tank6_off/tank1.png);
+ 			}
+
+ 			25%{
+ 				background: url(../tiles/tank6_off/tank2.png);
+ 			}
+
+ 			50%{
+ 				background: url(../tiles/tank6_off/tank3.png);
+ 			}
+
+ 			75%{
+ 				background: url(../tiles/tank6_off/tank4.png);
+			}
+		}
+
+		@keyframes tank7animation{
+ 			0%{
+ 				background: url(../tiles/tank7/tank1.png);
+ 			}
+
+ 			25%{
+ 				background: url(../tiles/tank7/tank2.png);
+ 			}
+
+ 			50%{
+ 				background: url(../tiles/tank7/tank3.png);
+ 			}
+
+ 			75%{
+ 				background: url(../tiles/tank7/tank4.png);
+			}
+		}
+
+		@keyframes tank7animation_off{
+ 			0%{
+ 				background: url(../tiles/tank7_off/tank1.png);
+ 			}
+
+ 			25%{
+ 				background: url(../tiles/tank7_off/tank2.png);
+ 			}
+
+ 			50%{
+ 				background: url(../tiles/tank7_off/tank3.png);
+ 			}
+
+ 			75%{
+ 				background: url(../tiles/tank7_off/tank4.png);
+			}
+		}
+
+		@keyframes toweranimation{
+ 			0%{
+ 				background: url(../tiles/tower1/tower1.png);
+ 			}
+
+ 			25%{
+ 				background: url(../tiles/tower1/tower2.png);
+ 			}
+
+ 			50%{
+ 				background: url(../tiles/tower1/tower3.png);
+ 			}
+
+ 			75%{
+ 				background: url(../tiles/tower1/tower4.png);
+			}
+		}
+
+		@keyframes toweranimation_off{
+ 			0%{
+ 				background: url(../tiles/tower1_off/tower1.png);
+ 			}
+
+ 			25%{
+ 				background: url(../tiles/tower1_off/tower2.png);
+ 			}
+
+ 			50%{
+ 				background: url(../tiles/tower1_off/tower3.png);
+ 			}
+
+ 			75%{
+ 				background: url(../tiles/tower1_off/tower4.png);
+			}
+		}
+
+		@keyframes builderanimation{
+ 			0%{
+ 				background: url(../tiles/builder1/builder1.png);
+ 			}
+
+ 			25%{
+ 				background: url(../tiles/builder1/builder2.png);
+ 			}
+
+ 			50%{
+ 				background: url(../tiles/builder1/builder3.png);
+ 			}
+
+ 			75%{
+ 				background: url(../tiles/builder1/builder4.png);
+			}
+		}
+
+		@keyframes builderanimation_off{
+ 			0%{
+ 				background: url(../tiles/builder1_off/builder1.png);
+ 			}
+
+ 			25%{
+ 				background: url(../tiles/builder1_off/builder2.png);
+ 			}
+
+ 			50%{
+ 				background: url(../tiles/builder1_off/builder3.png);
+ 			}
+
+ 			75%{
+ 				background: url(../tiles/builder1_off/builder4.png);
+			}
+		}
+
+		@keyframes builder2animation{
+ 			0%{
+ 				background: url(../tiles/builder2/builder1.png);
+ 			}
+
+ 			25%{
+ 				background: url(../tiles/builder2/builder2.png);
+ 			}
+
+ 			50%{
+ 				background: url(../tiles/builder2/builder3.png);
+ 			}
+
+ 			75%{
+ 				background: url(../tiles/builder2/builder4.png);
+			}
+		}
+
+		@keyframes builder2animation_off{
+ 			0%{
+ 				background: url(../tiles/builder2_off/builder1.png);
+ 			}
+
+ 			25%{
+ 				background: url(../tiles/builder2_off/builder2.png);
+ 			}
+
+ 			50%{
+ 				background: url(../tiles/builder2_off/builder3.png);
+ 			}
+
+ 			75%{
+ 				background: url(../tiles/builder2_off/builder4.png);
+			}
+		}
+
+		@keyframes builder3animation{
+ 			0%{
+ 				background: url(../tiles/builder3/builder1.png);
+ 			}
+
+ 			25%{
+ 				background: url(../tiles/builder3/builder2.png);
+ 			}
+
+ 			50%{
+ 				background: url(../tiles/builder3/builder3.png);
+ 			}
+
+ 			75%{
+ 				background: url(../tiles/builder3/builder4.png);
+			}
+		}
+
+		@keyframes builder3animation_off{
+ 			0%{
+ 				background: url(../tiles/builder3_off/builder1.png);
+ 			}
+
+ 			25%{
+ 				background: url(../tiles/builder3_off/builder2.png);
+ 			}
+
+ 			50%{
+ 				background: url(../tiles/builder3_off/builder3.png);
+ 			}
+
+ 			75%{
+ 				background: url(../tiles/builder3_off/builder4.png);
+			}
+		}
+
+		@keyframes builder4animation{
+ 			0%{
+ 				background: url(../tiles/builder4/builder1.png);
+ 			}
+
+ 			25%{
+ 				background: url(../tiles/builder4/builder2.png);
+ 			}
+
+ 			50%{
+ 				background: url(../tiles/builder4/builder3.png);
+ 			}
+
+ 			75%{
+ 				background: url(../tiles/builder4/builder4.png);
+			}
+		}
+
+		@keyframes builder4animation_off{
+ 			0%{
+ 				background: url(../tiles/builder4_off/builder1.png);
+ 			}
+
+ 			25%{
+ 				background: url(../tiles/builder4_off/builder2.png);
+ 			}
+
+ 			50%{
+ 				background: url(../tiles/builder4_off/builder3.png);
+ 			}
+
+ 			75%{
+ 				background: url(../tiles/builder4_off/builder4.png);
+			}
+		}
+
+		@keyframes builder5animation{
+ 			0%{
+ 				background: url(../tiles/builder5/builder1.png);
+ 			}
+
+ 			25%{
+ 				background: url(../tiles/builder5/builder2.png);
+ 			}
+
+ 			50%{
+ 				background: url(../tiles/builder5/builder3.png);
+ 			}
+
+ 			75%{
+ 				background: url(../tiles/builder5/builder4.png);
+			}
+		}
+
+		@keyframes builder5animation_off{
+ 			0%{
+ 				background: url(../tiles/builder5_off/builder1.png);
+ 			}
+
+ 			25%{
+ 				background: url(../tiles/builder5_off/builder2.png);
+ 			}
+
+ 			50%{
+ 				background: url(../tiles/builder5_off/builder3.png);
+ 			}
+
+ 			75%{
+ 				background: url(../tiles/builder5_off/builder4.png);
+			}
+		}
+
+		@keyframes builder6animation{
+ 			0%{
+ 				background: url(../tiles/builder6/builder1.png);
+ 			}
+
+ 			25%{
+ 				background: url(../tiles/builder6/builder2.png);
+ 			}
+
+ 			50%{
+ 				background: url(../tiles/builder6/builder3.png);
+ 			}
+
+ 			75%{
+ 				background: url(../tiles/builder6/builder4.png);
+			}
+		}
+
+		@keyframes builder6animation_off{
+ 			0%{
+ 				background: url(../tiles/builder6_off/builder1.png);
+ 			}
+
+ 			25%{
+ 				background: url(../tiles/builder6_off/builder2.png);
+ 			}
+
+ 			50%{
+ 				background: url(../tiles/builder6_off/builder3.png);
+ 			}
+
+ 			75%{
+ 				background: url(../tiles/builder6_off/builder4.png);
+			}
+		}
+
+		@keyframes builder7animation{
+ 			0%{
+ 				background: url(../tiles/builder7/builder1.png);
+ 			}
+
+ 			25%{
+ 				background: url(../tiles/builder7/builder2.png);
+ 			}
+
+ 			50%{
+ 				background: url(../tiles/builder7/builder3.png);
+ 			}
+
+ 			75%{
+ 				background: url(../tiles/builder7/builder4.png);
+			}
+		}
+
+		@keyframes builder7animation_off{
+ 			0%{
+ 				background: url(../tiles/builder7_off/builder1.png);
+ 			}
+
+ 			25%{
+ 				background: url(../tiles/builder7_off/builder2.png);
+ 			}
+
+ 			50%{
+ 				background: url(../tiles/builder7_off/builder3.png);
+ 			}
+
+ 			75%{
+ 				background: url(../tiles/builder7_off/builder4.png);
+			}
+		}
+
+		@keyframes tower2animation{
+ 			0%{
+ 				background: url(../tiles/tower2/tower1.png);
+ 			}
+
+ 			25%{
+ 				background: url(../tiles/tower2/tower2.png);
+ 			}
+
+ 			50%{
+ 				background: url(../tiles/tower2/tower3.png);
+ 			}
+
+ 			75%{
+ 				background: url(../tiles/tower2/tower4.png);
+			}
+		}
+
+		@keyframes tower2animation_off{
+ 			0%{
+ 				background: url(../tiles/tower2_off/tower1.png);
+ 			}
+
+ 			25%{
+ 				background: url(../tiles/tower2_off/tower2.png);
+ 			}
+
+ 			50%{
+ 				background: url(../tiles/tower2_off/tower3.png);
+ 			}
+
+ 			75%{
+ 				background: url(../tiles/tower2_off/tower4.png);
+			}
+		}
+
+		@keyframes tower3animation{
+ 			0%{
+ 				background: url(../tiles/tower3/tower1.png);
+ 			}
+
+ 			25%{
+ 				background: url(../tiles/tower3/tower2.png);
+ 			}
+
+ 			50%{
+ 				background: url(../tiles/tower3/tower3.png);
+ 			}
+
+ 			75%{
+ 				background: url(../tiles/tower3/tower4.png);
+			}
+		}
+
+		@keyframes tower3animation_off{
+ 			0%{
+ 				background: url(../tiles/tower3_off/tower1.png);
+ 			}
+
+ 			25%{
+ 				background: url(../tiles/tower3_off/tower2.png);
+ 			}
+
+ 			50%{
+ 				background: url(../tiles/tower3_off/tower3.png);
+ 			}
+
+ 			75%{
+ 				background: url(../tiles/tower3_off/tower4.png);
+			}
+		}
+
+		@keyframes tower4animation{
+ 			0%{
+ 				background: url(../tiles/tower4/tower1.png);
+ 			}
+
+ 			25%{
+ 				background: url(../tiles/tower4/tower2.png);
+ 			}
+
+ 			50%{
+ 				background: url(../tiles/tower4/tower3.png);
+ 			}
+
+ 			75%{
+ 				background: url(../tiles/tower4/tower4.png);
+			}
+		}
+
+		@keyframes tower4animation_off{
+ 			0%{
+ 				background: url(../tiles/tower4_off/tower1.png);
+ 			}
+
+ 			25%{
+ 				background: url(../tiles/tower4_off/tower2.png);
+ 			}
+
+ 			50%{
+ 				background: url(../tiles/tower4_off/tower3.png);
+ 			}
+
+ 			75%{
+ 				background: url(../tiles/tower4_off/tower4.png);
+			}
+		}
+
+		@keyframes tower5animation{
+ 			0%{
+ 				background: url(../tiles/tower5/tower1.png);
+ 			}
+
+ 			25%{
+ 				background: url(../tiles/tower5/tower2.png);
+ 			}
+
+ 			50%{
+ 				background: url(../tiles/tower5/tower3.png);
+ 			}
+
+ 			75%{
+ 				background: url(../tiles/tower5/tower4.png);
+			}
+		}
+
+		@keyframes tower5animation_off{
+ 			0%{
+ 				background: url(../tiles/tower5_off/tower1.png);
+ 			}
+
+ 			25%{
+ 				background: url(../tiles/tower5_off/tower2.png);
+ 			}
+
+ 			50%{
+ 				background: url(../tiles/tower5_off/tower3.png);
+ 			}
+
+ 			75%{
+ 				background: url(../tiles/tower5_off/tower4.png);
+			}
+		}
+
+		@keyframes tower6animation{
+ 			0%{
+ 				background: url(../tiles/tower6/tower1.png);
+ 			}
+
+ 			25%{
+ 				background: url(../tiles/tower6/tower2.png);
+ 			}
+
+ 			50%{
+ 				background: url(../tiles/tower6/tower3.png);
+ 			}
+
+ 			75%{
+ 				background: url(../tiles/tower6/tower4.png);
+			}
+		}
+
+		@keyframes tower6animation_off{
+ 			0%{
+ 				background: url(../tiles/tower6_off/tower1.png);
+ 			}
+
+ 			25%{
+ 				background: url(../tiles/tower6_off/tower2.png);
+ 			}
+
+ 			50%{
+ 				background: url(../tiles/tower6_off/tower3.png);
+ 			}
+
+ 			75%{
+ 				background: url(../tiles/tower6_off/tower4.png);
+			}
+		}
+
+		@keyframes tower7animation{
+ 			0%{
+ 				background: url(../tiles/tower7/tower1.png);
+ 			}
+
+ 			25%{
+ 				background: url(../tiles/tower7/tower2.png);
+ 			}
+
+ 			50%{
+ 				background: url(../tiles/tower7/tower3.png);
+ 			}
+
+ 			75%{
+ 				background: url(../tiles/tower7/tower4.png);
+			}
+		}
+
+		@keyframes tower7animation_off{
+ 			0%{
+ 				background: url(../tiles/tower7_off/tower1.png);
+ 			}
+
+ 			25%{
+ 				background: url(../tiles/tower7_off/tower2.png);
+ 			}
+
+ 			50%{
+ 				background: url(../tiles/tower7_off/tower3.png);
+ 			}
+
+ 			75%{
+ 				background: url(../tiles/tower7_off/tower4.png);
+			}
+		}
+
+		@keyframes fts4animation_off{
+ 			0%{
+ 				background: url(../tiles/fts4_off/fts1.png);
+ 			}
+
+ 			25%{
+ 				background: url(../tiles/fts4_off/fts2.png);
+ 			}
+
+ 			50%{
+ 				background: url(../tiles/fts4_off/fts3.png);
+ 			}
+
+ 			75%{
+ 				background: url(../tiles/fts4_off/fts4.png);
+			}
+		}
+
+		@keyframes fts4animation{
+ 			0%{
+ 				background: url(../tiles/fts4/fts1.png);
+ 			}
+
+ 			25%{
+ 				background: url(../tiles/fts4/fts2.png);
+ 			}
+
+ 			50%{
+ 				background: url(../tiles/fts4/fts3.png);
+ 			}
+
+ 			75%{
+ 				background: url(../tiles/fts4/fts4.png);
+			}
+		}
+
+		@keyframes fts5animation_off{
+ 			0%{
+ 				background: url(../tiles/fts5_off/fts1.png);
+ 			}
+
+ 			25%{
+ 				background: url(../tiles/fts5_off/fts2.png);
+ 			}
+
+ 			50%{
+ 				background: url(../tiles/fts5_off/fts3.png);
+ 			}
+
+ 			75%{
+ 				background: url(../tiles/fts5_off/fts4.png);
+			}
+		}
+
+		@keyframes fts5animation{
+ 			0%{
+ 				background: url(../tiles/fts5/fts1.png);
+ 			}
+
+ 			25%{
+ 				background: url(../tiles/fts5/fts2.png);
+ 			}
+
+ 			50%{
+ 				background: url(../tiles/fts5/fts3.png);
+ 			}
+
+ 			75%{
+ 				background: url(../tiles/fts5/fts4.png);
+			}
+		}
+
+		@keyframes fts6animation_off{
+ 			0%{
+ 				background: url(../tiles/fts6_off/fts1.png);
+ 			}
+
+ 			25%{
+ 				background: url(../tiles/fts6_off/fts2.png);
+ 			}
+
+ 			50%{
+ 				background: url(../tiles/fts6_off/fts3.png);
+ 			}
+
+ 			75%{
+ 				background: url(../tiles/fts6_off/fts4.png);
+			}
+		}
+
+		@keyframes fts6animation{
+ 			0%{
+ 				background: url(../tiles/fts6/fts1.png);
+ 			}
+
+ 			25%{
+ 				background: url(../tiles/fts6/fts2.png);
+ 			}
+
+ 			50%{
+ 				background: url(../tiles/fts6/fts3.png);
+ 			}
+
+ 			75%{
+ 				background: url(../tiles/fts6/fts4.png);
+			}
+		}
+
+		@keyframes fts7animation_off{
+ 			0%{
+ 				background: url(../tiles/fts7_off/fts1.png);
+ 			}
+
+ 			25%{
+ 				background: url(../tiles/fts7_off/fts2.png);
+ 			}
+
+ 			50%{
+ 				background: url(../tiles/fts7_off/fts3.png);
+ 			}
+
+ 			75%{
+ 				background: url(../tiles/fts7_off/fts4.png);
+			}
+		}
+
+		@keyframes fts7animation{
+ 			0%{
+ 				background: url(../tiles/fts7/fts1.png);
+ 			}
+
+ 			25%{
+ 				background: url(../tiles/fts7/fts2.png);
+ 			}
+
+ 			50%{
+ 				background: url(../tiles/fts7/fts3.png);
+ 			}
+
+ 			75%{
+ 				background: url(../tiles/fts7/fts4.png);
+			}
+		}
+
+		@keyframes fts2animation_off{
+ 			0%{
+ 				background: url(../tiles/fts2_off/fts1.png);
+ 			}
+
+ 			25%{
+ 				background: url(../tiles/fts2_off/fts2.png);
+ 			}
+
+ 			50%{
+ 				background: url(../tiles/fts2_off/fts3.png);
+ 			}
+
+ 			75%{
+ 				background: url(../tiles/fts2_off/fts4.png);
+			}
+		}
+
+		@keyframes fts2animation{
+ 			0%{
+ 				background: url(../tiles/fts2/fts1.png);
+ 			}
+
+ 			25%{
+ 				background: url(../tiles/fts2/fts2.png);
+ 			}
+
+ 			50%{
+ 				background: url(../tiles/fts2/fts3.png);
+ 			}
+
+ 			75%{
+ 				background: url(../tiles/fts2/fts4.png);
+			}
+		}
+
+		@keyframes fts3animation_off{
+ 			0%{
+ 				background: url(../tiles/fts3_off/fts1.png);
+ 			}
+
+ 			25%{
+ 				background: url(../tiles/fts3_off/fts2.png);
+ 			}
+
+ 			50%{
+ 				background: url(../tiles/fts3_off/fts3.png);
+ 			}
+
+ 			75%{
+ 				background: url(../tiles/fts3_off/fts4.png);
+			}
+		}
+
+		@keyframes fts3animation{
+ 			0%{
+ 				background: url(../tiles/fts3/fts1.png);
+ 			}
+
+ 			25%{
+ 				background: url(../tiles/fts3/fts2.png);
+ 			}
+
+ 			50%{
+ 				background: url(../tiles/fts3/fts3.png);
+ 			}
+
+ 			75%{
+ 				background: url(../tiles/fts3/fts4.png);
+			}
+		}
+
+		@keyframes shield2animation_off{
+ 			0%{
+ 				background: url(../tiles/shield2_off/shield1.png);
+ 			}
+
+ 			25%{
+ 				background: url(../tiles/shield2_off/shield2.png);
+ 			}
+
+ 			50%{
+ 				background: url(../tiles/shield2_off/shield3.png);
+ 			}
+
+ 			75%{
+ 				background: url(../tiles/shield2_off/shield4.png);
+			}
+		}
+
+		@keyframes shield2animation{
+ 			0%{
+ 				background: url(../tiles/shield2/shield1.png);
+ 			}
+
+ 			25%{
+ 				background: url(../tiles/shield2/shield2.png);
+ 			}
+
+ 			50%{
+ 				background: url(../tiles/shield2/shield3.png);
+ 			}
+
+ 			75%{
+ 				background: url(../tiles/shield2/shield4.png);
+			}
+		}
+
+		@keyframes shield3animation_off{
+ 			0%{
+ 				background: url(../tiles/shield3_off/shield1.png);
+ 			}
+
+ 			25%{
+ 				background: url(../tiles/shield3_off/shield2.png);
+ 			}
+
+ 			50%{
+ 				background: url(../tiles/shield3_off/shield3.png);
+ 			}
+
+ 			75%{
+ 				background: url(../tiles/shield3_off/shield4.png);
+			}
+		}
+
+		@keyframes shield3animation{
+ 			0%{
+ 				background: url(../tiles/shield3/shield1.png);
+ 			}
+
+ 			25%{
+ 				background: url(../tiles/shield3/shield2.png);
+ 			}
+
+ 			50%{
+ 				background: url(../tiles/shield3/shield3.png);
+ 			}
+
+ 			75%{
+ 				background: url(../tiles/shield3/shield4.png);
+			}
+		}
+
+		@keyframes shield4animation_off{
+ 			0%{
+ 				background: url(../tiles/shield4_off/shield1.png);
+ 			}
+
+ 			25%{
+ 				background: url(../tiles/shield4_off/shield2.png);
+ 			}
+
+ 			50%{
+ 				background: url(../tiles/shield4_off/shield3.png);
+ 			}
+
+ 			75%{
+ 				background: url(../tiles/shield4_off/shield4.png);
+			}
+		}
+
+		@keyframes shield4animation{
+ 			0%{
+ 				background: url(../tiles/shield4/shield1.png);
+ 			}
+
+ 			25%{
+ 				background: url(../tiles/shield4/shield2.png);
+ 			}
+
+ 			50%{
+ 				background: url(../tiles/shield4/shield3.png);
+ 			}
+
+ 			75%{
+ 				background: url(../tiles/shield4/shield4.png);
+			}
+		}
+
+		@keyframes shield5animation_off{
+ 			0%{
+ 				background: url(../tiles/shield5_off/shield1.png);
+ 			}
+
+ 			25%{
+ 				background: url(../tiles/shield5_off/shield2.png);
+ 			}
+
+ 			50%{
+ 				background: url(../tiles/shield5_off/shield3.png);
+ 			}
+
+ 			75%{
+ 				background: url(../tiles/shield5_off/shield4.png);
+			}
+		}
+
+		@keyframes shield5animation{
+ 			0%{
+ 				background: url(../tiles/shield5/shield1.png);
+ 			}
+
+ 			25%{
+ 				background: url(../tiles/shield5/shield2.png);
+ 			}
+
+ 			50%{
+ 				background: url(../tiles/shield5/shield3.png);
+ 			}
+
+ 			75%{
+ 				background: url(../tiles/shield5/shield4.png);
+			}
+		}
+
+		@keyframes shield6animation_off{
+ 			0%{
+ 				background: url(../tiles/shield6_off/shield1.png);
+ 			}
+
+ 			25%{
+ 				background: url(../tiles/shield6_off/shield2.png);
+ 			}
+
+ 			50%{
+ 				background: url(../tiles/shield6_off/shield3.png);
+ 			}
+
+ 			75%{
+ 				background: url(../tiles/shield6_off/shield4.png);
+			}
+		}
+
+		@keyframes shield6animation{
+ 			0%{
+ 				background: url(../tiles/shield6/shield1.png);
+ 			}
+
+ 			25%{
+ 				background: url(../tiles/shield6/shield2.png);
+ 			}
+
+ 			50%{
+ 				background: url(../tiles/shield6/shield3.png);
+ 			}
+
+ 			75%{
+ 				background: url(../tiles/shield6/shield4.png);
+			}
+		}
+
+		@keyframes shield7animation_off{
+ 			0%{
+ 				background: url(../tiles/shield7_off/shield1.png);
+ 			}
+
+ 			25%{
+ 				background: url(../tiles/shield7_off/shield2.png);
+ 			}
+
+ 			50%{
+ 				background: url(../tiles/shield7_off/shield3.png);
+ 			}
+
+ 			75%{
+ 				background: url(../tiles/shield7_off/shield4.png);
+			}
+		}
+
+		@keyframes shield7animation{
+ 			0%{
+ 				background: url(../tiles/shield7/shield1.png);
+ 			}
+
+ 			25%{
+ 				background: url(../tiles/shield7/shield2.png);
+ 			}
+
+ 			50%{
+ 				background: url(../tiles/shield7/shield3.png);
+ 			}
+
+ 			75%{
+ 				background: url(../tiles/shield7/shield4.png);
+			}
+		}
+
+		@keyframes gunner2animation_off{
+ 			0%{
+ 				background: url(../tiles/gunner2_off/gunner1.png);
+ 			}
+
+ 			25%{
+ 				background: url(../tiles/gunner2_off/gunner2.png);
+ 			}
+
+ 			50%{
+ 				background: url(../tiles/gunner2_off/gunner3.png);
+ 			}
+
+ 			75%{
+ 				background: url(../tiles/gunner2_off/gunner4.png);
+			}
+		}
+
+		@keyframes gunner2animation{
+ 			0%{
+ 				background: url(../tiles/gunner2/gunner1.png);
+ 			}
+
+ 			25%{
+ 				background: url(../tiles/gunner2/gunner2.png);
+ 			}
+
+ 			50%{
+ 				background: url(../tiles/gunner2/gunner3.png);
+ 			}
+
+ 			75%{
+ 				background: url(../tiles/gunner2/gunner4.png);
+			}
+		}
+
+		@keyframes gunner3animation_off{
+ 			0%{
+ 				background: url(../tiles/gunner3_off/gunner1.png);
+ 			}
+
+ 			25%{
+ 				background: url(../tiles/gunner3_off/gunner2.png);
+ 			}
+
+ 			50%{
+ 				background: url(../tiles/gunner3_off/gunner3.png);
+ 			}
+
+ 			75%{
+ 				background: url(../tiles/gunner3_off/gunner4.png);
+			}
+		}
+
+		@keyframes gunner3animation{
+ 			0%{
+ 				background: url(../tiles/gunner3/gunner1.png);
+ 			}
+
+ 			25%{
+ 				background: url(../tiles/gunner3/gunner2.png);
+ 			}
+
+ 			50%{
+ 				background: url(../tiles/gunner3/gunner3.png);
+ 			}
+
+ 			75%{
+ 				background: url(../tiles/gunner3/gunner4.png);
+			}
+		}
+
+		@keyframes gunner4animation_off{
+ 			0%{
+ 				background: url(../tiles/gunner4_off/gunner1.png);
+ 			}
+
+ 			25%{
+ 				background: url(../tiles/gunner4_off/gunner2.png);
+ 			}
+
+ 			50%{
+ 				background: url(../tiles/gunner4_off/gunner3.png);
+ 			}
+
+ 			75%{
+ 				background: url(../tiles/gunner4_off/gunner4.png);
+			}
+		}
+
+		@keyframes gunner4animation{
+ 			0%{
+ 				background: url(../tiles/gunner4/gunner1.png);
+ 			}
+
+ 			25%{
+ 				background: url(../tiles/gunner4/gunner2.png);
+ 			}
+
+ 			50%{
+ 				background: url(../tiles/gunner4/gunner3.png);
+ 			}
+
+ 			75%{
+ 				background: url(../tiles/gunner4/gunner4.png);
+			}
+		}
+
+		@keyframes gunner5animation_off{
+ 			0%{
+ 				background: url(../tiles/gunner5_off/gunner1.png);
+ 			}
+
+ 			25%{
+ 				background: url(../tiles/gunner5_off/gunner2.png);
+ 			}
+
+ 			50%{
+ 				background: url(../tiles/gunner5_off/gunner3.png);
+ 			}
+
+ 			75%{
+ 				background: url(../tiles/gunner5_off/gunner4.png);
+			}
+		}
+
+		@keyframes gunner5animation{
+ 			0%{
+ 				background: url(../tiles/gunner5/gunner1.png);
+ 			}
+
+ 			25%{
+ 				background: url(../tiles/gunner5/gunner2.png);
+ 			}
+
+ 			50%{
+ 				background: url(../tiles/gunner5/gunner3.png);
+ 			}
+
+ 			75%{
+ 				background: url(../tiles/gunner5/gunner4.png);
+			}
+		}
+
+		@keyframes gunner6animation_off{
+ 			0%{
+ 				background: url(../tiles/gunner6_off/gunner1.png);
+ 			}
+
+ 			25%{
+ 				background: url(../tiles/gunner6_off/gunner2.png);
+ 			}
+
+ 			50%{
+ 				background: url(../tiles/gunner6_off/gunner3.png);
+ 			}
+
+ 			75%{
+ 				background: url(../tiles/gunner6_off/gunner4.png);
+			}
+		}
+
+		@keyframes gunner6animation{
+ 			0%{
+ 				background: url(../tiles/gunner6/gunner1.png);
+ 			}
+
+ 			25%{
+ 				background: url(../tiles/gunner6/gunner2.png);
+ 			}
+
+ 			50%{
+ 				background: url(../tiles/gunner6/gunner3.png);
+ 			}
+
+ 			75%{
+ 				background: url(../tiles/gunner6/gunner4.png);
+			}
+		}
+
+		@keyframes gunner7animation_off{
+ 			0%{
+ 				background: url(../tiles/gunner7_off/gunner1.png);
+ 			}
+
+ 			25%{
+ 				background: url(../tiles/gunner7_off/gunner2.png);
+ 			}
+
+ 			50%{
+ 				background: url(../tiles/gunner7_off/gunner3.png);
+ 			}
+
+ 			75%{
+ 				background: url(../tiles/gunner7_off/gunner4.png);
+			}
+		}
+
+		@keyframes gunner7animation{
+ 			0%{
+ 				background: url(../tiles/gunner7/gunner1.png);
+ 			}
+
+ 			25%{
+ 				background: url(../tiles/gunner7/gunner2.png);
+ 			}
+
+ 			50%{
+ 				background: url(../tiles/gunner7/gunner3.png);
+ 			}
+
+ 			75%{
+ 				background: url(../tiles/gunner7/gunner4.png);
+			}
+		}
+
+		@keyframes shieldanimation{
+ 			0%{
+ 				background: url(../tiles/shield1/shield1.png);
+ 			}
+
+ 			25%{
+ 				background: url(../tiles/shield1/shield2.png);
+ 			}
+
+ 			50%{
+ 				background: url(../tiles/shield1/shield3.png);
+ 			}
+
+ 			75%{
+ 				background: url(../tiles/shield1/shield4.png);
+			}
+		}
+
+		@keyframes shieldanimation_off{
+ 			0%{
+ 				background: url(../tiles/shield1_off/shield1.png);
+ 			}
+
+ 			25%{
+ 				background: url(../tiles/shield1_off/shield2.png);
+ 			}
+
+ 			50%{
+ 				background: url(../tiles/shield1_off/shield3.png);
+ 			}
+
+ 			75%{
+ 				background: url(../tiles/shield1_off/shield4.png);
+			}
+		}
+
+		@keyframes gunneranimation{
+ 			0%{
+ 				background: url(../tiles/gunner1/gunner1.png);
+ 			}
+
+ 			25%{
+ 				background: url(../tiles/gunner1/gunner2.png);
+ 			}
+
+ 			50%{
+ 				background: url(../tiles/gunner1/gunner3.png);
+ 			}
+
+ 			75%{
+ 				background: url(../tiles/gunner1/gunner4.png);
+			}
+		}
+
+		@keyframes gunneranimation_off{
+ 			0%{
+ 				background: url(../tiles/gunner1_off/gunner1.png);
+ 			}
+
+ 			25%{
+ 				background: url(../tiles/gunner1_off/gunner2.png);
+ 			}
+
+ 			50%{
+ 				background: url(../tiles/gunner1_off/gunner3.png);
+ 			}
+
+ 			75%{
+ 				background: url(../tiles/gunner1_off/gunner4.png);
+			}
+		}
+
+		@keyframes radioanimation{
+ 			0%{
+ 				background: url(../tiles/radio1/radio1.png);
+ 			}
+
+ 			25%{
+ 				background: url(../tiles/radio1/radio2.png);
+ 			}
+
+ 			50%{
+ 				background: url(../tiles/radio1/radio3.png);
+ 			}
+
+ 			75%{
+ 				background: url(../tiles/radio1/radio4.png);
+			}
+		}
+
+		@keyframes radioanimation_off{
+ 			0%{
+ 				background: url(../tiles/radio1_off/radio1.png);
+ 			}
+
+ 			25%{
+ 				background: url(../tiles/radio1_off/radio2.png);
+ 			}
+
+ 			50%{
+ 				background: url(../tiles/radio1_off/radio3.png);
+ 			}
+
+ 			75%{
+ 				background: url(../tiles/radio1_off/radio4.png);
+			}
+		}
+
+		@keyframes radio3animation{
+ 			0%{
+ 				background: url(../tiles/radio3/radio1.png);
+ 			}
+
+ 			25%{
+ 				background: url(../tiles/radio3/radio2.png);
+ 			}
+
+ 			50%{
+ 				background: url(../tiles/radio3/radio3.png);
+ 			}
+
+ 			75%{
+ 				background: url(../tiles/radio3/radio4.png);
+			}
+		}
+
+		@keyframes radio3animation_off{
+ 			0%{
+ 				background: url(../tiles/radio3_off/radio1.png);
+ 			}
+
+ 			25%{
+ 				background: url(../tiles/radio3_off/radio2.png);
+ 			}
+
+ 			50%{
+ 				background: url(../tiles/radio3_off/radio3.png);
+ 			}
+
+ 			75%{
+ 				background: url(../tiles/radio3_off/radio4.png);
+			}
+		}
+
+		@keyframes radio2animation{
+ 			0%{
+ 				background: url(../tiles/radio2/radio1.png);
+ 			}
+
+ 			25%{
+ 				background: url(../tiles/radio2/radio2.png);
+ 			}
+
+ 			50%{
+ 				background: url(../tiles/radio2/radio3.png);
+ 			}
+
+ 			75%{
+ 				background: url(../tiles/radio2/radio4.png);
+			}
+		}
+
+		@keyframes radio2animation_off{
+ 			0%{
+ 				background: url(../tiles/radio2_off/radio1.png);
+ 			}
+
+ 			25%{
+ 				background: url(../tiles/radio2_off/radio2.png);
+ 			}
+
+ 			50%{
+ 				background: url(../tiles/radio2_off/radio3.png);
+ 			}
+
+ 			75%{
+ 				background: url(../tiles/radio2_off/radio4.png);
+			}
+		}
+
+		@keyframes radio4animation{
+ 			0%{
+ 				background: url(../tiles/radio4/radio1.png);
+ 			}
+
+ 			25%{
+ 				background: url(../tiles/radio4/radio2.png);
+ 			}
+
+ 			50%{
+ 				background: url(../tiles/radio4/radio3.png);
+ 			}
+
+ 			75%{
+ 				background: url(../tiles/radio4/radio4.png);
+			}
+		}
+
+		@keyframes radio4animation_off{
+ 			0%{
+ 				background: url(../tiles/radio4_off/radio1.png);
+ 			}
+
+ 			25%{
+ 				background: url(../tiles/radio4_off/radio2.png);
+ 			}
+
+ 			50%{
+ 				background: url(../tiles/radio4_off/radio3.png);
+ 			}
+
+ 			75%{
+ 				background: url(../tiles/radio4_off/radio4.png);
+			}
+		}
+
+		@keyframes radio5animation{
+ 			0%{
+ 				background: url(../tiles/radio5/radio1.png);
+ 			}
+
+ 			25%{
+ 				background: url(../tiles/radio5/radio2.png);
+ 			}
+
+ 			50%{
+ 				background: url(../tiles/radio5/radio3.png);
+ 			}
+
+ 			75%{
+ 				background: url(../tiles/radio5/radio4.png);
+			}
+		}
+
+		@keyframes radio5animation_off{
+ 			0%{
+ 				background: url(../tiles/radio5_off/radio1.png);
+ 			}
+
+ 			25%{
+ 				background: url(../tiles/radio5_off/radio2.png);
+ 			}
+
+ 			50%{
+ 				background: url(../tiles/radio5_off/radio3.png);
+ 			}
+
+ 			75%{
+ 				background: url(../tiles/radio5_off/radio4.png);
+			}
+		}
+
+		@keyframes radio6animation{
+ 			0%{
+ 				background: url(../tiles/radio6/radio1.png);
+ 			}
+
+ 			25%{
+ 				background: url(../tiles/radio6/radio2.png);
+ 			}
+
+ 			50%{
+ 				background: url(../tiles/radio6/radio3.png);
+ 			}
+
+ 			75%{
+ 				background: url(../tiles/radio6/radio4.png);
+			}
+		}
+
+		@keyframes radio6animation_off{
+ 			0%{
+ 				background: url(../tiles/radio6_off/radio1.png);
+ 			}
+
+ 			25%{
+ 				background: url(../tiles/radio6_off/radio2.png);
+ 			}
+
+ 			50%{
+ 				background: url(../tiles/radio6_off/radio3.png);
+ 			}
+
+ 			75%{
+ 				background: url(../tiles/radio6_off/radio4.png);
+			}
+		}
+
+		@keyframes radio7animation{
+ 			0%{
+ 				background: url(../tiles/radio7/radio1.png);
+ 			}
+
+ 			25%{
+ 				background: url(../tiles/radio7/radio2.png);
+ 			}
+
+ 			50%{
+ 				background: url(../tiles/radio7/radio3.png);
+ 			}
+
+ 			75%{
+ 				background: url(../tiles/radio7/radio4.png);
+			}
+		}
+
+		@keyframes radio7animation_off{
+ 			0%{
+ 				background: url(../tiles/radio7_off/radio1.png);
+ 			}
+
+ 			25%{
+ 				background: url(../tiles/radio7_off/radio2.png);
+ 			}
+
+ 			50%{
+ 				background: url(../tiles/radio7_off/radio3.png);
+ 			}
+
+ 			75%{
+ 				background: url(../tiles/radio7_off/radio4.png);
+			}
+		}
+
+		@keyframes seganimation{
+ 			0%{
+ 				background: url(../tiles/seg1/seg1.png);
+ 			}
+
+ 			25%{
+ 				background: url(../tiles/seg1/seg2.png);
+ 			}
+
+ 			50%{
+ 				background: url(../tiles/seg1/seg3.png);
+ 			}
+
+ 			75%{
+ 				background: url(../tiles/seg1/seg4.png);
+			}
+		}
+
+		@keyframes seganimation_off{
+ 			0%{
+ 				background: url(../tiles/seg1_off/seg1.png);
+ 			}
+
+ 			25%{
+ 				background: url(../tiles/seg1_off/seg2.png);
+ 			}
+
+ 			50%{
+ 				background: url(../tiles/seg1_off/seg3.png);
+ 			}
+
+ 			75%{
+ 				background: url(../tiles/seg1_off/seg4.png);
+			}
+		}
+
+		@keyframes seg2animation{
+ 			0%{
+ 				background: url(../tiles/seg2/seg1.png);
+ 			}
+
+ 			25%{
+ 				background: url(../tiles/seg2/seg2.png);
+ 			}
+
+ 			50%{
+ 				background: url(../tiles/seg2/seg3.png);
+ 			}
+
+ 			75%{
+ 				background: url(../tiles/seg2/seg4.png);
+			}
+		}
+
+		@keyframes seg2animation_off{
+ 			0%{
+ 				background: url(../tiles/seg2_off/seg1.png);
+ 			}
+
+ 			25%{
+ 				background: url(../tiles/seg2_off/seg2.png);
+ 			}
+
+ 			50%{
+ 				background: url(../tiles/seg2_off/seg3.png);
+ 			}
+
+ 			75%{
+ 				background: url(../tiles/seg2_off/seg4.png);
+			}
+		}
+
+		@keyframes seg3animation{
+ 			0%{
+ 				background: url(../tiles/seg3/seg1.png);
+ 			}
+
+ 			25%{
+ 				background: url(../tiles/seg3/seg2.png);
+ 			}
+
+ 			50%{
+ 				background: url(../tiles/seg3/seg3.png);
+ 			}
+
+ 			75%{
+ 				background: url(../tiles/seg3/seg4.png);
+			}
+		}
+
+		@keyframes seg3animation_off{
+ 			0%{
+ 				background: url(../tiles/seg3_off/seg1.png);
+ 			}
+
+ 			25%{
+ 				background: url(../tiles/seg3_off/seg2.png);
+ 			}
+
+ 			50%{
+ 				background: url(../tiles/seg3_off/seg3.png);
+ 			}
+
+ 			75%{
+ 				background: url(../tiles/seg3_off/seg4.png);
+			}
+		}
+
+		@keyframes seg4animation{
+ 			0%{
+ 				background: url(../tiles/seg4/seg1.png);
+ 			}
+
+ 			25%{
+ 				background: url(../tiles/seg4/seg2.png);
+ 			}
+
+ 			50%{
+ 				background: url(../tiles/seg4/seg3.png);
+ 			}
+
+ 			75%{
+ 				background: url(../tiles/seg4/seg4.png);
+			}
+		}
+
+		@keyframes seg4animation_off{
+ 			0%{
+ 				background: url(../tiles/seg4_off/seg1.png);
+ 			}
+
+ 			25%{
+ 				background: url(../tiles/seg4_off/seg2.png);
+ 			}
+
+ 			50%{
+ 				background: url(../tiles/seg4_off/seg3.png);
+ 			}
+
+ 			75%{
+ 				background: url(../tiles/seg4_off/seg4.png);
+			}
+		}
+
+		@keyframes seg5animation{
+ 			0%{
+ 				background: url(../tiles/seg5/seg1.png);
+ 			}
+
+ 			25%{
+ 				background: url(../tiles/seg5/seg2.png);
+ 			}
+
+ 			50%{
+ 				background: url(../tiles/seg5/seg3.png);
+ 			}
+
+ 			75%{
+ 				background: url(../tiles/seg5/seg4.png);
+			}
+		}
+
+		@keyframes seg5animation_off{
+ 			0%{
+ 				background: url(../tiles/seg5_off/seg1.png);
+ 			}
+
+ 			25%{
+ 				background: url(../tiles/seg5_off/seg2.png);
+ 			}
+
+ 			50%{
+ 				background: url(../tiles/seg5_off/seg3.png);
+ 			}
+
+ 			75%{
+ 				background: url(../tiles/seg5_off/seg4.png);
+			}
+		}
+
+		@keyframes seg6animation{
+ 			0%{
+ 				background: url(../tiles/seg6/seg1.png);
+ 			}
+
+ 			25%{
+ 				background: url(../tiles/seg6/seg2.png);
+ 			}
+
+ 			50%{
+ 				background: url(../tiles/seg6/seg3.png);
+ 			}
+
+ 			75%{
+ 				background: url(../tiles/seg6/seg4.png);
+			}
+		}
+
+		@keyframes seg6animation_off{
+ 			0%{
+ 				background: url(../tiles/seg6_off/seg1.png);
+ 			}
+
+ 			25%{
+ 				background: url(../tiles/seg6_off/seg2.png);
+ 			}
+
+ 			50%{
+ 				background: url(../tiles/seg6_off/seg3.png);
+ 			}
+
+ 			75%{
+ 				background: url(../tiles/seg6_off/seg4.png);
+			}
+		}
+
+		@keyframes seg7animation{
+ 			0%{
+ 				background: url(../tiles/seg7/seg1.png);
+ 			}
+
+ 			25%{
+ 				background: url(../tiles/seg7/seg2.png);
+ 			}
+
+ 			50%{
+ 				background: url(../tiles/seg7/seg3.png);
+ 			}
+
+ 			75%{
+ 				background: url(../tiles/seg7/seg4.png);
+			}
+		}
+
+		@keyframes seg7animation_off{
+ 			0%{
+ 				background: url(../tiles/seg7_off/seg1.png);
+ 			}
+
+ 			25%{
+ 				background: url(../tiles/seg7_off/seg2.png);
+ 			}
+
+ 			50%{
+ 				background: url(../tiles/seg7_off/seg3.png);
+ 			}
+
+ 			75%{
+ 				background: url(../tiles/seg7_off/seg4.png);
+			}
+		}
+
+		@keyframes napalmanimation{
+ 			0%{
+ 				background: url(../tiles/napalm1/napalm1.png);
+ 			}
+
+ 			25%{
+ 				background: url(../tiles/napalm1/napalm2.png);
+ 			}
+
+ 			50%{
+ 				background: url(../tiles/napalm1/napalm3.png);
+ 			}
+
+ 			75%{
+ 				background: url(../tiles/napalm1/napalm4.png);
+			}
+		}
+
+		@keyframes napalmanimation_off{
+ 			0%{
+ 				background: url(../tiles/napalm1_off/napalm1.png);
+ 			}
+
+ 			25%{
+ 				background: url(../tiles/napalm1_off/napalm2.png);
+ 			}
+
+ 			50%{
+ 				background: url(../tiles/napalm1_off/napalm3.png);
+ 			}
+
+ 			75%{
+ 				background: url(../tiles/napalm1_off/napalm4.png);
+			}
+		}
+
+		@keyframes napalm2animation{
+ 			0%{
+ 				background: url(../tiles/napalm2/napalm1.png);
+ 			}
+
+ 			25%{
+ 				background: url(../tiles/napalm2/napalm2.png);
+ 			}
+
+ 			50%{
+ 				background: url(../tiles/napalm2/napalm3.png);
+ 			}
+
+ 			75%{
+ 				background: url(../tiles/napalm2/napalm4.png);
+			}
+		}
+
+		@keyframes napalm2animation_off{
+ 			0%{
+ 				background: url(../tiles/napalm2_off/napalm1.png);
+ 			}
+
+ 			25%{
+ 				background: url(../tiles/napalm2_off/napalm2.png);
+ 			}
+
+ 			50%{
+ 				background: url(../tiles/napalm2_off/napalm3.png);
+ 			}
+
+ 			75%{
+ 				background: url(../tiles/napalm2_off/napalm4.png);
+			}
+		}
+
+		@keyframes napalm3animation{
+ 			0%{
+ 				background: url(../tiles/napalm3/napalm1.png);
+ 			}
+
+ 			25%{
+ 				background: url(../tiles/napalm3/napalm2.png);
+ 			}
+
+ 			50%{
+ 				background: url(../tiles/napalm3/napalm3.png);
+ 			}
+
+ 			75%{
+ 				background: url(../tiles/napalm3/napalm4.png);
+			}
+		}
+
+		@keyframes napalm3animation_off{
+ 			0%{
+ 				background: url(../tiles/napalm3_off/napalm1.png);
+ 			}
+
+ 			25%{
+ 				background: url(../tiles/napalm3_off/napalm2.png);
+ 			}
+
+ 			50%{
+ 				background: url(../tiles/napalm3_off/napalm3.png);
+ 			}
+
+ 			75%{
+ 				background: url(../tiles/napalm3_off/napalm4.png);
+			}
+		}
+
+		@keyframes napalm4animation{
+ 			0%{
+ 				background: url(../tiles/napalm4/napalm1.png);
+ 			}
+
+ 			25%{
+ 				background: url(../tiles/napalm4/napalm2.png);
+ 			}
+
+ 			50%{
+ 				background: url(../tiles/napalm4/napalm3.png);
+ 			}
+
+ 			75%{
+ 				background: url(../tiles/napalm4/napalm4.png);
+			}
+		}
+
+		@keyframes napalm4animation_off{
+ 			0%{
+ 				background: url(../tiles/napalm4_off/napalm1.png);
+ 			}
+
+ 			25%{
+ 				background: url(../tiles/napalm4_off/napalm2.png);
+ 			}
+
+ 			50%{
+ 				background: url(../tiles/napalm4_off/napalm3.png);
+ 			}
+
+ 			75%{
+ 				background: url(../tiles/napalm4_off/napalm4.png);
+			}
+		}
+
+		@keyframes napalm5animation{
+ 			0%{
+ 				background: url(../tiles/napalm5/napalm1.png);
+ 			}
+
+ 			25%{
+ 				background: url(../tiles/napalm5/napalm2.png);
+ 			}
+
+ 			50%{
+ 				background: url(../tiles/napalm5/napalm3.png);
+ 			}
+
+ 			75%{
+ 				background: url(../tiles/napalm5/napalm4.png);
+			}
+		}
+
+		@keyframes napalm5animation_off{
+ 			0%{
+ 				background: url(../tiles/napalm5_off/napalm1.png);
+ 			}
+
+ 			25%{
+ 				background: url(../tiles/napalm5_off/napalm2.png);
+ 			}
+
+ 			50%{
+ 				background: url(../tiles/napalm5_off/napalm3.png);
+ 			}
+
+ 			75%{
+ 				background: url(../tiles/napalm5_off/napalm4.png);
+			}
+		}
+
+		@keyframes napalm6animation{
+ 			0%{
+ 				background: url(../tiles/napalm6/napalm1.png);
+ 			}
+
+ 			25%{
+ 				background: url(../tiles/napalm6/napalm2.png);
+ 			}
+
+ 			50%{
+ 				background: url(../tiles/napalm6/napalm3.png);
+ 			}
+
+ 			75%{
+ 				background: url(../tiles/napalm6/napalm4.png);
+			}
+		}
+
+		@keyframes napalm6animation_off{
+ 			0%{
+ 				background: url(../tiles/napalm6_off/napalm1.png);
+ 			}
+
+ 			25%{
+ 				background: url(../tiles/napalm6_off/napalm2.png);
+ 			}
+
+ 			50%{
+ 				background: url(../tiles/napalm6_off/napalm3.png);
+ 			}
+
+ 			75%{
+ 				background: url(../tiles/napalm6_off/napalm4.png);
+			}
+		}
+
+		@keyframes napalm7animation{
+ 			0%{
+ 				background: url(../tiles/napalm7/napalm1.png);
+ 			}
+
+ 			25%{
+ 				background: url(../tiles/napalm7/napalm2.png);
+ 			}
+
+ 			50%{
+ 				background: url(../tiles/napalm7/napalm3.png);
+ 			}
+
+ 			75%{
+ 				background: url(../tiles/napalm7/napalm4.png);
+			}
+		}
+
+		@keyframes napalm7animation_off{
+ 			0%{
+ 				background: url(../tiles/napalm7_off/napalm1.png);
+ 			}
+
+ 			25%{
+ 				background: url(../tiles/napalm7_off/napalm2.png);
+ 			}
+
+ 			50%{
+ 				background: url(../tiles/napalm7_off/napalm3.png);
+ 			}
+
+ 			75%{
+ 				background: url(../tiles/napalm7_off/napalm4.png);
+			}
+		}
+
+		@keyframes ninjaanimation{
+ 			0%{
+ 				background: url(../tiles/ninja1/ninja1.png);
+ 			}
+
+ 			25%{
+ 				background: url(../tiles/ninja1/ninja2.png);
+ 			}
+
+ 			50%{
+ 				background: url(../tiles/ninja1/ninja3.png);
+ 			}
+
+ 			75%{
+ 				background: url(../tiles/ninja1/ninja4.png);
+			}
+		}
+
+		@keyframes ninjaanimation_off{
+ 			0%{
+ 				background: url(../tiles/ninja1_off/ninja1.png);
+ 			}
+
+ 			25%{
+ 				background: url(../tiles/ninja1_off/ninja2.png);
+ 			}
+
+ 			50%{
+ 				background: url(../tiles/ninja1_off/ninja3.png);
+ 			}
+
+ 			75%{
+ 				background: url(../tiles/ninja1_off/ninja4.png);
+			}
+		}
+
+		@keyframes ninja2animation{
+ 			0%{
+ 				background: url(../tiles/ninja2/ninja1.png);
+ 			}
+
+ 			25%{
+ 				background: url(../tiles/ninja2/ninja2.png);
+ 			}
+
+ 			50%{
+ 				background: url(../tiles/ninja2/ninja3.png);
+ 			}
+
+ 			75%{
+ 				background: url(../tiles/ninja2/ninja4.png);
+			}
+		}
+
+		@keyframes ninja2animation_off{
+ 			0%{
+ 				background: url(../tiles/ninja2_off/ninja1.png);
+ 			}
+
+ 			25%{
+ 				background: url(../tiles/ninja2_off/ninja2.png);
+ 			}
+
+ 			50%{
+ 				background: url(../tiles/ninja2_off/ninja3.png);
+ 			}
+
+ 			75%{
+ 				background: url(../tiles/ninja2_off/ninja4.png);
+			}
+		}
+
+		@keyframes ninja3animation{
+ 			0%{
+ 				background: url(../tiles/ninja3/ninja1.png);
+ 			}
+
+ 			25%{
+ 				background: url(../tiles/ninja3/ninja2.png);
+ 			}
+
+ 			50%{
+ 				background: url(../tiles/ninja3/ninja3.png);
+ 			}
+
+ 			75%{
+ 				background: url(../tiles/ninja3/ninja4.png);
+			}
+		}
+
+		@keyframes ninja3animation_off{
+ 			0%{
+ 				background: url(../tiles/ninja3_off/ninja1.png);
+ 			}
+
+ 			25%{
+ 				background: url(../tiles/ninja3_off/ninja2.png);
+ 			}
+
+ 			50%{
+ 				background: url(../tiles/ninja3_off/ninja3.png);
+ 			}
+
+ 			75%{
+ 				background: url(../tiles/ninja3_off/ninja4.png);
+			}
+		}
+
+		@keyframes ninja4animation{
+ 			0%{
+ 				background: url(../tiles/ninja4/ninja1.png);
+ 			}
+
+ 			25%{
+ 				background: url(../tiles/ninja4/ninja2.png);
+ 			}
+
+ 			50%{
+ 				background: url(../tiles/ninja4/ninja3.png);
+ 			}
+
+ 			75%{
+ 				background: url(../tiles/ninja4/ninja4.png);
+			}
+		}
+
+		@keyframes ninja4animation_off{
+ 			0%{
+ 				background: url(../tiles/ninja4_off/ninja1.png);
+ 			}
+
+ 			25%{
+ 				background: url(../tiles/ninja4_off/ninja2.png);
+ 			}
+
+ 			50%{
+ 				background: url(../tiles/ninja4_off/ninja3.png);
+ 			}
+
+ 			75%{
+ 				background: url(../tiles/ninja4_off/ninja4.png);
+			}
+		}
+
+		@keyframes ninja5animation{
+ 			0%{
+ 				background: url(../tiles/ninja5/ninja1.png);
+ 			}
+
+ 			25%{
+ 				background: url(../tiles/ninja5/ninja2.png);
+ 			}
+
+ 			50%{
+ 				background: url(../tiles/ninja5/ninja3.png);
+ 			}
+
+ 			75%{
+ 				background: url(../tiles/ninja5/ninja4.png);
+			}
+		}
+
+		@keyframes ninja5animation_off{
+ 			0%{
+ 				background: url(../tiles/ninja5_off/ninja1.png);
+ 			}
+
+ 			25%{
+ 				background: url(../tiles/ninja5_off/ninja2.png);
+ 			}
+
+ 			50%{
+ 				background: url(../tiles/ninja5_off/ninja3.png);
+ 			}
+
+ 			75%{
+ 				background: url(../tiles/ninja5_off/ninja4.png);
+			}
+		}
+
+		@keyframes ninja6animation{
+ 			0%{
+ 				background: url(../tiles/ninja6/ninja1.png);
+ 			}
+
+ 			25%{
+ 				background: url(../tiles/ninja6/ninja2.png);
+ 			}
+
+ 			50%{
+ 				background: url(../tiles/ninja6/ninja3.png);
+ 			}
+
+ 			75%{
+ 				background: url(../tiles/ninja6/ninja4.png);
+			}
+		}
+
+		@keyframes ninja6animation_off{
+ 			0%{
+ 				background: url(../tiles/ninja6_off/ninja1.png);
+ 			}
+
+ 			25%{
+ 				background: url(../tiles/ninja6_off/ninja2.png);
+ 			}
+
+ 			50%{
+ 				background: url(../tiles/ninja6_off/ninja3.png);
+ 			}
+
+ 			75%{
+ 				background: url(../tiles/ninja6_off/ninja4.png);
+			}
+		}
+
+		@keyframes ninja7animation{
+ 			0%{
+ 				background: url(../tiles/ninja7/ninja1.png);
+ 			}
+
+ 			25%{
+ 				background: url(../tiles/ninja7/ninja2.png);
+ 			}
+
+ 			50%{
+ 				background: url(../tiles/ninja7/ninja3.png);
+ 			}
+
+ 			75%{
+ 				background: url(../tiles/ninja7/ninja4.png);
+			}
+		}
+
+		@keyframes ninja7animation_off{
+ 			0%{
+ 				background: url(../tiles/ninja7_off/ninja1.png);
+ 			}
+
+ 			25%{
+ 				background: url(../tiles/ninja7_off/ninja2.png);
+ 			}
+
+ 			50%{
+ 				background: url(../tiles/ninja7_off/ninja3.png);
+ 			}
+
+ 			75%{
+ 				background: url(../tiles/ninja7_off/ninja4.png);
+			}
+		}
+
+		@keyframes clignote {
+			50%{
+				opacity: 0.33;
+			}
+		}

@@ -1,0 +1,156 @@
+body{
+	margin: 0;
+	font-family: consolas;
+	background: #111;
+}
+
+h1{
+	margin: 0;
+	padding: 20px;
+}
+
+h2{
+	margin: 0;
+	padding: 14.5vh;
+}
+
+p{
+	margin-top: 6px;
+}
+
+#header1{
+	background: #70C;
+	text-align: center;
+	color: ghostwhite;
+}
+
+#header2{
+	background: #C0C;
+	text-align: center;
+	color: ghostwhite;
+}
+
+#header3{
+	background: #07C;
+	text-align: center;
+	color: ghostwhite;
+}
+
+.cat{
+	border-left: solid 6px #222;
+	border-right: solid 6px #222;
+	text-align: center;
+	color: ghostwhite;
+	width: 50%;
+	margin: auto;
+}
+
+.cat:hover{
+	cursor: pointer;
+}
+
+.cat1{
+	background: #50A;
+}
+
+.cat2{
+	background: #A0A;
+}
+
+.cat3{
+	background: #05A;
+}
+
+.cat1:hover{
+	background: #70C;
+}
+
+.cat2:hover{
+	background: #C0C;
+}
+
+.cat3:hover{
+	background: #07C;
+}
+
+.box-container{
+	width: 66%;
+	margin: auto;
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.box{
+	width: 100px;
+	height: 100px;
+	background: #444;
+	margin: 10px;
+	color: ghostwhite;
+	text-align: center;
+	border: solid 6px #222;
+}
+
+#box-1{
+	background: url("../tiles/villager2/1.png") #444 no-repeat 50% 95%;
+	background-size: 80%;
+}
+
+#box-2{
+	background: url("../tiles/fts2/fts1.png") #444 no-repeat 50% 95%;
+	background-size: 80%;
+}
+
+#box-3{
+	background: url("../tiles/shield2/shield1.png") #444 no-repeat 50% 95%;
+	background-size: 80%;
+}
+
+#box-4{
+	background: url("../tiles/gunner2/gunner1.png") #444 no-repeat 50% 95%;
+	background-size: 80%;
+}
+
+#box-5{
+	background: url("../tiles/builder2/builder1.png") #444 no-repeat 50% 95%;
+	background-size: 80%;
+}
+
+#box-6{
+	background: url("../tiles/radio2/radio1.png") #444 no-repeat 50% 95%;
+	background-size: 80%;
+}
+
+#box-7{
+	background: url("../tiles/tank2/tank1.png") #444 no-repeat 50% 95%;
+	background-size: 80%;
+}
+
+#box-8{
+	background: url("../tiles/seg2/seg1.png") #444 no-repeat 50% 95%;
+	background-size: 80%;
+}
+
+#box-9{
+	background: url("../tiles/ninja2/ninja1.png") #444 no-repeat 50% 95%;
+	background-size: 80%;
+}
+
+#box-10{
+	background: url("../tiles/vtb2/vtb1.png") #444 no-repeat 50% 95%;
+	background-size: 80%;
+}
+
+#box-11{
+	background: url("../tiles/trumpet2/trumpet1.png") #444 no-repeat 50% 95%;
+	background-size: 80%;
+}
+
+#box-12{
+	background: url("../tiles/napalm2/napalm1.png") #444 no-repeat 50% 95%;
+	background-size: 80%;
+}
+
+#box-13{
+	background: url("../tiles/poison2/poison1.png") #444 no-repeat 50% 95%;
+	background-size: 80%;
+}

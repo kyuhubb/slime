@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html oncontextmenu="return false">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Menu</title>
+	<link rel="stylesheet" type="text/css" href="css/style-menu.css">
+</head>
+<body>
+	<div id="particles-js"></div>
+	<audio id='bgm' src='' loop></audio>
+  <audio id='sfx' src='sfx/menu_select.mp3'></audio>
+  <audio id='sfx2' src='sfx/menu_click.mp3'></audio>
+  <audio id='sfx3' src='sfx/click.mp3'></audio>
+	<center>
+		<div id='menu'>
+			<div id='cross' onclick='sfx2.play();hidemenu()'>x</div><br>
+			<label>plaines</label>　　　<input onclick='sfx3.currentTime = 0;sfx3.play()' class='numInput' id='plaine' type='number' value='54'><br><br>
+			<label>arbres</label>　　　  <input onclick='sfx3.currentTime = 0;sfx3.play()' class='numInput' id='arbre' type='number' value='25'><br><br>
+			<label>montagnes</label> 　<input onclick='sfx3.currentTime = 0;sfx3.play()' class='numInput' id='montagne' type='number' value='15'><br><br>
+			<label>villes</label>　　　　<input onclick='sfx3.currentTime = 0;sfx3.play()' class='numInput' id='ville' type='number' value='3'><br><br>
+      <label>villages</label>　　　<input onclick='sfx3.currentTime = 0;sfx3.play()' class='numInput' id='village' type='number' value='3' disabled><br><br>
+			<div id='generate' onclick='generate()'>Générer</div>
+		</div>
+    <div id='mainmenu'>
+		  <div class='button' onmouseover='sfx.currentTime = 0;sfx.play()' onclick="sfx2.play();showmenu()">Générer une carte</div><br><br>
+		  <div class='button' onmouseover='sfx.currentTime = 0;sfx.play()'  onclick='sfx2.play();newmap()'>Créer une carte</div><br><br>
+		  <label for='selfile' class='button' onmouseover='sfx.currentTime = 0;sfx.play()' onclick='sfx2.play()'>Charger une carte</label><br><br>
+		  <input id='selfile' type='file'><br><br><br>
+		  <div class='buttonNoHover'>Sélection du biome<br>
+		  <select onclick='sfx3.play()' id="listbox">
+		      <option selected value="0">Prairie</option>
+          <option value="1">Taiga</option>
+          <option value="2">Volcano</option>
+	     </select>
+	 	   </div>
+      <div class='buttonNoHover'>Brouillard nocturne<br>
+		  <select onclick='sfx3.currentTime = 0;sfx3.play()' id="nightmode">
+        <option selected value="-1">Non</option>
+		    <option value="1">Intermitant</option>
+        <option value="2">Permanent</option>
+	    </select>
+		  </div>
+      <div class='buttonNoHover'>Taille de la Carte<br>
+        <label>⇆:</label>
+        <input onclick='sfx3.currentTime = 0;sfx3.play()' value='21' type="number" id="xTiles" min="1" max="100">
+        <label>⇅:</label>
+        <input onclick='sfx3.currentTime = 0;sfx3.play()' value='12' type="number" id="yTiles" min="1" max="100">
+      </div><br><br>
+      <div class='buttonNoHover'>Joueur Ⅰ<br>
+      <select onclick='sfx3.currentTime = 0;sfx3.play()' id="player1" >
+          <option selected value="1">Givre</option>
+          <option value="2">Néant</option>
+          <option value="4">Mécanique</option>
+          <option value="5">Bonbon</option>
+          <option value="6">Orangeade</option>
+          <option value="7">Magmatique</option>
+          <option value="3">Pomme</option>
+       </select>
+       </div>
+       <div class='buttonNoHover'>Non-Joueur<br>
+      <select onclick='sfx3.currentTime = 0;sfx3.play()' id="player3" >
+          <option selected value="1">Givre</option>
+          <option value="2">Néant</option>
+          <option value="4">Mécanique</option>
+          <option value="5">Bonbon</option>
+          <option value="6">Orangeade</option>
+          <option value="7">Magmatique</option>
+          <option value="3">Pomme</option>
+       </select>
+       </div>
+       <div class='buttonNoHover'>Joueur Ⅱ<br>
+      <select onclick='sfx3.currentTime = 0;sfx3.play()' id="player2">
+          <option value="1">Givre</option>
+          <option selected value="2">Néant</option>
+          <option value="4">Mécanique</option>
+          <option value="5">Bonbon</option>
+          <option value="6">Orangeade</option>
+          <option value="7">Magmatique</option>
+          <option value="3">Pomme</option>
+       </select>
+       </div>
+	</center>
+</body>
+</html>
+<script>
+  let player1 = 1;
+  let player2 = 2;
+  let player3 = 3;
+	let biome = 0;
+	let nightmode = -1;
+	let perc1 = 54;
+	let perc2 = 25;
+	let perc3 = 15;
+	let perc4 = 3;
+  let perc5 = 3;
+  let xtiles = 21;
+  let ytiles = 12;
+
+function loadmap(){
+	var str = document.getElementById('selfile').value;
+	var get = str.substring(str.indexOf('\\') + 1);
+	get = get.substring(str.indexOf('\\') + 1);
+	get = get.substring(str.indexOf('\\') + 1);
+	get = get.substring(str.indexOf('\\') + 1);
+	location.href = "game.html?map="+get+"&biome="+biome+"&nightmode="+nightmode+"&player1="+player1+"&player2="+player2+"&player3="+player3;
+}
+
+function showmenu(){
+	document.getElementById('menu').style.display = 'inline-block';
+  document.getElementById('mainmenu').style.display = 'none';
+}
+
+function hidemenu(){
+	document.getElementById('menu').style.display = 'none';
+  document.getElementById('mainmenu').style.display = 'block';
+}
+
+function generate(){
+	var totperc = perc1+perc2+perc3+perc4+perc5;
+	var p1 = perc1;
+	var p2 = perc2+perc1;
+	var p3 = perc3+perc2+perc1;
+  var p4 = perc4+perc3+perc2+perc1;
+	if(totperc == 100){
+		location.href = "game.html?&biome="+biome+"&nightmode="+nightmode+"&p="+p1+"&w="+p2+"&m="+p3+"&c="+p4+"&player1="+player1+"&player2="+player2+"&player3="+player3+"&xtiles="+xtiles+"&ytiles="+ytiles;
+	}else{
+		alert('la somme des pourcentages doit être de 100 !')
+	}
+}
+
+function newmap(){
+	var get = "new";
+	location.href = "game.html?&biome="+biome+"&nightmode="+nightmode+"&p=99&w=99&m=99&c=100&player1="+player1+"&player2="+player2+"&player3="+player3+"&xtiles="+xtiles+"&ytiles="+ytiles;
+}
+
+function updatebiome(){
+	biome = document.getElementById('listbox').value;
+}
+
+function updatenightmode(){
+	nightmode = document.getElementById('nightmode').value;
+}
+
+function updateperc(){
+	var plaine = Number(document.getElementById('plaine').value);
+	var arbre =  Number(document.getElementById('arbre').value);
+	var montagne =  Number(document.getElementById('montagne').value);
+  var ville =  Number(document.getElementById('ville').value);
+	document.getElementById('village').value = 100 - ville - plaine - arbre - montagne;
+	var village =  Number(document.getElementById('village').value);
+	perc1 = plaine;
+	perc2 = arbre;
+	perc3 = montagne;
+	perc4 = ville;
+  perc5 = village;
+}
+
+function updateplayer(){
+  player1 = document.getElementById('player1').value;
+  player2 = document.getElementById('player2').value;
+  player3 = document.getElementById('player3').value;
+}
+
+function updatetiles(){
+  xtiles = document.getElementById('xTiles').value;
+  ytiles = document.getElementById('yTiles').value;
+}
+
+function setbgm(){
+  var n = Math.floor(Math.random()*1)+1;
+  var url = document.getElementById('bgm').src = 'sfx/menu_bgm'+n+'.mp3';
+  bgm.play();
+}
+
+function particles(){
+	particlesJS('particles-js',
+  
+  {
+    "particles": {
+      "number": {
+        "value": 150,
+        "density": {
+          "enable": true,
+          "value_area": 1200
+        }
+      },
+      "color": {
+        "value": "#FFF"
+      },
+      "shape": {
+        "type": "circle",
+        "stroke": {
+          "width": 0,
+          "color": "#000000"
+        },
+        "polygon": {
+          "nb_sides": 5
+        },
+        "image": {
+          "src": "img/github.svg",
+          "width": 100,
+          "height": 100
+        }
+      },
+      "opacity": {
+        "value": 0.25,
+        "random": false,
+        "anim": {
+          "enable": false,
+          "speed": 1,
+          "opacity_min": 0.1,
+          "sync": false
+        }
+      },
+      "size": {
+        "value": 5,
+        "random": true,
+        "anim": {
+          "enable": false,
+          "speed": 40,
+          "size_min": 0.1,
+          "sync": false
+        }
+      },
+      "line_linked": {
+        "enable": false,
+        "distance": 150,
+        "color": "#ffffff",
+        "opacity": 0.4,
+        "width": 1
+      },
+      "move": {
+        "enable": true,
+        "speed": 2,
+        "direction": "none",
+        "random": false,
+        "straight": false,
+        "out_mode": "out",
+        "attract": {
+          "enable": false,
+          "rotateX": 600,
+          "rotateY": 1200
+        }
+      }
+    },
+    "interactivity": {
+      "detect_on": "canvas",
+      "events": {
+        "onhover": {
+          "enable": false,
+          "mode": "repulse"
+        },
+        "onclick": {
+          "enable": false,
+          "mode": "push"
+        },
+        "resize": false
+      },
+      "modes": {
+        "grab": {
+          "distance": 400,
+          "line_linked": {
+            "opacity": 1
+          }
+        },
+        "bubble": {
+          "distance": 400,
+          "size": 40,
+          "duration": 2,
+          "opacity": 8,
+          "speed": 3
+        },
+        "repulse": {
+          "distance": 200
+        },
+        "push": {
+          "particles_nb": 4
+        },
+        "remove": {
+          "particles_nb": 2
+        }
+      }
+    },
+    "retina_detect": true,
+    "config_demo": {
+      "hide_card": false,
+      "background_color": "#b61924",
+      "background_image": "",
+      "background_position": "50% 50%",
+      "background_repeat": "no-repeat",
+      "background_size": "cover"
+    }
+  }
+);
+}
+
+document.getElementById('selfile').addEventListener('change', loadmap, false);
+document.getElementById('listbox').addEventListener('change', updatebiome, false);
+document.getElementById('nightmode').addEventListener('change', updatenightmode, false);
+
+document.getElementById('plaine').addEventListener('change', updateperc, false);
+document.getElementById('arbre').addEventListener('change', updateperc, false);
+document.getElementById('montagne').addEventListener('change', updateperc, false);
+document.getElementById('ville').addEventListener('change', updateperc, false);
+
+document.getElementById('player1').addEventListener('change', updateplayer, false);
+document.getElementById('player2').addEventListener('change', updateplayer, false);
+document.getElementById('player3').addEventListener('change', updateplayer, false);
+
+document.getElementById('xTiles').addEventListener('change', updatetiles, false);
+document.getElementById('yTiles').addEventListener('change', updatetiles, false);
+setbgm();
+
+function particlesUpdate(){}
+
+</script>
+<script src="lib/particles.js"></script>

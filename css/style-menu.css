@@ -1,0 +1,132 @@
+html{
+	overflow: hidden;
+	user-select: none;
+	cursor: url("../img/x32_default.png"), auto;
+}
+
+body{
+	background: url('../img/bg.png') no-repeat, black;
+	background-size: 100%;
+	margin-top: 43vh;
+	font-family: cursive;
+	cursor: url("../img/x32_default.png"), auto;
+}
+
+select, input{
+	background: #333;
+	color: ghostwhite;
+	font-family: cursive;
+	box-shadow: 2px 2px #111;
+	border: none;
+	cursor: url('../img/x32_default.png'), auto;
+}
+
+label{
+	cursor: url('../img/x32_default.png'), auto;
+}
+
+#particles-js{
+	position: relative;
+	top: -43vh;
+	left: -9px;
+	width: 100vw;
+	height: 100vh;
+}
+
+#generate{
+	cursor: url('../img/x64_hand.png'), auto;
+	padding: 5px;
+	background: deepskyblue;
+	color: white;
+	border-radius: 5px;
+	width: 200px;
+	border-bottom: 1px darkgrey solid;
+	border-right: 1px darkgrey solid;
+	transition: 0.2s background;
+}
+
+#generate:hover{
+	border-top: 1px darkgrey solid;
+	border-left: 1px darkgrey solid;
+	border-bottom: none;
+	border-right: none;
+}
+
+#village{
+	color: #000;
+	background: #AAA;
+}
+
+.button, .buttonNoHover{
+	cursor: url('../img/x32_default.png'), auto;
+	border-radius: 5px;
+	border-top: 4px ridge #666;
+	border-left: 4px ridge #444;
+	border-bottom: 2px solid #000;
+	border-right: 2px solid #000;
+	top: -125vh;
+	position: relative;
+    z-index:999;
+	font-size: 1.7em;
+	color: #FFF;
+	display: inline-block;
+	background: rgba(20, 20, 20, 0.9);
+	padding: 10px;
+	width: 25%;
+}
+
+.button:hover{
+	background: rgba(225, 0, 120, 0.95);
+	border-top: 4px solid #D08;
+	border-left: 4px solid #D08;
+	border-bottom: 2px ridge #D08;
+	border-right: 2px ridge #D08;
+	cursor: url('../img/x64_hand.png'), auto;
+}
+
+#selfile{
+	display: none;
+}
+
+.numInput{
+	position: relative;
+	width: 100px;
+	top: -1px;
+	font-size: 0.8em;
+}
+
+#menu{
+	display: none;
+	position: absolute;
+	top: 10vw;
+	left: 23vw;
+	width: 54vw;
+	height: 50vh;
+	background: rgba(0, 0, 0, 0.75);
+	color: white;
+	font-size: 1.6em;
+	z-index: 9999;
+	border-radius: 5px;
+}
+
+h3{
+	color: white;
+	margin: 0;
+}
+
+#cross{
+	border-bottom-left-radius: 5px;
+	position: relative;
+	left: 25vw;
+	padding-top: 5px;
+	padding-bottom: 10px;
+	padding-left: 20px;
+	padding-right: 20px;
+	background: #252525;
+	display: inline-block;
+	transition: 0.2s background;
+}
+
+#cross:hover{
+	background: #0D8;
+}
