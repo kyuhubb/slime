@@ -261,9 +261,7 @@
 </body>
 <script>
 	//custom map size
-	let ps4 = false;
 	if(screen.width == 1920){
-		ps4 = true;
 		document.getElementsByTagName('body')[0].style.fontSize = "1.3em"
 		document.getElementsByTagName('body')[0].style.zoom = "1.4";
 		document.getElementById('buybox').style.left = "200px";
@@ -1453,8 +1451,8 @@ function checkKey(e) {
         }
     }	
 
-    if((e.keyCode == '32') || (e.keyCode == '119' && ps4 == true)){
-        // spacebar	or R2 key (ps4)
+    if(e.keyCode == '32'){
+        // spacebar
         if(nospace == true){
         	return
         }
@@ -1562,8 +1560,8 @@ function checkKey(e) {
     	}
     }
 
-    if ((e.keyCode == '222') || (e.keyCode == '118' && ps4 == true)){
-        //² or L2 (ps4)
+    if (e.keyCode == '222'){
+        //²
     	e.preventDefault();
     	if(isnight == 0 && $_GET('nightmode') != -1){
 	    	var base_url = window.location.href.split("&content=");
@@ -1818,8 +1816,8 @@ function checkKey(e) {
         keypress('z');
     }
 
-    if ((e.keyCode == '8') || (e.keyCode == '117' && ps4 == true)) {
-        // backspace or R1 key (ps4)
+    if ((e.keyCode == '8') || (e.keyCode == '117')) {
+        // backspace
         event.preventDefault();
         if(document.getElementById('moneybox').style.display == 'none')
         {
@@ -1883,8 +1881,8 @@ function checkKey(e) {
         }
     }
 
-  	else if ((e.keyCode == '13') || (e.keyCode == '112' && ps4 == true)) {
-  		// enter key or triangle key (ps4)
+  	else if (e.keyCode == '13') {
+  		// enter key
   		if(noenter == true){
   			return
   		}
