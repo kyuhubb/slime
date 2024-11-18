@@ -3934,6 +3934,9 @@ function checkKey(e) {
       							eval(charlist[x]).leftmoves = 1;
       						}
       					}
+      					if(eval(charlist[x]).type == 'builder'){
+      						eval(charlist[x]).cuttree = 0;
+      					}
       					if(eval(charlist[x]).type == 'gunner'){
       						eval(charlist[x]).canreshoot = 0;
       					}
