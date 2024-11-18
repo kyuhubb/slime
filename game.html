@@ -13,6 +13,7 @@
 <body>
 	<div id="particles-js"></div>
 	<audio id='bgm' src='' loop></audio>
+	<audio id='elevator' src='sfx/elevator.mp3' loop></audio>
 	<audio id='birds' src='sfx/birds.mp3' loop></audio>
 	<audio id='river' src='sfx/river.mp3' loop></audio>
 	<audio id='abyss' src='sfx/abyss.mp3' loop></audio>
@@ -362,7 +363,7 @@
    	let shadowNum = 0;
   	let cityteam2 = "";
 	let memo = 0;
-	let memofirstpoison = 0;
+	let memofirstpoison = -1;
 	let memoposx = 0;
 	let memoposy = 0;
 	let nightcycle = 0;
@@ -1463,6 +1464,8 @@ function checkKey(e) {
         toxtilespurple = [];
         if(nextscreen == 1){
         	nextscreen = 0;
+        	elevator.currentTime = 0;
+        	elevator.pause();
         	document.getElementById('blackscreen0').style.opacity = "0";
         	isgasexplosion();
         	nextturn();
@@ -1470,6 +1473,7 @@ function checkKey(e) {
 	        tempsave();
     	}else{
         	nextscreen = 1;
+        	elevator.play();
         	document.getElementById('blackscreen0').style.opacity = "1";
         	if(turn == 1){
 				document.getElementById('blackscreen2').style.opacity = "1";
@@ -1565,9 +1569,9 @@ function checkKey(e) {
     if (e.keyCode == '222'){
         //²
     	e.preventDefault();
-    	if(isnight == 0){
+    	if(enableShadows == -1 || enableShadows <= 2 && isnight == 0){
 	    	var base_url = window.location.href.split("&content=");
-	    	location.href = base_url[0]+"&content="+content;    		
+	    	location.href = base_url[0]+"&content="+content;
     	}
     }
 
@@ -3596,15 +3600,15 @@ function checkKey(e) {
 
       	//transport cannon
       	if(type != 'tower' && agree == true && defaultmode == 1 && !isunit(selposx,selposy)){
-      		for(i=0; i < cannons.length; i++){
-      			if(cannons[i].posx == destx && cannons[i].posy == desty){
-      				if(cannons[i].team == turn && cannons[i].unitinside == false && diff <= speed && type != "vtb"){
-      					cannons[i].unitinside = eval(selchar);
+      		for(iz=0; iz < cannons.length; iz++){
+      			if(cannons[iz].posx == destx && cannons[iz].posy == desty){
+      				if(cannons[iz].team == turn && cannons[iz].unitinside == false && diff <= speed && type != "vtb"){
+      					cannons[iz].unitinside = eval(selchar);
 		      			eval(selchar).incannon(i);
 		      			bgm.volume = 0.1;
 		      			setTimeout(function(){bgm.volume=1}, 500);
 		      			document.getElementById('getin').play();
-		      			cannons[i].upcargo();
+		      			cannons[iz].upcargo();
 		      			return
       				}
       			}
@@ -3833,7 +3837,7 @@ function checkKey(e) {
       				setpoison(Number(destx)-1, Number(desty)+1, team, 6, false, 1)
       				setpoison(destx, Number(desty)+1, team, 6, false, 1)
       				setpoison(destx, Number(desty)-1, team, 6, false, 1)
-      				setpoison(destx, desty, team, 6, true, 1)
+      				setTimeout(function(){setpoison(destx, desty, team, 6, true, 1)}, 1);
       				document.getElementById('splash').play();
       				bgm.volume = 0.1;
       				setTimeout(function(){bgm.volume = 0.2}, 1000);
@@ -4950,7 +4954,7 @@ function checkKey(e) {
 			checkposx = parseInt(treepx)+1;
 			checkposy = treepy;
 			if(isplain(checkposx+"/"+checkposy)){
-				randnum = Math.floor(Math.random()*12);
+				randnum = Math.floor(Math.random()*14);
 				//1 chance sur 16 de planter arbre
 				if(randnum === 1){
 					if(isunit(checkposx, checkposy, false) == false && isfire(checkposx, checkposy) == false){
@@ -4964,7 +4968,7 @@ function checkKey(e) {
 			//left
 			checkposx = treepx-1;
 			if(isplain(checkposx+"/"+checkposy)){
-				randnum = Math.floor(Math.random()*12);
+				randnum = Math.floor(Math.random()*14);
 				//1 chance sur 16 de planter arbre
 				if(randnum === 1){
 					if(isunit(checkposx, checkposy, false) == false && isfire(checkposx, checkposy) == false){
@@ -4979,7 +4983,7 @@ function checkKey(e) {
 			checkposx = treepx;
 			checkposy = parseInt(treepy)+1;
 			if(isplain(checkposx+"/"+checkposy)){
-				randnum = Math.floor(Math.random()*12);
+				randnum = Math.floor(Math.random()*14);
 				//1 chance sur 16 de planter arbre
 				if(randnum === 1){
 					if(isunit(checkposx, checkposy, false) == false && isfire(checkposx, checkposy) == false){;
@@ -4993,7 +4997,7 @@ function checkKey(e) {
 			//top
 			checkposy = treepy-1;
 			if(isplain(checkposx+"/"+checkposy)){
-				randnum = Math.floor(Math.random()*12);
+				randnum = Math.floor(Math.random()*14);
 				//1 chance sur 16 de planter arbre
 				if(randnum === 1){
 					if(isunit(checkposx, checkposy, false) == false && isfire(checkposx, checkposy) == false){
