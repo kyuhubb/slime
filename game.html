@@ -1928,7 +1928,6 @@ function checkKey(e) {
       						var checkthistile = checktile(selposx+"/"+selposy);
       						var isacity = iscity(selposx+"/"+selposy, false);
       						if(cannons[cannonselected].unitinside && ((distot > 4 && distot < 9) || distot == 1) && checkthistile != "town" && checkthistile != "village" && checkthistile != "cannon" && isacity == false){
-      							alert(checkthistile);
       							eval(charlist[x]).die();
 		    	  				sfx.play();
 	      						cannons[cannonselected].outcannon();
@@ -2424,7 +2423,7 @@ function checkKey(e) {
 		cannonselected = false;
 		nospace = true;
 		noenter = true;
-		hidespies();
+		hidespies(turn);
 		//fire progress
 		setTimeout(function(){
 			barbecuetime();
@@ -2642,7 +2641,7 @@ function checkKey(e) {
         			}
         		}
 
-        		if(unit[x].id && unit[x].posx != -10){
+        		if(unit[x].id){
         			if(unit[x].type == 'villager' && unit[x].team == 3){
         				document.getElementById("unit"+x).classList.remove('villager'+unit[x].skin+"_off");
         				document.getElementById("unit"+x).classList.add('villager'+unit[x].skin);
@@ -2654,8 +2653,10 @@ function checkKey(e) {
         				if(unit[x].moved){
         					unit[x].moved = false;
         				}
-        				document.getElementById("unit"+x).classList.remove(unit[x].type+unit[x].skin+"_off");
-        				document.getElementById("unit"+x).classList.add(unit[x].type+unit[x].skin);
+        				if(unit[x].posx != -10){
+        					document.getElementById("unit"+x).classList.remove(unit[x].type+unit[x].skin+"_off");
+        					document.getElementById("unit"+x).classList.add(unit[x].type+unit[x].skin);
+        				}
         			}
         		}
         	}
@@ -3826,15 +3827,15 @@ function checkKey(e) {
       					eval(selchar).playable = true;
       				}else if(thisunit){
       					if(thisunit.type != "tower"){
-      					setpoison(Number(destx)+1, desty, team, 6);
-      					setpoison(Number(destx)-1, desty, team, 6);
-      					setpoison(Number(destx)+1, Number(desty)+1, team, 6);
-      					setpoison(Number(destx)-1, Number(desty)-1, team, 6);
-      					setpoison(Number(destx)+1, Number(desty)-1, team, 6);
-      					setpoison(Number(destx)-1, Number(desty)+1, team, 6);
-      					setpoison(destx, Number(desty)+1, team, 6);
-      					setpoison(destx, Number(desty)-1, team, 6);
-      					setpoison(destx, desty, team, 6);
+      					setpoison(Number(destx)+1, desty, team, 4);
+      					setpoison(Number(destx)-1, desty, team, 4);
+      					setpoison(Number(destx)+1, Number(desty)+1, team, 4);
+      					setpoison(Number(destx)-1, Number(desty)-1, team, 4);
+      					setpoison(Number(destx)+1, Number(desty)-1, team, 4);
+      					setpoison(Number(destx)-1, Number(desty)+1, team, 4);
+      					setpoison(destx, Number(desty)+1, team, 4);
+      					setpoison(destx, Number(desty)-1, team, 4);
+      					setpoison(destx, desty, team, 4);
       					document.getElementById('splash').play();
       					bgm.volume = 0.1;
       					setTimeout(function(){bgm.volume = 0.2}, 1000);
@@ -3842,15 +3843,15 @@ function checkKey(e) {
       					eval(selchar).playable = true;
       				}
       			}else{
-      				setpoison(Number(destx)+1, desty, team, 6);
-      				setpoison(Number(destx)-1, desty, team, 6);
-      				setpoison(Number(destx)+1, Number(desty)+1, team, 6);
-      				setpoison(Number(destx)-1, Number(desty)-1, team, 6);
-      				setpoison(Number(destx)+1, Number(desty)-1, team, 6);
-      				setpoison(Number(destx)-1, Number(desty)+1, team, 6);
-      				setpoison(destx, Number(desty)+1, team, 6);
-      				setpoison(destx, Number(desty)-1, team, 6);
-      				setpoison(destx, desty, team, 6);
+      				setpoison(Number(destx)+1, desty, team, 4);
+      				setpoison(Number(destx)-1, desty, team, 4);
+      				setpoison(Number(destx)+1, Number(desty)+1, team, 4);
+      				setpoison(Number(destx)-1, Number(desty)-1, team, 4);
+      				setpoison(Number(destx)+1, Number(desty)-1, team, 4);
+      				setpoison(Number(destx)-1, Number(desty)+1, team, 4);
+      				setpoison(destx, Number(desty)+1, team, 4);
+      				setpoison(destx, Number(desty)-1, team, 4);
+      				setpoison(destx, desty, team, 4);
       				document.getElementById('splash').play();
       				bgm.volume = 0.1;
       				setTimeout(function(){bgm.volume = 0.2}, 1000);
@@ -6208,7 +6209,7 @@ function checkKey(e) {
 			turn = 1;
 		}
 		resetselection();
-		hidespies();
+		hidespies(turn);
 		if(turn == 2){
 			turn = 1;
 			Nskin = player1;
@@ -6745,11 +6746,11 @@ function checkKey(e) {
 	     }
 	}
 
-	function hidespies(){
+	function hidespies(thisturn){
 		var coord = "";
 		for(i=0; i < unit.length; i++){
 			if(unit[i].type == "ninja" && unit[i].amogus == false){
-				if(unit[i].team == turn){
+				if(unit[i].team == thisturn){
 					coord = unit[i].posx+"/"+unit[i].posy;
 					if(iswood(coord) && unit[i].posx != -10){
 						eval(unit[i].id).style.display = "none";
@@ -6951,7 +6952,7 @@ function checkKey(e) {
     this.team = a;
     if(!loadvtb){this.vtb = -1;}else{this.vtb = loadvtb}
     if(!loadcannon){this.cannon = -1;}else{this.cannon = loadcannon}
-    if(!canplaytwice){this.playedtwice = false;}else{this.playedtwice = canplaytwice}
+    this.playedtwice = false;
     this.posx = x;
     this.posy = y;
     this.id = 'unit'+cur_uniId;
@@ -7264,7 +7265,7 @@ function checkKey(e) {
     	delete this.die;
     }
 
-    if(this.infected == true){
+    if(this.infected == true && turn == this.team){
     	var _this = this;
 		if(this.type == 'vtb' && this.unitinside != 0){
 			this.unitinside.die();
