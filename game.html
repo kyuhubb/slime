@@ -7296,10 +7296,10 @@ function checkKey(e) {
 
     this.incannon = function(cannonid){
     	document.getElementById(this.id).remove();
-    	if(isnight == 1 && enableShadows > 0){shadowExList()}
     	this.posx = -10;
     	this.posy = -10;
     	this.cannon = cannonid;
+    	if(isnight == 1 && enableShadows > 0){shadowExList()}
     }
 
     this.spawn = function(){
