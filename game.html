@@ -21,6 +21,7 @@
 	<audio id='morning' src='sfx/morning.mp3'></audio>
 	<audio id='amogus' src='sfx/amogus.mp3'></audio>
 	<audio id='oof' src='sfx/poison.mp3'></audio>
+	<audio id='healed' src='sfx/healed.mp3'></audio>
 	<audio id='splash' src='sfx/splash.mp3'></audio>
 	<audio id='selcity1' src='sfx/selcity1.mp3' loop></audio>
 	<audio id='buildbridge' src='sfx/buildbridge.mp3'></audio>
@@ -111,7 +112,7 @@
    				<span class='price'>150 🪙</span>
    			</div>
    			<div class='artright2'>
-   				<span class='number'>➊</span>
+   				<span class='number'>1️⃣</span>
    			</div>
    		</div>
    	</div>
@@ -124,7 +125,7 @@
    				<span class='price'>200 🪙</span>
    			</div>
    			<div class='artright2'>
-   				<span class='number'>➋</span>
+   				<span class='number'>2️⃣</span>
    			</div>
    		</div>
    	</div>
@@ -137,7 +138,7 @@
    				<span class='price'>250 🪙</span>
    			</div>
    			<div class='artright2'>
-   				<span class='number'>➌</span>
+   				<span class='number'>3️⃣</span>
    			</div>
    		</div>
    	</div>
@@ -151,7 +152,7 @@
    				<span class='price'>50 🪙</span>
    			</div>
    			<div class='artright2'>
-   				<span class='number'>➍</span>
+   				<span class='number'>4️⃣</span>
    			</div>
    		</div>
    	</div>
@@ -164,7 +165,7 @@
    				<span class='price'>200 🪙</span>
    			</div>
    			<div class='artright2'>
-   				<span class='number'>➎</span>
+   				<span class='number'>5️⃣</span>
    			</div>
    		</div>
    	</div>
@@ -177,7 +178,7 @@
    				<span class='price'>300 🪙</span>
    			</div>
    			<div class='artright2'>
-   				<span class='number'>➏</span>
+   				<span class='number'>6️⃣</span>
    			</div>
    		</div>
    	</div>
@@ -191,7 +192,7 @@
    				<span class='price'>200 🪙</span>
    			</div>
    			<div class='artright2'>
-   				<span class='number'>➐</span>
+   				<span class='number'>7️⃣</span>
    			</div>
    		</div>
    	</div>
@@ -204,7 +205,7 @@
    				<span class='price'>200 🪙</span>
    			</div>
    			<div class='artright2'>
-   				<span class='number'>➑</span>
+   				<span class='number'>8️⃣</span>
    			</div>
    		</div>
    	</div>
@@ -217,7 +218,7 @@
    				<span class='price'>50 🪙</span>
    			</div>
    			<div class='artright2'>
-   				<span class='number'>➒</span>
+   				<span class='number'>9️⃣</span>
    			</div>
    		</div>
    	</div>
@@ -231,7 +232,7 @@
    				<span class='price'>300 🪙</span>
    			</div>
    			<div class='artright2'>
-   				<span class='number'>⓪</span>
+   				<span class='number'>0️⃣</span>
    			</div>
    		</div>
    	</div>
@@ -244,7 +245,7 @@
    				<span class='price'>250 🪙</span>
    			</div>
    			<div class='artright2'>
-   				<span class='number'>Ⓐ</span>
+   				<span class='number'>🇦</span>
    			</div>
    		</div>
    	</div>
@@ -257,7 +258,21 @@
    				<span class='price'>200 🪙</span>
    			</div>
    			<div class='artright2'>
-   				<span class='number'>Ⓩ</span>
+   				<span class='number'>🇿</span>
+   			</div>
+   		</div>
+   	</div>
+   	<br><br><br><br><br><br>
+   	<div class='article'>
+   		<div class='artleft'>
+   			<img class='artimg' id='medic-img' src='tiles/medic1/medic1.png'><br>Ambulance
+   		</div>
+   		<div class='artright'>
+   			<div class='artright1'>
+   				<span class='price'>100 🪙</span>
+   			</div>
+   			<div class='artright2'>
+   				<span class='number'>🇪</span>
    			</div>
    		</div>
    	</div>
@@ -363,7 +378,6 @@
    	let shadowNum = 0;
   	let cityteam2 = "";
 	let memo = 0;
-	let memofirstpoison = -1;
 	let memoposx = 0;
 	let memoposy = 0;
 	let nightcycle = 0;
@@ -441,7 +455,7 @@
   	}
   	var image = document.getElementById("source");
   	var map = document.getElementById("map");
-  	document.getElementById('fire').volume = 0.2;
+  	document.getElementById('fire').volume = 0.04;
   	document.getElementById('fireball').volume = 0.5;
   	document.getElementsByTagName('body')[0].style.opacity = '1';
 
@@ -589,7 +603,7 @@
 		}
 	}
 
-	function setpoison(x,y,team,temp,retry,loadsize){
+	function setpoison(x,y,team,temp){
 		if(Number(x) > Number(xtiles) || Number(y) > Number(ytiles)){
 			return
 		}
@@ -605,12 +619,9 @@
 						poisonhide();
 					}
 				}else{
-					poisonmap[poisonN] = new poison(x,y,team,temp,loadsize);
+					poisonmap[poisonN] = new poison(x,y,team,temp);
 					poisonmap[poisonN].spawn();
 					poisonN++;
-					if(retry){
-						poisonturninfection();
-					}
 				}
 			}
 		}else{
@@ -618,18 +629,12 @@
 				if(poisonmap[poisonmemo].id){
 					poisonmap[poisonmemo].team = team;
 					poisonmap[poisonmemo].leftturns = 3;
-					if(retry){
-						poisonturninfection();
-					}
 					poisonhide();
 				}
 			}else{
-				poisonmap[poisonN] = new poison(x,y,team,temp,loadsize);
+				poisonmap[poisonN] = new poison(x,y,team,temp);
 				poisonmap[poisonN].spawn();
 				poisonN++;
-				if(retry){
-					poisonturninfection();
-				}
 			}
 		}
 	}
@@ -907,42 +912,21 @@
 	}
 
 	//tente d'infecter un slime spécifique
-	function tryinfect(thispoison, thisunit, turns){
-		if(poisonmap[thispoison].team != thisunit.team && thisunit.infected == false && thisunit.team != 3){
-			thisunit.infected = turns;
+	function tryinfect(thispoison, thisunit){
+		if(poisonmap[thispoison].team != thisunit.team && thisunit.infected == false && thisunit.team != 3 && thisunit.type != "medic"){
+			thisunit.infected = true;
 		}
 	}
 
 	//tente l'infection depuis toutes cases poison
-	function poisonturninfection(first){
+	function poisonturninfection(){
 		for(let i=0; i < poisonmap.length; i++){
 			if(poisonmap[i].posx){
 				for(b=0; b < unit.length; b++){
-					if(b != memofirstpoison){
-      					if(unit[b]){
-							if(poisonmap[i].posx == unit[b].posx && poisonmap[i].posy == unit[b].posy){
-								tryinfect(i, unit[b], 4);
-      						}
-      						if(unit[b].infected >= 1){
-      							if(first == true){
-      								var thisposx = selposx;
-									var thisposy = selposy;
-      							}else{
-      								var thisposx = unit[b].posx;
-									var thisposy = unit[b].posy;
-      							}
-      							if(unit[b].team == 1){
-									var _team = 2;
-								}else{
-									var _team = 1;
-								}
-							setpoison(Number(thisposx)+1, Number(thisposy), _team, 3, false, 0);
-      						setpoison(Number(thisposx)-1, Number(thisposy), _team, 3, false, 0);
-      						setpoison(Number(thisposx), Number(thisposy)-1, _team, 3, false, 0);
-      						setpoison(Number(thisposx), Number(thisposy)+1, _team, 3, false, 0);
-      						setpoison(Number(thisposx), Number(thisposy), _team, 3, true, 0);
-      						}
-						}
+      				if(unit[b]){
+						if(poisonmap[i].posx == unit[b].posx && poisonmap[i].posy == unit[b].posy){
+							tryinfect(i, unit[b]);
+	      				}
 					}
 				}
 			}
@@ -967,26 +951,23 @@
 	//progression de l'infection chez les slimes infectés
 	function poisonprogress(){
 		for(let i=0; i < unit.length; i++){
-			if(unit[i].infected){
-				if(unit[i].infected != false){
-					unit[i].infected--;
-					if(unit[i].infected == 1){
-						var _unit = unit;
-						if(unit[i].type == 'vtb' && unit[i].unitinside != 0){
-							unit[i].unitinside.die();
-						}else if(unit[i].vtb != -1){
-							unit[unit[i].vtb].unitinside = 0;
-							unit[unit[i].vtb].delcargo();
-						}
-						if(unit[i].cannon != -1){
-							cannons[unit[i].cannon].unitinside = 0;
-							cannons[unit[i].cannon].delcargo();
-						}
-						setTimeout(function(){unit[i].die()}, 500);
-						bgm.volume = 0.1;
-						document.getElementById("oof").play();
-						setTimeout(function(){bgm.volume = 0.2}, 2000);
+			if(unit[i].infected && unit[i].team == turn){
+				if(unit[i].infected == true){
+					var _unit = unit;
+					if((unit[i].type == 'vtb' || unit[i].type == 'medic') && unit[i].unitinside != 0){
+						unit[i].unitinside.die();
+					}else if(unit[i].vtb != -1){
+						unit[unit[i].vtb].unitinside = 0;
+						unit[unit[i].vtb].delcargo();
 					}
+					if(unit[i].cannon != -1){
+						cannons[unit[i].cannon].unitinside = 0;
+						cannons[unit[i].cannon].delcargo();
+					}
+					setTimeout(function(){unit[i].die()}, 500);
+					bgm.volume = 0.1;
+					document.getElementById("oof").play();
+					setTimeout(function(){bgm.volume = 0.2}, 2000);
 				}
 			}
 		}
@@ -1008,7 +989,7 @@
 
 	function firekill2(thisunit){
 		if(thisunit){
-			if(thisunit.type == 'vtb' && thisunit.unitinside != false){
+			if((thisunit.type == 'vtb' || thisunit.type == 'medic') && thisunit.unitinside != false){
 				thisunit.unitinside.die();
 			}
 			if(thisunit.type == 'seg'){
@@ -1816,6 +1797,12 @@ function checkKey(e) {
         keypress('a');
     }
 
+    if (e.keyCode == '69') {
+        // e
+        event.preventDefault();
+        keypress('e');
+    }
+
     if (e.keyCode == '90') {
         // z
         event.preventDefault();
@@ -1928,27 +1915,41 @@ function checkKey(e) {
       				if(cannonselected){
       					if(eval(charlist[x]).type == "tower"){
       						document.getElementById('selection').style.background = 'black';
-      						cannon_sel.currentTime = 0;
       						cannon_sel.pause();
+      						cannon_sel.currentTime = 0;
       						bgm.volume = 0.2;
       						cannonselected = false;
       						resetvisual();
       						return
       					}else{
-      						if(cannons[cannonselected].unitinside){
+      						var distx = Math.abs(cannons[cannonselected].posx - selposx);
+      						var disty = Math.abs(cannons[cannonselected].posy - selposy);
+      						var distot = distx + disty;
+      						var checkthistile = checktile(selposx+"/"+selposy);
+      						var isacity = iscity(selposx+"/"+selposy, false);
+      						if(cannons[cannonselected].unitinside && ((distot > 4 && distot < 9) || distot == 1) && checkthistile != "town" && checkthistile != "village" && checkthistile != "cannon" && isacity == false){
+      							alert(checkthistile);
       							eval(charlist[x]).die();
 		    	  				sfx.play();
+	      						cannons[cannonselected].outcannon();
+	      						cannon.currentTime = 0;
+	      						document.getElementById("cannon").play();
+	      						cycletowers();
+	      						resetvisual();
+      							cannon_sel.pause();
+      							cannonselected = false;
+    			  				cannon_sel.currentTime = 0;
+    			  				bgm.volume = 0.1;
+		    	  				setTimeout(function(){bgm.volume = 0.2}, 1000);
+      						}else{
+      							document.getElementById('selection').style.background = 'black';
+	      						cannon_sel.pause();
+	      						cannon_sel.currentTime = 0;
+	      						bgm.volume = 0.2;
+	      						cannonselected = false;
+	      						resetvisual();
+	      						return
       						}
-      						cannons[cannonselected].outcannon();
-	      					cannon.currentTime = 0;
-	      					document.getElementById("cannon").play();
-	      					cycletowers();
-	      					resetvisual();
-      						cannon_sel.pause();
-      						cannonselected = false;
-    			  			cannon_sel.currentTime = 0;
-    			  			bgm.volume = 0.1;
-		    	  			setTimeout(function(){bgm.volume = 0.2}, 1000);
       					}
       				}
       				//if a character coords match
@@ -1988,11 +1989,13 @@ function checkKey(e) {
       						break
 
       						case 'vtb':
+      						case 'medic':
       						startengine.currentTime = 0;
       						startengine.play();
       						document.getElementById('speed3').style.top = ((selposy-3)*64)+marginsizey+"px";
       						document.getElementById('speed3').style.left = ((selposx-3)*64)+marginsizex+"px";
       						break
+
 
       						case 'tower':
       						document.getElementById('bgm').volume = 0.1;
@@ -2047,7 +2050,7 @@ function checkKey(e) {
       					document.getElementById('selection').style.background = 'white';
       					return
       				}else{
-      					if(eval(charlist[x]).team == turn && eval(charlist[x]).type == 'vtb'){
+      					if(eval(charlist[x]).team == turn && (eval(charlist[x]).type == 'vtb') || eval(charlist[x]).type == 'medic'){
       						if(leavevtb == false && eval(charlist[x]).unitinside != false){
       							selchar = charlist[x];
 	      						vtbskill();
@@ -2221,7 +2224,7 @@ function checkKey(e) {
       				if(eval(selchar).type == 'tower'){
       					document.getElementById('hevend').play();
       				}
-      				if(eval(selchar).type == 'vtb'){
+      				if(eval(selchar).type == 'vtb' || eval(selchar).type == 'medic'){
       					if(leavevtb == false){
 	      					vtbskill();
 	      					return
@@ -2240,7 +2243,6 @@ function checkKey(e) {
       					var x = currentselection.substr(0, currentselection.indexOf('/') );
       					var y = currentselection.substr(currentselection.indexOf('/')+1, currentselection.length);
       					mvchar(eval(selchar), x, y);
-      					memofirstpoison = -1;
       					if(enableShadows > 0 && isnight == 1){
       						shadowExList();
       					}
@@ -2249,6 +2251,7 @@ function checkKey(e) {
       					selchar = 'none';
 						resetvisual();
       				}
+      				allmedic();
       				return
       			}
 			}
@@ -2533,6 +2536,7 @@ function checkKey(e) {
       	document.getElementById('seg-img').src = "tiles/seg"+Nskin+"/seg1.png";
       	document.getElementById('radio-img').src = "tiles/radio"+Nskin+"/radio1.png";
       	document.getElementById('vtb-img').src = "tiles/vtb"+Nskin+"/vtb1.png";
+      	document.getElementById('medic-img').src = "tiles/medic"+Nskin+"/medic1.png";
       	document.getElementById('trumpet-img').src = "tiles/trumpet"+Nskin+"/trumpet1.png";
       	document.getElementById('napalm-img').src = "tiles/napalm"+Nskin+"/napalm1.png";
       	document.getElementById('poison-img').src = "tiles/poison"+Nskin+"/poison1.png";
@@ -2631,7 +2635,7 @@ function checkKey(e) {
         			unit[x].cuttree = 0;
         		}else if(unit[x].type == 'gunner'){
         			unit[x].canreshoot = 0;
-        		}else if(unit[x].type == 'vtb'){
+        		}else if(unit[x].type == 'vtb' || unit[x].type == 'medic'){
         			unit[x].leftmoves = 1;
         			if(iscity(unit[x].posx+"/"+unit[x].posy, false) || iscannon(unit[x].posx+"/"+unit[x].posy) || isvillage(unit[x].posx+"/"+unit[x].posy) || istown(unit[x].posx+"/"+unit[x].posy, false)){
         				unit[x].leftmoves++;
@@ -3058,6 +3062,15 @@ function checkKey(e) {
 				alert("fonds insufisants !");
 			}else{
 				price = 250;
+			}
+			break
+
+		case 'e':
+			type = 'medic';
+			if(thisteambalance < 100){
+				alert("fonds insufisants !");
+			}else{
+				price = 100;
 			}
 			break
 
@@ -3574,16 +3587,16 @@ function checkKey(e) {
       			}
       		}
       	}
-      	if(diff > speed && (type != "vtb")){
+      	if(diff > speed && (type != "vtb" && type != "medic")){
       		agree = false;
       		eval(selchar).playable = true;
       	}
 
       	//transport vtb
-      	if(type != 'vtb' && type != 'tower' && agree == true){
+      	if(type != 'vtb' && type != 'tower' && type != 'medic' && agree == true){
       		for(i=0; i < unit.length; i++){
       			if(unit[i].posx == destx && unit[i].posy == desty){
-      				if(unit[i].type == 'vtb' && unit[i].team == turn && unit[i].unitinside == 0 && diff <= speed && unit[i].cargo === false){
+      				if((unit[i].type == 'vtb' || unit[i].type == 'medic') && unit[i].team == turn && unit[i].unitinside == 0 && diff <= speed && unit[i].cargo === false){
       					if(defaultmode == 1){
       						unit[i].unitinside = eval(selchar);
 		      				eval(selchar).invtb(i);
@@ -3602,7 +3615,7 @@ function checkKey(e) {
       	if(type != 'tower' && agree == true && defaultmode == 1 && !isunit(selposx,selposy)){
       		for(iz=0; iz < cannons.length; iz++){
       			if(cannons[iz].posx == destx && cannons[iz].posy == desty){
-      				if(cannons[iz].team == turn && cannons[iz].unitinside == false && diff <= speed && type != "vtb"){
+      				if(cannons[iz].team == turn && cannons[iz].unitinside == false && diff <= speed && type != "vtb" && type != "medic"){
       					cannons[iz].unitinside = eval(selchar);
 		      			eval(selchar).incannon(i);
 		      			bgm.volume = 0.1;
@@ -3617,7 +3630,7 @@ function checkKey(e) {
 
       	//leave vtb
       	var thisvillager = false;
-      	if(type == 'vtb' && eval(selchar).unitinside != false && leavevtb == true){
+      	if((type == 'vtb' || type == 'medic') && eval(selchar).unitinside != false && leavevtb == true){
       		if(diff == 1){
       			var unitfound = false;
       			for(i=0; i < unit.length; i++){
@@ -3813,15 +3826,15 @@ function checkKey(e) {
       					eval(selchar).playable = true;
       				}else if(thisunit){
       					if(thisunit.type != "tower"){
-      					setpoison(Number(destx)+1, desty, team, 6, false, 1)
-      					setpoison(Number(destx)-1, desty, team, 6, false, 1)
-      					setpoison(Number(destx)+1, Number(desty)+1, team, 6, false, 1)
-      					setpoison(Number(destx)-1, Number(desty)-1, team, 6, false, 1)
-      					setpoison(Number(destx)+1, Number(desty)-1, team, 6, false, 1)
-      					setpoison(Number(destx)-1, Number(desty)+1, team, 6, false, 1)
-      					setpoison(destx, Number(desty)+1, team, 6, false, 1)
-      					setpoison(destx, Number(desty)-1, team, 6, false, 1)
-      					setpoison(destx, desty, team, 6, true, 1)
+      					setpoison(Number(destx)+1, desty, team, 6);
+      					setpoison(Number(destx)-1, desty, team, 6);
+      					setpoison(Number(destx)+1, Number(desty)+1, team, 6);
+      					setpoison(Number(destx)-1, Number(desty)-1, team, 6);
+      					setpoison(Number(destx)+1, Number(desty)-1, team, 6);
+      					setpoison(Number(destx)-1, Number(desty)+1, team, 6);
+      					setpoison(destx, Number(desty)+1, team, 6);
+      					setpoison(destx, Number(desty)-1, team, 6);
+      					setpoison(destx, desty, team, 6);
       					document.getElementById('splash').play();
       					bgm.volume = 0.1;
       					setTimeout(function(){bgm.volume = 0.2}, 1000);
@@ -3829,15 +3842,15 @@ function checkKey(e) {
       					eval(selchar).playable = true;
       				}
       			}else{
-      				setpoison(Number(destx)+1, desty, team, 6, false, 1)
-      				setpoison(Number(destx)-1, desty, team, 6, false, 1)
-      				setpoison(Number(destx)+1, Number(desty)+1, team, 6, false, 1)
-      				setpoison(Number(destx)-1, Number(desty)-1, team, 6, false, 1)
-      				setpoison(Number(destx)+1, Number(desty)-1, team, 6, false, 1)
-      				setpoison(Number(destx)-1, Number(desty)+1, team, 6, false, 1)
-      				setpoison(destx, Number(desty)+1, team, 6, false, 1)
-      				setpoison(destx, Number(desty)-1, team, 6, false, 1)
-      				setTimeout(function(){setpoison(destx, desty, team, 6, true, 1)}, 1);
+      				setpoison(Number(destx)+1, desty, team, 6);
+      				setpoison(Number(destx)-1, desty, team, 6);
+      				setpoison(Number(destx)+1, Number(desty)+1, team, 6);
+      				setpoison(Number(destx)-1, Number(desty)-1, team, 6);
+      				setpoison(Number(destx)+1, Number(desty)-1, team, 6);
+      				setpoison(Number(destx)-1, Number(desty)+1, team, 6);
+      				setpoison(destx, Number(desty)+1, team, 6);
+      				setpoison(destx, Number(desty)-1, team, 6);
+      				setpoison(destx, desty, team, 6);
       				document.getElementById('splash').play();
       				bgm.volume = 0.1;
       				setTimeout(function(){bgm.volume = 0.2}, 1000);
@@ -3848,7 +3861,7 @@ function checkKey(e) {
       		//si builder
       		kill = false;
       		eval(selchar).playable = true;
-      	}else if(type == 'vtb'){
+      	}else if(type == 'vtb' || type == 'medic'){
       		//si vtb
       		if(diff > 3){
       			kill = false;
@@ -3917,7 +3930,7 @@ function checkKey(e) {
       			}
 
       			// si l'attaquant est un builder ou shlingus ou un trumpet
-      			if(type == 'builder' || type == 'seg' || type == 'trumpet' || type == 'vtb'){
+      			if(type == 'builder' || type == 'seg' || type == 'trumpet' || type == 'vtb' || type == 'medic'){
       				if(eval(charlist[x]).team != 3){
       					kill = false;
       					eval(selchar).playable = true;
@@ -3929,7 +3942,7 @@ function checkKey(e) {
       				if(eval(charlist[x]).team == team && eval(charlist[x]).playable == false && eval(charlist[x]).playedtwice == false){
       					eval(charlist[x]).playable = true;
       					eval(charlist[x]).playedtwice = true;
-      					if(eval(charlist[x]).type == 'vtb'){
+      					if(eval(charlist[x]).type == 'vtb' || eval(charlist[x]).type == 'medic'){
       						if(eval(charlist[x]).leftmoves == 0){
       							eval(charlist[x]).leftmoves = 1;
       						}
@@ -4180,8 +4193,8 @@ function checkKey(e) {
       							if(eval(charlist[x]).type == 'seg'){
       								eval(charlist[x]).fart2();
       							}else{
-      								if(eval(charlist[x]).type == 'vtb' && eval(charlist[x]).unitinside != 0){
-      									eval(charlist[x]).unitinside.die();
+      								if((eval(charlist[x]).type == 'vtb' || eval(charlist[x]).type == 'medic') && eval(charlist[x]).unitinside != 0){
+      									unit[eval(charlist[x]).unitinside.numid].die();
       								}
       								if(type == 'ninja' && eval(charlist[x]).team != team){
       									if(eval(charlist[x]).type != "villager"){
@@ -4270,7 +4283,6 @@ function checkKey(e) {
 					bgm.volume = 0.1;
 					setTimeout(function(){bgm.volume = 0.2},3500);
 					unit[iswoodninja].amogus = true;
-					tempsave();
 				}
 			}
 		}
@@ -4296,7 +4308,6 @@ function checkKey(e) {
       	if(agree == true && ai == false){
 			for(x=0; x < villages.length; x++){
       			if(dest == villages[x].posx+"/"+villages[x].posy){
-      				eval(selchar).infected = false;
       				if(villages[x].team != team){
       					if(found == true && (type == 'gunner' || type == "tower")){
       						//nothing. gunner can't capture city when shouting on an enemy 
@@ -4448,39 +4459,7 @@ function checkKey(e) {
       		var poisoned = ispoison(selposx,selposy);
       	}
 
-      	if(poisonmemo != -1){
-      		if(poisonmap[poisonmemo].team != team){
-      			if(team == 1){
-      			var _team = 2; 
-      		}else{
-      			var _team = 1;
-      		}
-      		memofirstpoison = eval(selchar).numid;
-      		setpoison(Number(destx)+1, Number(desty), _team, 3, false, 0);
-      		setpoison(Number(destx)-1, Number(desty), _team, 3, false, 0);
-      		setpoison(Number(destx), Number(desty)-1, _team, 3, false, 0);
-      		setpoison(Number(destx), Number(desty)+1, _team, 3, false, 0);
-      		setpoison(Number(destx), Number(desty), _team, 3, true, 0);
-      		poisonhide();
-      		}
-      	}
-
-      	if(eval(selchar).infected != false && agree == true){
-      		if(team == 1){
-      			var _team = 2; 
-      		}else{
-      			var _team = 1;
-      		}
-      		memofirstpoison = eval(selchar).numid;
-      		setpoison(Number(destx)+1, Number(desty), _team, 3, false, 0);
-      		setpoison(Number(destx)-1, Number(desty), _team, 3, false, 0);
-      		setpoison(Number(destx), Number(desty)-1, _team, 3, false, 0);
-      		setpoison(Number(destx), Number(desty)+1, _team, 3, false, 0);
-      		setpoison(Number(destx), Number(desty), _team, 3, true, 0);
-      		poisonhide();
-      	}
-
-      	if(type == 'vtb' && agree == true){
+      	if((type == 'vtb' || type == 'medic') && agree == true){
       		stopengine.currentTime = 0;
       		stopengine.play();
       		eval(selchar).leftmoves--;
@@ -4521,7 +4500,7 @@ function checkKey(e) {
 
     	//if unit walk into poison, check for infection 
       	if(ispoison(destx,desty) == true && agree == true){
-      		tryinfect(poisonmemo, eval(selchar), 4);
+      		tryinfect(poisonmemo, eval(selchar));
       	}
 
 		return agree;
@@ -4619,6 +4598,11 @@ function checkKey(e) {
       			draw(x,y);
       		}
       	}
+
+      	if(char.type == 'medic'){
+      		char.upcargo();
+      	}
+
       	if(char.type == 'vtb'){
       		char.moved = true;
       		char.upcargo();
@@ -4686,6 +4670,47 @@ function checkKey(e) {
 		//return a character's position eg: 20/7
 		if(char){
 			return eval(char.posx)+"/"+eval(char.posy);
+		}
+	}
+
+	function allmedic(){
+		for(x=0; x < unit.length; x++){
+			if(unit[x].type == "medic"){
+				var posx = unit[x].posx;
+				var posy = unit[x].posy;
+				var team = unit[x].team;
+				tryheal(Number(posx)+1, posy, team);
+      			tryheal(Number(posx)-1, posy, team);
+      			tryheal(Number(posx)+1, Number(posy)+1, team);
+      			tryheal(Number(posx)-1, Number(posy)-1, team);
+      			tryheal(Number(posx)+1, Number(posy)-1, team);
+      			tryheal(Number(posx)-1, Number(posy)+1, team);
+      			tryheal(posx, Number(posy)+1, team);
+      			tryheal(posx, Number(posy)-1, team);
+      			tryheal(posx, posy, team);
+			}
+		}
+	}
+
+	function tryheal(poisonposx,poisonposy,team){
+		for(x=0; x < poisonmap.length; x++){
+			if(ispoison(poisonposx,poisonposy) == true){
+				if(poisonmap[poisonmemo].team != team){
+					poisonmap[poisonmemo].die();
+					healed.play();
+					poisonmemo = -1;
+				}
+			}
+		}
+
+		for(x=0; x < unit.length; x++){
+			if(unit[x].infected == true && unit[x].team == team){
+				if(unit[x].posx == poisonposx && unit[x].posy == poisonposy){
+					unit[x].infected = false;
+					healed.play();
+					poisonmemo = -1;
+				}
+			}
 		}
 	}
 
@@ -5527,7 +5552,7 @@ function checkKey(e) {
 	function iscity2(coord){
 		var x = coord.substr(0, coord.indexOf('/') );
       	var y = coord.substr(coord.indexOf('/')+1, coord.length);
-		for(a=0; a < cities.length ;a++){
+		for(a=0; a < cities.length; a++){
 			if(cities[a]){
 				if(x == cities[a].posx && y == cities[a].posy){
 					return a
@@ -6013,8 +6038,8 @@ function checkKey(e) {
 						if(loadUnits[x].posx == -10){
 							document.getElementById(loadUnits[x].id).remove();
 						}
-					}else if(loadUnits[x].type == 'vtb'){
-						create('vtb', loadUnits[x].team, loadUnits[x].posx, loadUnits[x].posy, false, loadUnits[x].playable, loadUnits[x].playedtwice, loadUnits[x].unitinside, loadUnits[x].cargo, loadUnits[x].cargoQ, 0, 0, loadUnits[x].infected, loadUnits[x].vtb, loadUnits[x].moved, loadUnits[x].leftmoves, loadUnits[x].cannon);
+					}else if(loadUnits[x].type == 'vtb' || loadUnits[x].type == 'medic'){
+						create(loadUnits[x].type, loadUnits[x].team, loadUnits[x].posx, loadUnits[x].posy, false, loadUnits[x].playable, loadUnits[x].playedtwice, loadUnits[x].unitinside, loadUnits[x].cargo, loadUnits[x].cargoQ, 0, 0, loadUnits[x].infected, loadUnits[x].vtb, loadUnits[x].moved, loadUnits[x].leftmoves, loadUnits[x].cannon);
 					}else if(loadUnits[x].type == 'gunner'){
 						create('gunner', loadUnits[x].team, loadUnits[x].posx, loadUnits[x].posy, false, loadUnits[x].playable, loadUnits[x].playedtwice, 0, 0, 0, loadUnits[x].canreshoot, 0, loadUnits[x].infected, loadUnits[x].vtb, false, false, loadUnits[x].cannon);
 						if(loadUnits[x].posx == -10){
@@ -6051,7 +6076,7 @@ function checkKey(e) {
 		if(loadpoison){
 			for(x=0; x < loadpoison.length; x++){
 				if(loadpoison[x].id){
-	      			setpoison(loadpoison[x].posx, loadpoison[x].posy, loadpoison[x].team, loadpoison[x].leftturns, false, loadpoison[x].size);
+	      			setpoison(loadpoison[x].posx, loadpoison[x].posy, loadpoison[x].team, loadpoison[x].leftturns);
 				}
 			}
 		}
@@ -6200,6 +6225,7 @@ function checkKey(e) {
       	document.getElementById('seg-img').src = "tiles/seg"+Nskin+"/seg1.png";
       	document.getElementById('radio-img').src = "tiles/radio"+Nskin+"/radio1.png";
       	document.getElementById('vtb-img').src = "tiles/vtb"+Nskin+"/vtb1.png";
+      	document.getElementById('medic-img').src = "tiles/medic"+Nskin+"/medic1.png";
       	document.getElementById('trumpet-img').src = "tiles/trumpet"+Nskin+"/trumpet1.png";
       	document.getElementById('napalm-img').src = "tiles/napalm"+Nskin+"/napalm1.png";
       	document.getElementById('poison-img').src = "tiles/poison"+Nskin+"/poison1.png";
@@ -6437,7 +6463,7 @@ function checkKey(e) {
 							noenter = true;
 							setTimeout(function(){noenter = false; eval(un.die()); document.getElementById('gib').play(); if(isnight == 1 && enableShadows > 0){shadowExList()}}, 1500);
 						}
-						if(eval(un).type == 'vtb' && eval(un).unitinside != 0){
+						if((eval(un).type == 'vtb' || eval(un).type == 'medic') && eval(un).unitinside != 0){
       						eval(un).unitinside.die();
       					}
 					}
@@ -6463,7 +6489,7 @@ function checkKey(e) {
 							noenter = true;
 							setTimeout(function(){noenter = false; eval(un.die()); document.getElementById('gib').play(); if(isnight == 1 && enableShadows > 0){shadowExList()}}, 1500);
 						}
-						if(eval(un).type == 'vtb' && eval(un).unitinside != 0){
+						if((eval(un).type == 'vtb' || eval(un).type == 'medic') && eval(un).unitinside != 0){
       						eval(un).unitinside.die();
       					}
 					}
@@ -6962,6 +6988,7 @@ function checkKey(e) {
     	break
 
     	case'vtb':
+    	case'medic':
     	this.speed = 3;
     	if(!loadleftmoves){this.leftmoves = 0;}else{this.leftmoves = loadleftmoves;}
     	this.range = 3;
@@ -7200,7 +7227,7 @@ function checkKey(e) {
  			delete this.rangemap;
  		}
 
- 		if(this.type == 'vtb'){
+ 		if(this.type == 'vtb' || this.type == 'medic'){
  			if(document.getElementById(this.id+"_carg")){
  				document.getElementById(this.id+"_carg").remove();
  			}
@@ -7237,7 +7264,7 @@ function checkKey(e) {
     	delete this.die;
     }
 
-    if(this.infected == 1){
+    if(this.infected == true){
     	var _this = this;
 		if(this.type == 'vtb' && this.unitinside != 0){
 			this.unitinside.die();
@@ -7259,6 +7286,12 @@ function checkKey(e) {
     	this.posx = -10;
     	this.posy = -10;
     	this.vtb = vtbid;
+    	if(unit[vtbid].type == 'medic'){
+    		if(this.infected == true){
+    			healed.play();
+    		}
+    		this.infected = false;
+    	}
     }
 
     this.incannon = function(cannonid){
@@ -7305,23 +7338,18 @@ function poisonhide(){
 	}
 }
 
-function poison(x,y,team,temp,loadsize){
+function poison(x,y,team,temp){
 	this.id = "poison_"+poisonN;
 	this.team = team;
 	this.posx = x;
 	this.posy = y;
 	this.leftturns = temp;
-	this.size = loadsize;
 	this.spawn = function(){
 		div = document.createElement('div');
 		posx = this.posx;
 		posy = this.posy;
    		div.id = this.id;
-    	if(this.size == 0){
-    		div.classList.add('classpoison');
-    	}else{
-    		div.classList.add('classpoisonbig');
-    	}
+    	div.classList.add('classpoison');
     	document.body.appendChild(div);
 		div.style.left = (posx*64)+marginsizex+'px';
 		div.style.top = (posy*64)+marginsizey+'px';
@@ -7335,7 +7363,6 @@ function poison(x,y,team,temp,loadsize){
 		delete this.posx;
 		delete this.posy;
 		delete this.id;
-		delete this.size;
 		delete this.die;
 	}
 }
@@ -8463,6 +8490,7 @@ document.getElementById('ninja-img').src = "tiles/ninja"+Nskin+"/ninja1.png";
 document.getElementById('seg-img').src = "tiles/seg"+Nskin+"/seg1.png";
 document.getElementById('radio-img').src = "tiles/radio"+Nskin+"/radio1.png";
 document.getElementById('vtb-img').src = "tiles/vtb"+Nskin+"/vtb1.png";
+document.getElementById('medic-img').src = "tiles/medic"+Nskin+"/medic1.png";
 document.getElementById('trumpet-img').src = "tiles/trumpet"+Nskin+"/trumpet1.png";
 document.getElementById('napalm-img').src = "tiles/napalm"+Nskin+"/napalm1.png";
 document.getElementById('poison-img').src = "tiles/poison"+Nskin+"/poison1.png";

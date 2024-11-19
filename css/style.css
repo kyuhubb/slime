@@ -107,16 +107,6 @@
 			z-index: 7;
 		}
 
-		.classpoisonbig{
-			background : url("../tiles/poison_drop_big.png");
-			background-size: 64px 64px;
-			position: absolute;
-			width: 64px;
-			height: 64px;
-			transition: 1s ease;
-			z-index: 7;
-		}
-
 		.classgas1, .classgas2 ,.classgas3,.classgas4,.classgas5,.classgas6,.classgas7{
 			background-size: 64px 64px;
 			position: absolute;
@@ -874,6 +864,76 @@
 			animation : vtb7animation_off 0.5s infinite;
 		}
 
+		.medic1{
+			background : url(../tiles/medic1/medic1.png);
+			animation : medicanimation 0.62s infinite;
+		}
+
+		.medic1_off{
+			background : url(../tiles/medic1_off/medic1.png);
+			animation : medicanimation_off 0.5s infinite;
+		}
+
+		.medic2{
+			background : url(../tiles/medic2/medic1.png);
+			animation : medic2animation 0.62s infinite;
+		}
+
+		.medic2_off{
+			background : url(../tiles/medic2_off/medic1.png);
+			animation : medic2animation_off 0.5s infinite;
+		}
+
+		.medic3{
+			background : url(../tiles/medic3/medic1.png);
+			animation : medic3animation 0.62s infinite;
+		}
+
+		.medic3_off{
+			background : url(../tiles/medic3_off/medic1.png);
+			animation : medic3animation_off 0.5s infinite;
+		}
+
+		.medic4{
+			background : url(../tiles/medic4/medic1.png);
+			animation : medic4animation 0.62s infinite;
+		}
+
+		.medic4_off{
+			background : url(../tiles/medic4_off/medic1.png);
+			animation : medic4animation_off 0.5s infinite;
+		}
+
+		.medic5{
+			background : url(../tiles/medic5/medic1.png);
+			animation : medic5animation 0.62s infinite;
+		}
+
+		.medic5_off{
+			background : url(../tiles/medic5_off/medic1.png);
+			animation : medic5animation_off 0.5s infinite;
+		}
+
+		.medic6{
+			background : url(../tiles/medic6/medic1.png);
+			animation : medic6animation 0.62s infinite;
+		}
+
+		.medic6_off{
+			background : url(../tiles/medic6_off/medic1.png);
+			animation : medic6animation_off 0.5s infinite;
+		}
+
+		.medic7{
+			background : url(../tiles/medic7/medic1.png);
+			animation : medic7animation 0.62s infinite;
+		}
+
+		.medic7_off{
+			background : url(../tiles/medic7_off/medic1.png);
+			animation : medic7animation_off 0.5s infinite;
+		}
+
 		.fts1{
 			background : url(../tiles/fts1/fts1.png);
 			animation : ftsanimation 0.5s infinite;
@@ -1544,6 +1604,202 @@
 
  			66%{
  				background: url(../tiles/vtb7_off/vtb3.png);
+ 			}
+		}
+
+		@keyframes medicanimation{
+ 			0%{
+ 				background: url(../tiles/medic1/medic1.png);
+ 			}
+
+ 			33%{
+ 				background: url(../tiles/medic1/medic2.png);
+ 			}
+
+ 			66%{
+ 				background: url(../tiles/medic1/medic3.png);
+ 			}
+		}
+
+		@keyframes medicanimation_off{
+ 			0%{
+ 				background: url(../tiles/medic1_off/medic1.png);
+ 			}
+
+ 			33%{
+ 				background: url(../tiles/medic1_off/medic2.png);
+ 			}
+
+ 			66%{
+ 				background: url(../tiles/medic1_off/medic3.png);
+ 			}
+		}
+
+		@keyframes medic2animation{
+ 			0%{
+ 				background: url(../tiles/medic2/medic1.png);
+ 			}
+
+ 			33%{
+ 				background: url(../tiles/medic2/medic2.png);
+ 			}
+
+ 			66%{
+ 				background: url(../tiles/medic2/medic3.png);
+ 			}
+		}
+
+		@keyframes medic2animation_off{
+ 			0%{
+ 				background: url(../tiles/medic2_off/medic1.png);
+ 			}
+
+ 			33%{
+ 				background: url(../tiles/medic2_off/medic2.png);
+ 			}
+
+ 			66%{
+ 				background: url(../tiles/medic2_off/medic3.png);
+ 			}
+		}
+
+		@keyframes medic3animation{
+ 			0%{
+ 				background: url(../tiles/medic3/medic1.png);
+ 			}
+
+ 			33%{
+ 				background: url(../tiles/medic3/medic2.png);
+ 			}
+
+ 			66%{
+ 				background: url(../tiles/medic3/medic3.png);
+ 			}
+		}
+
+		@keyframes medic3animation_off{
+ 			0%{
+ 				background: url(../tiles/medic3_off/medic1.png);
+ 			}
+
+ 			33%{
+ 				background: url(../tiles/medic3_off/medic2.png);
+ 			}
+
+ 			66%{
+ 				background: url(../tiles/medic3_off/medic3.png);
+ 			}
+		}
+
+		@keyframes medic4animation{
+ 			0%{
+ 				background: url(../tiles/medic4/medic1.png);
+ 			}
+
+ 			33%{
+ 				background: url(../tiles/medic4/medic2.png);
+ 			}
+
+ 			66%{
+ 				background: url(../tiles/medic4/medic3.png);
+ 			}
+		}
+
+		@keyframes medic4animation_off{
+ 			0%{
+ 				background: url(../tiles/medic4_off/medic1.png);
+ 			}
+
+ 			33%{
+ 				background: url(../tiles/medic4_off/medic2.png);
+ 			}
+
+ 			66%{
+ 				background: url(../tiles/medic4_off/medic3.png);
+ 			}
+		}
+
+		@keyframes medic5animation{
+ 			0%{
+ 				background: url(../tiles/medic5/medic1.png);
+ 			}
+
+ 			33%{
+ 				background: url(../tiles/medic5/medic2.png);
+ 			}
+
+ 			66%{
+ 				background: url(../tiles/medic5/medic3.png);
+ 			}
+		}
+
+		@keyframes medic5animation_off{
+ 			0%{
+ 				background: url(../tiles/medic5_off/medic1.png);
+ 			}
+
+ 			33%{
+ 				background: url(../tiles/medic5_off/medic2.png);
+ 			}
+
+ 			66%{
+ 				background: url(../tiles/medic5_off/medic3.png);
+ 			}
+		}
+
+		@keyframes medic6animation{
+ 			0%{
+ 				background: url(../tiles/medic6/medic1.png);
+ 			}
+
+ 			33%{
+ 				background: url(../tiles/medic6/medic2.png);
+ 			}
+
+ 			66%{
+ 				background: url(../tiles/medic6/medic3.png);
+ 			}
+		}
+
+		@keyframes medic6animation_off{
+ 			0%{
+ 				background: url(../tiles/medic6_off/medic1.png);
+ 			}
+
+ 			33%{
+ 				background: url(../tiles/medic6_off/medic2.png);
+ 			}
+
+ 			66%{
+ 				background: url(../tiles/medic6_off/medic3.png);
+ 			}
+		}
+
+		@keyframes medic7animation{
+ 			0%{
+ 				background: url(../tiles/medic7/medic1.png);
+ 			}
+
+ 			33%{
+ 				background: url(../tiles/medic7/medic2.png);
+ 			}
+
+ 			66%{
+ 				background: url(../tiles/medic7/medic3.png);
+ 			}
+		}
+
+		@keyframes medic7animation_off{
+ 			0%{
+ 				background: url(../tiles/medic7_off/medic1.png);
+ 			}
+
+ 			33%{
+ 				background: url(../tiles/medic7_off/medic2.png);
+ 			}
+
+ 			66%{
+ 				background: url(../tiles/medic7_off/medic3.png);
  			}
 		}
 
