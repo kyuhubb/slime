@@ -34,7 +34,7 @@
 			left: 586px;
 			top: 335px;
 			opacity: 0;
-			transition: 1s;
+			transition: 0.2s;
 			z-index: 900;
 		}
 
@@ -78,7 +78,7 @@
 			left: 0;
 			width: 100vw;
 			height: 100vh;
-			z-index: 1;
+			z-index: 99;
 		}
 
 		h3{
@@ -122,7 +122,7 @@
 			transition: 0.2s all;
 		}
 
-		#radiorange, #tankrange, #speed1, #speed2, #speed3, #gunnerange, #speed4, #balance, #napalm_range{
+		#radiorange, #tankrange, #speed1, #speed2, #speed3, #trumpet_range, #gunnerange, #speed4, #balance, #napalm_range{
 			position: absolute;
 			z-index: 100;
 			left: -1920px;
@@ -190,13 +190,13 @@
 		}
 
 		#victory_splashscreen{
-			z-index: 20;
+			z-index: 998;
 			transition: opacity 3s;
 		}
 
 		#victory_bigslime{
 			opacity: 0;
-			z-index: 21;
+			z-index: 999;
 			position: fixed;
 			transition: opacity 1s;
 			top: 326px;
@@ -209,13 +209,9 @@
 		#builder-menu{
 			position: fixed;
 			opacity: 0.9;
-			z-index: 20;
+			z-index: 700;
 			left: -512px;
 			top: -512px;
-		}
-
-		#balance{
-			z-index: 10;
 		}
 
 		.carg{
@@ -284,7 +280,7 @@
 			font-size: 1.1em;
 			opacity: 0;
 			transition: opacity 1s;
-			z-index: 10;
+			z-index: 101;
 			font-family: consolas;
 		}
 

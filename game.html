@@ -84,6 +84,7 @@
 	<img id="attack" src="tiles/attack.png">
 	<img id="radiorange" src="tiles/radiorange.png">
 	<img id="speed3" src="tiles/speed3.png">
+	<img id="trumpet_range" src="tiles/trumpet_range.png">
 	<img id="speed4" src="tiles/speed4.png">
 	<img id="speed1" src="tiles/speed1.png">
 	<img id="napalm_range" src="tiles/napalm_range.png">
@@ -251,7 +252,7 @@
    	</div>
    	<div class='article'>
    		<div class='artleft'>
-   			<img class='artimg' id='poison-img' src='tiles/poison1/poison1.png'><br>Toxico
+   			<img class='artimg' id='poison-img' src='tiles/poison1/poison1.png'><br>Chimiste
    		</div>
    		<div class='artright'>
    			<div class='artright1'>
@@ -1978,8 +1979,8 @@ function checkKey(e) {
       						break
 
       						case 'trumpet':
-      						document.getElementById('speed4').style.top = ((selposy-4)*64)+marginsizey+"px";
-      						document.getElementById('speed4').style.left = ((selposx-4)*64)+marginsizex+"px";
+      						document.getElementById('trumpet_range').style.top = ((selposy-3)*64)+marginsizey+"px";
+      						document.getElementById('trumpet_range').style.left = ((selposx-3)*64)+marginsizex+"px";
       						break
 
       						case 'gunner':
@@ -2629,7 +2630,15 @@ function checkKey(e) {
         setTimeout(function(){isgasexplosion()}, 2000);
         for(x=0; x < unit.length ;x++){
         	if(unit[x].id){
-        		unit[x].playable = true;
+        		if(unit[x].type == 'tower'){
+        			if(unit[x].ready == true){
+        				unit[x].playable = true;
+        			}else{
+        				unit[x].ready = true;
+        			}
+        		}else{
+        			unit[x].playable = true;
+        		}
         		if(unit[x].type == 'builder'){
         			unit[x].cuttree = 0;
         		}else if(unit[x].type == 'gunner'){
@@ -2653,7 +2662,7 @@ function checkKey(e) {
         				if(unit[x].moved){
         					unit[x].moved = false;
         				}
-        				if(unit[x].posx != -10){
+        				if(unit[x].posx != -10 && unit[x].playable == true){
         					document.getElementById("unit"+x).classList.remove(unit[x].type+unit[x].skin+"_off");
         					document.getElementById("unit"+x).classList.add(unit[x].type+unit[x].skin);
         				}
@@ -3112,10 +3121,12 @@ function checkKey(e) {
 		if(defaultmode == 0){
 			defaultmode = 1;
 			document.getElementById('embark').style.opacity = 1;
+			document.getElementById('attack').style.opacity = 0;
 			setTimeout(function(){document.getElementById('embark').style.opacity = 0;}, 1000);
 		}else{
 			defaultmode = 0;
 			document.getElementById('attack').style.opacity = 1;
+			document.getElementById('embark').style.opacity = 0;
 			setTimeout(function(){document.getElementById('attack').style.opacity = 0;}, 1000);
 		}
 	}
@@ -3869,7 +3880,7 @@ function checkKey(e) {
       			agree = false;
       			eval(selchar).playable = true;
       		}
-      	}else if(type == 'trumpet' && diff > 4){
+      	}else if(type == 'trumpet' && diff > 3){
       		//si trumpet
       		kill = false;
       		eval(selchar).playable = true;
@@ -3939,7 +3950,7 @@ function checkKey(e) {
       			}
 
       			//si trumpet, permet de rejouer l'unité cible
-      			if(type == 'trumpet' && diff < 5){
+      			if(type == 'trumpet' && diff < 4 && eval(charlist[x]).type != 'tower'){
       				if(eval(charlist[x]).team == team && eval(charlist[x]).playable == false && eval(charlist[x]).playedtwice == false){
       					eval(charlist[x]).playable = true;
       					eval(charlist[x]).playedtwice = true;
@@ -4677,11 +4688,11 @@ function checkKey(e) {
 	}
 
 	function allmedic(){
-		for(x=0; x < unit.length; x++){
-			if(unit[x].type == "medic"){
-				var posx = unit[x].posx;
-				var posy = unit[x].posy;
-				var team = unit[x].team;
+		for(zx=0; zx < unit.length; zx++){
+			if(unit[zx].type == "medic"){
+				var posx = unit[zx].posx;
+				var posy = unit[zx].posy;
+				var team = unit[zx].team;
 				tryheal(Number(posx)+1, posy, team);
       			tryheal(Number(posx)-1, posy, team);
       			tryheal(Number(posx)+1, Number(posy)+1, team);
@@ -4717,9 +4728,9 @@ function checkKey(e) {
 		}
 	}
 
-	function create(type, team, x, y, origin, canplay, canplaytwice, unitin, carg, cargq, canresh, cutt, isinfect, loadvtb, loadmoved, loadleftmoves, loadcannon, loadamogus){
+	function create(type, team, x, y, origin, canplay, canplaytwice, unitin, carg, cargq, canresh, cutt, isinfect, loadvtb, loadmoved, loadleftmoves, loadcannon, loadready){
 		charlist.push('unit['+cur_uniId+']');
-		unit[cur_uniId] = new createunit(type, team, x, y, origin, canplay, canplaytwice, unitin, carg, cargq, canresh, cutt, isinfect, loadvtb, loadmoved, loadleftmoves, loadcannon, loadamogus);
+		unit[cur_uniId] = new createunit(type, team, x, y, origin, canplay, canplaytwice, unitin, carg, cargq, canresh, cutt, isinfect, loadvtb, loadmoved, loadleftmoves, loadcannon, loadready);
 		unit[cur_uniId].spawn();
 		gaskill();
 		if(unit[cur_uniId].team == 3){
@@ -5100,6 +5111,8 @@ function checkKey(e) {
 		document.getElementById('speed2').style.left = -30*64+"px";
 		document.getElementById('gunnerange').style.top = -30*64+"px";
 		document.getElementById('gunnerange').style.left = -30*64+"px";
+		document.getElementById('trumpet_range').style.top = -30*64+"px";
+		document.getElementById('trumpet_range').style.left = -30*64+"px";
 		document.getElementById('speed3').style.top = -30*64+"px";
 		document.getElementById('speed3').style.left = -30*64+"px";
 		document.getElementById('speed4').style.left = -30*64+"px";
@@ -6054,7 +6067,7 @@ function checkKey(e) {
 							document.getElementById(loadUnits[x].id).remove();
 						}
 					}else{
-						create(loadUnits[x].type, loadUnits[x].team, loadUnits[x].posx, loadUnits[x].posy, false, loadUnits[x].playable, loadUnits[x].playedtwice, 0, 0, 0, 0, 0, loadUnits[x].infected, loadUnits[x].vtb, false, false, loadUnits[x].cannon, loadUnits[x].amogus);
+						create(loadUnits[x].type, loadUnits[x].team, loadUnits[x].posx, loadUnits[x].posy, false, loadUnits[x].playable, loadUnits[x].playedtwice, 0, 0, 0, 0, 0, loadUnits[x].infected, loadUnits[x].vtb, false, false, loadUnits[x].cannon, loadUnits[x].ready);
 						if(loadUnits[x].posx == -10){
 							document.getElementById(loadUnits[x].id).remove();
 						}
@@ -6948,7 +6961,7 @@ function checkKey(e) {
 		}
 	}
 
-	function createunit(t, a, x, y, ori, canplay, canplaytwice, unitin, carg, cargq, canresh, cutt, isinfect, loadvtb, loadmoved, loadleftmoves, loadcannon, loadamogus){
+	function createunit(t, a, x, y, ori, canplay, canplaytwice, unitin, carg, cargq, canresh, cutt, isinfect, loadvtb, loadmoved, loadleftmoves, loadcannon, loadready){
 	//spawn a unit (type, team, x, y, origincity)
     this.type = t;
     this.team = a;
@@ -6980,7 +6993,7 @@ function checkKey(e) {
     	break
 
     	case'ninja':
-    	if(!loadamogus){this.amogus = false}else{this.amogus = true}
+    	this.amogus = false;
     	this.speed = 2;
     	this.range = 2;
     	break
@@ -7177,6 +7190,7 @@ function checkKey(e) {
     	let thisnumD = Number(this.posy)+1;
     	let thisnumE = Number(this.posy)+2;
     	let thisnumF = Number(this.posy)+3;
+    	if(!loadready){this.ready = false}else{this.ready = loadready}
     	this.speed = 0;
     	this.range = 3;
     	this.rangemap = [Number(this.posx)+Number(1)+"/"+Number(this.posy), Number(this.posx)+Number(2)+"/"+Number(this.posy), Number(this.posx)+Number(3)+"/"+this.posy, Number(this.posx-1)+"/"+Number(this.posy), Number(this.posx-2)+"/"+Number(this.posy), Number(this.posx-3)+"/"+this.posy, Number(this.posx)+"/"+thisnumD, Number(this.posx)+"/"+thisnumE, Number(this.posx)+"/"+thisnumF, Number(this.posx)+"/"+Number(this.posy-1), Number(this.posx)+"/"+Number(this.posy-2), Number(this.posx)+"/"+Number(this.posy-3), Number(this.posx)+Number(1)+"/"+thisnumD, Number(this.posx-1)+"/"+thisnumD, Number(this.posx)+Number(1)+"/"+Number(this.posy-1), Number(this.posx-1)+"/"+Number(this.posy-1), Number(this.posx)+Number(1)+"/"+thisnumE, Number(this.posx)+Number(1)+"/"+Number(this.posy-2), Number(this.posx)+Number(2)+"/"+thisnumD, Number(this.posx)+Number(2)+"/"+Number(this.posy-1), Number(this.posx-2)+"/"+thisnumD, Number(this.posx-2)+"/"+Number(this.posy-1), Number(this.posx-1)+"/"+thisnumE, Number(this.posx-1)+"/"+Number(this.posy-2)];
@@ -7198,8 +7212,8 @@ function checkKey(e) {
     	break
 
     	case'trumpet':
-    	this.speed = 3;
-    	this.range = 4;
+    	this.speed = 2;
+    	this.range = 3;
     	break
     }
 
