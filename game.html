@@ -609,7 +609,7 @@
 			return
 		}
 		var thisunit = unit[isunit(x,y,true)];
-		if(iscity(x+"/"+y, false) || isvillage(x+"/"+y) || iscannon(x+"/"+y) || ismountain(x+"/"+y) || isfire(x,y) || iswater(x+"/"+y)){
+		if(iscity(x+"/"+y, false) || isvillage(x+"/"+y) || istown(x+"/"+y) || iscannon(x+"/"+y) || ismountain(x+"/"+y) || isfire(x,y) || iswater(x+"/"+y)){
 			//nothing
 		}else if(thisunit){
 			if(thisunit.type != "tower"){
@@ -1262,7 +1262,7 @@
 						ctx.drawImage(image, 693, 0, 99, 100, x, y, 64, 64);
 					}else if(player1 == 2){
 						//black
-						ctx.drawImage(image, 495, 0, 99, 100, x, y, 64, 64);
+						ctx.drawImage(image, 494, 0, 99, 100, x, y, 64, 64);
 					}else if(player1 == 3){
 						//green
 						ctx.drawImage(image, 2575, 0, 99, 100, x, y, 64, 64);
@@ -1286,7 +1286,7 @@
 						ctx.drawImage(image, 693, 0, 99, 100, x, y, 64, 64);
 					}else if(player2 == 2){
 						//black
-						ctx.drawImage(image, 495, 0, 99, 100, x, y, 64, 64);
+						ctx.drawImage(image, 494, 0, 99, 100, x, y, 64, 64);
 					}else if(player2 == 3){
 						//green
 						ctx.drawImage(image, 2575, 0, 99, 100, x, y, 64, 64);
